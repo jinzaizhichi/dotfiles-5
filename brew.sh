@@ -105,5 +105,13 @@ brew install node
 brew install rbenv
 brew install --HEAD ruby-build
 
+# PHP Development
+brew install php56 --with-fpm
+brew isstall composer
+brew install wp-cli
+brew install mariadb --with-archive-storage-engine --with-bench
+brew install nginx
+
 # Remove outdated versions from the cellar.
 brew cleanup
+
