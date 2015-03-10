@@ -19,3 +19,7 @@ export MANPAGER='less -X';
 
 # Always enable colored `grep` output.
 export GREP_OPTIONS='--color=auto';
+
+# User /Applications to install softwarwe downloaded by brew cask
+export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+
