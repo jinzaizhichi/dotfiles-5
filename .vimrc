@@ -104,3 +104,11 @@ if has("autocmd")
 	" Treat .md files as Markdown
 	autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
 endif
+
+let g:netrw_liststyle=3
+
+map <leader>e :E<cr>
+map <leader>t :Te<cr>
+map <leader>n :tabNext<cr>
+map <leader>p :tabprevious<cr>
+

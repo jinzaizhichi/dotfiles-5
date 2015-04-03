@@ -93,6 +93,7 @@ brew install lynx
 brew install tree
 brew install webkit2png
 #brew install zopfli
+brew install htop
 
 # Install Node.js. Note: this installs `npm` too, using the recommended
 # installation method.
