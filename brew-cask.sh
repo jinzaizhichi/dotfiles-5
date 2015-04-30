@@ -11,6 +11,7 @@ brew cask install dropbox
 cask install flux
 brew cask install spectacle
 brew cask install caffeine
+brew cask install google-drive
 
 # dev
 brew cask install iterm2
@@ -33,6 +34,7 @@ brew cask install simple-comic
 
 # browsers
 brew cask install google-chrome
+brew cask install opera
 brew cask install flash
 
 # less often
@@ -42,4 +44,8 @@ brew cask install keycastr
 brew cask install android-file-transfer
 brew cask install fugu
 brew cask install fluid
+brew cask install libreoffice
+brew cask install calibre
+#brew cask install all2mp3
+
 
