@@ -1,3 +1,7 @@
+[user]
+	name = Mario Andrés Yepes C
+	email = marioy47@gmail.com
+
 [alias]
 
 	# View abbreviated SHA, description, and history graph of the latest 20 commits
@@ -5,6 +9,9 @@
 
 	# View the current working tree status using the short format
 	s = status -s
+
+	# Checkout
+	co = checkout
 
 	# Show the diff between the latest commit and the current state
 	d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
@@ -97,10 +104,12 @@
 	precomposeunicode = false
 
 [color]
-
-	# Use colors in Git commands that are capable of colored output when
-	# outputting to the terminal. (This is the default setting in Git ≥ 1.8.4.)
-	ui = auto
+	branch = auto
+	diff = auto
+	interactive = auto
+	pager = true
+	status = auto
+	ui = true
 
 [color "branch"]
 
@@ -116,10 +125,9 @@
 	new = green # additions
 
 [color "status"]
-
-	added = yellow
-	changed = green
-	untracked = cyan
+	added = green
+	changed = yellow
+	untracked = red
 
 [diff]
 
@@ -141,7 +149,7 @@
 	# Use the Git 1.x.x default to avoid errors on machines with old Git
 	# installations. To use `simple` instead, add this to your `~/.extra` file:
 	# `git config --global push.default simple`. See http://git.io/mMah-w.
-	default = matching
+	default = simple
 	# Make `git push` push relevant annotated tags when pushing branches out.
 	followTags = true
 
