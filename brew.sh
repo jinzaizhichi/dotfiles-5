@@ -46,7 +46,6 @@ brew install vim --override-system-vi
 brew install homebrew/dupes/grep
 brew install homebrew/dupes/openssh
 brew install homebrew/dupes/screen
-brew install homebrew/php/php55 --with-gmp
 
 # Install font tools.
 #brew tap bramstein/webfonttools
@@ -111,12 +110,13 @@ brew install node
 brew install rbenv
 brew install --HEAD ruby-build
 
+# Python
+brew install pyenv
+
 # PHP Development
-brew install php56 --with-fpm
-brew isstall composer
+brew install phpenv
 brew install wp-cli
-brew install mariadb --with-archive-storage-engine --with-bench
-brew install nginx
+#brew install mariadb --with-archive-storage-engine --with-bench
 
 # Remove outdated versions from the cellar.
 brew cleanup
