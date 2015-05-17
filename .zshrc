@@ -1,5 +1,5 @@
 
-# Path to your oh-my-zsh configuration.
+# Configure oh-my-zsh
 if [ -d $HOME/.oh-my-zsh ]; then
 	ZSH=$HOME/.oh-my-zsh
 	ZSH_THEME="terminalparty"
@@ -7,16 +7,17 @@ if [ -d $HOME/.oh-my-zsh ]; then
 	source $ZSH/oh-my-zsh.sh
 fi
 
+for file in ~/dotfiles/.{path,exports,aliases,functions,extra}; do
+	[ -r "$file" ] && [ -f "$file" ] && source "$file";
+done;
+unset file;
+
 eval "$(direnv hook $0)"
+for xenv in rbenv pyenv phpenv; do
+	if which $xenv > /dev/null; then eval "$($xenv init -)"; fi
+done
+unset xenv
 
-export PATH=/usr/local/sbin:$PATH:$HOME/bin:/Applications/Postgres.app/Contents/Versions/9.4/bin
-
-# To install ruby gem breakpoint
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-
-# pyenv
-if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
-
-# aias temporal
+#  Temp Aliases
 alias sage="cd ~/Projects/wp_metromile/public/wp-content/themes/sage-8.0.0"
 alias metro="cd /Users/Mario/Projects/wp_metromile/"
