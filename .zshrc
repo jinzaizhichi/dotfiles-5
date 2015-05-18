@@ -1,3 +1,4 @@
+export PATH=$PATH:~/.phpenv/bin
 
 # Configure oh-my-zsh
 if [ -d $HOME/.oh-my-zsh ]; then
@@ -20,4 +21,4 @@ unset xenv
 
 #  Temp Aliases
 alias sage="cd ~/Projects/wp_metromile/public/wp-content/themes/sage-8.0.0"
-alias metro="cd /Users/Mario/Projects/wp_metromile/"
+alias metro="cd ~/Projects/wp_metromile/"

@@ -48,4 +48,10 @@ brew cask install libreoffice
 brew cask install calibre
 #brew cask install all2mp3
 
+# Quicklook plugins
+brew cask install suspicious-package
+brew cask install quicklook-json
+brew cask install qlmarkdown
+brew cask install qlstephen
+brew cask install qlcolorcode
 
