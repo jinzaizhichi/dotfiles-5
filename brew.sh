@@ -42,7 +42,7 @@ brew install wget --with-iri
 #brew install narwhal
 
 # Install more recent versions of some OS X tools.
-brew install vim --override-system-vi
+brew install vim --override-system-vi --with-lua --with-luajit
 brew install homebrew/dupes/grep
 brew install homebrew/dupes/openssh
 brew install homebrew/dupes/screen
