@@ -1,10 +1,48 @@
+
+" Vundle setup
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/vundle
+call vundle#rc()
+
+" Bundles
+Bundle 'gmarik/vundle'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'chriskempson/vim-tomorrow-theme'
+Bundle 'bling/vim-airline'
+Bundle 'airblade/vim-gitgutter'
+Bundle 'jeetsukumaran/vim-buffergator'
+Bundle 'scrooloose/nerdtree'
+Bundle 'kien/ctrlp.vim'
+Bundle 'bronson/vim-trailing-whitespace'
+Bundle 'Shougo/neocomplete.vim'
+Bundle 'mattn/emmet-vim'
+Bundle 'spf13/PIV'
+Bundle 'tpope/vim-rails'
+Bundle 'tpope/vim-markdown'
+Bundle 'markcornick/vim-vagrant'
+Bundle 'ekalinin/Dockerfile.vim'
+Bundle 'tpope/vim-fugitive'
+Bundle 'editorconfig/editorconfig-vim'
+
+" End Bundle
+" filetype on (not requiered. Enabled further)
+
+" Airline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='base16'
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#branch#enabled = 1
+let g:airline#extensions#syntastic#enabled = 1
+set laststatus=2
+
 " Use the Solarized Dark theme
 set background=dark
 colorscheme solarized
 let g:solarized_termtrans=1
 
 " Make Vim more useful
-set nocompatible
+"set nocompatible
 " Use the OS clipboard by default (on versions compiled with `+clipboard`)
 set clipboard=unnamed
 " Enhance command-line completion
@@ -76,7 +114,7 @@ set title
 " Show the (partial) command as it’s being typed
 set showcmd
 " Use relative line numbers
-if exists("&relativenumber_")
+if exists("&relativenumber")
 	set relativenumber
 	au BufReadPost * set relativenumber
 endif
@@ -105,10 +143,6 @@ if has("autocmd")
 	autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
 endif
 
-let g:netrw_liststyle=3
 
-map <leader>e :E<cr>
-map <leader>t :Te<cr>
-map <leader>n :tabNext<cr>
-map <leader>p :tabprevious<cr>
-
+" Aditional keymaps
+noremap <leader>n :NERDTree<CR>
