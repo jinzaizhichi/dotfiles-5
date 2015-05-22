@@ -5,32 +5,51 @@ filetype off
 set rtp+=~/.vim/bundle/vundle
 call vundle#rc()
 
-" Bundles
-Bundle 'gmarik/vundle'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'chriskempson/vim-tomorrow-theme'
-Bundle 'bling/vim-airline'
-Bundle 'airblade/vim-gitgutter'
-Bundle 'jeetsukumaran/vim-buffergator'
-Bundle 'scrooloose/nerdtree'
-Bundle 'kien/ctrlp.vim'
-Bundle 'bronson/vim-trailing-whitespace'
-Bundle 'Shougo/neocomplete.vim'
-Bundle 'mattn/emmet-vim'
-Bundle 'spf13/PIV'
-Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-markdown'
-Bundle 'markcornick/vim-vagrant'
-Bundle 'ekalinin/Dockerfile.vim'
-Bundle 'tpope/vim-fugitive'
-Bundle 'editorconfig/editorconfig-vim'
+" VUNDLE
+Plugin 'gmarik/vundle'
+" Themes and colorshemes
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'chriskempson/vim-tomorrow-theme'
+" Status bar
+Plugin 'bling/vim-airline'
+Plugin 'airblade/vim-gitgutter'
+" Buffers and sidebars
+Plugin 'jeetsukumaran/vim-buffergator'
+Plugin 'scrooloose/nerdtree'
+" Find in files
+Plugin 'kien/ctrlp.vim'
+Plugin 'mileszs/ack.vim'
+" Autocomplete
+Plugin 'Shougo/neocomplete.vim'
+Plugin 'mattn/emmet-vim'
+Plugin 'Raimondi/delimitMate'
+" Code format and check (Dont forget to install linters)
+Plugin 'bronson/vim-trailing-whitespace'
+Plugin 'editorconfig/editorconfig-vim'
+Plugin 'scrooloose/syntastic'
+" Languages
+Plugin 'spf13/PIV'
+Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-markdown'
+Plugin 'markcornick/vim-vagrant'
+Plugin 'ekalinin/Dockerfile.vim'
+Plugin 'hail2u/vim-css3-syntax'
+Plugin 'cakebaker/scss-syntax.vim'
+" Git
+Plugin 'tpope/vim-fugitive'
+Plugin 'xolox/vim-misc'
+" SnipMate
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
+Plugin 'honza/vim-snippets'
 
-" End Bundle
+" End Vundle
 " filetype on (not requiered. Enabled further)
 
 " Airline
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme='base16'
+"let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='wombat'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#syntastic#enabled = 1
@@ -39,7 +58,7 @@ set laststatus=2
 " Use the Solarized Dark theme
 set background=dark
 colorscheme solarized
-let g:solarized_termtrans=1
+let g:solarized_termtrans=0
 
 " Make Vim more useful
 "set nocompatible
@@ -113,23 +132,12 @@ set showmode
 set title
 " Show the (partial) command as it’s being typed
 set showcmd
-" Use relative line numbers
-if exists("&relativenumber")
-	set relativenumber
-	au BufReadPost * set relativenumber
-endif
 " Start scrolling three lines before the horizontal window border
 set scrolloff=3
 
-" Strip trailing whitespace (,ss)
-function! StripWhitespace()
-	let save_cursor = getpos(".")
-	let old_query = getreg('/')
-	:%s/\s\+$//e
-	call setpos('.', save_cursor)
-	call setreg('/', old_query)
-endfunction
-noremap <leader>ss :call StripWhitespace()<CR>
+" Strip trailing whitespace
+noremap <leader>ss :FixWhitespace<CR>
+
 " Save a file as root (,W)
 noremap <leader>W :w !sudo tee % > /dev/null<CR>
 
@@ -144,5 +152,31 @@ if has("autocmd")
 endif
 
 
-" Aditional keymaps
-noremap <leader>n :NERDTree<CR>
+" Neocomplete activated by default
+let g:neocomplete#enable_at_startup = 1
+
+" Don't like buffergator default keymaps
+let g:buffergator_suppress_keymaps=1
+noremap <leader>b :BuffergatorToggle<CR>
+
+" Nerdtree keymaps
+noremap <leader>n :NERDTreeToggle<CR>
+
+" Open a new tab and serarch for something
+nmap <leader>a :tab split<CR>:Ack ""<Left>
+
+" Open a new tab and search for word under cursor
+nmap <leader>A :tab split<CR>:Ack <C-r><C-w><CR>
+
+" Tab navigation
+noremap <C-H> :tabp<CR>
+noremap <C-L> :tabn<CR>
+noremap <C-J> :tabc<CR>
+noremap <C-K> :tabe<CR>
+
+" Default ident styles per language
+autocmd Filetype html setlocal ts=4 sts=4 sw=4 expandtab
+autocmd Filetype ruby setlocal ts=2 sts=2 sw=2 expandtab
+autocmd Filetype javascript setlocal ts=4 sts=4 sw=4 expandtab
+autocmd Filetype php setlocal ts=4 sts=4 sw=4 expandtab
+
