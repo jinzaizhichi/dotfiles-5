@@ -1,32 +1,52 @@
 
-" Vundle setup
+" Make it IMproved
 set nocompatible
-filetype off
-set rtp+=~/.vim/bundle/vundle
-call vundle#rc()
 
-" VUNDLE
-Plugin 'gmarik/vundle'
+" Create dirs if they do not exists
+call system('mkdir -p $HOME/.vim/{backups,bundle,swaps,syntax,undo}')
+
+" Check/install Vundle
+let has_vundle=1
+if !filereadable($HOME.'/.vim/bundle/Vundle.vim/README.md')
+	echo 'Installing Vundle...'
+	silent !git clone https://github.com/gmarik/Vundle.vim $HOME/.vim/bundle/Vundle.vim
+	let has_vundle=0
+endif
+
+" Initialize vundle plugins
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'gmarik/Vundle.vim'
 " Themes and colorshemes
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'chriskempson/vim-tomorrow-theme'
+Plugin 'tomasr/molokai'
 " Status bar
 Plugin 'bling/vim-airline'
 Plugin 'airblade/vim-gitgutter'
 " Buffers and sidebars
+Plugin 'vim-scripts/YankRing.vim'
 Plugin 'jeetsukumaran/vim-buffergator'
 Plugin 'scrooloose/nerdtree'
+Plugin 'majutsushi/tagbar'
+" Autocomplete
+Plugin 'ervandew/supertab'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'honza/vim-snippets'
+Plugin 'garbas/vim-snipmate'
 " Find in files
 Plugin 'kien/ctrlp.vim'
 Plugin 'mileszs/ack.vim'
-" Autocomplete
-Plugin 'Shougo/neocomplete.vim'
-Plugin 'mattn/emmet-vim'
-Plugin 'Raimondi/delimitMate'
 " Code format and check (Dont forget to install linters)
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'scrooloose/syntastic'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'Townk/vim-autoclose'
+Plugin 'scrooloose/nerdcommenter'
 " Languages
 Plugin 'spf13/PIV'
 Plugin 'tpope/vim-rails'
@@ -35,21 +55,21 @@ Plugin 'markcornick/vim-vagrant'
 Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'hail2u/vim-css3-syntax'
 Plugin 'cakebaker/scss-syntax.vim'
+Plugin 'elzr/vim-json'
 " Git
 Plugin 'tpope/vim-fugitive'
-Plugin 'xolox/vim-misc'
-" SnipMate
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
-Plugin 'honza/vim-snippets'
 
-" End Vundle
-" filetype on (not requiered. Enabled further)
+call vundle#end()
+if has_vundle == 0
+	:silent! PluginInstall
+	:qa
+endif
+
+filetype plugin indent on
 
 " Airline
 "let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme='wombat'
+let g:airline_theme='light'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#syntastic#enabled = 1
@@ -58,10 +78,7 @@ set laststatus=2
 " Use the Solarized Dark theme
 set background=dark
 colorscheme solarized
-let g:solarized_termtrans=0
 
-" Make Vim more useful
-"set nocompatible
 " Use the OS clipboard by default (on versions compiled with `+clipboard`)
 set clipboard=unnamed
 " Enhance command-line completion
@@ -81,7 +98,6 @@ let mapleader=","
 " Don’t add empty newlines at the end of files
 set binary
 set noeol
-" Centralize backups, swapfiles and undo history
 set backupdir=~/.vim/backups
 set directory=~/.vim/swaps
 if exists("&undodir")
@@ -141,19 +157,9 @@ noremap <leader>ss :FixWhitespace<CR>
 " Save a file as root (,W)
 noremap <leader>W :w !sudo tee % > /dev/null<CR>
 
-" Automatic commands
-if has("autocmd")
-	" Enable file type detection
-	filetype on
-	" Treat .json files as .js
-	autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
-	" Treat .md files as Markdown
-	autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
-endif
-
-
-" Neocomplete activated by default
+" Neocompletecache activated by default
 let g:neocomplete#enable_at_startup = 1
+let g:neocomplcache_enable_at_startup = 1
 
 " Don't like buffergator default keymaps
 let g:buffergator_suppress_keymaps=1
@@ -162,11 +168,14 @@ noremap <leader>b :BuffergatorToggle<CR>
 " Nerdtree keymaps
 noremap <leader>n :NERDTreeToggle<CR>
 
+" Tagbar toggle
+noremap <Leader>t :TagbarToggle<CR>
+
 " Open a new tab and serarch for something
-nmap <leader>a :tab split<CR>:Ack ""<Left>
+nmap <leader>a :Ack ""<Left>
 
 " Open a new tab and search for word under cursor
-nmap <leader>A :tab split<CR>:Ack <C-r><C-w><CR>
+nmap <leader>A :Ack <C-r><C-w><CR>
 
 " Tab navigation
 noremap <C-H> :tabp<CR>

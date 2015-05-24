@@ -13,6 +13,3 @@ Thumbs.db
 .Spotlight-V100
 .Trashes
 
-# Vim explorer (:E) history
-.vim/.netrwhist
-.vim/bundle
