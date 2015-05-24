@@ -100,9 +100,7 @@ set binary
 set noeol
 set backupdir=~/.vim/backups
 set directory=~/.vim/swaps
-if exists("&undodir")
-	set undodir=~/.vim/undo
-endif
+set undodir=~/.vim/undo
 
 " Don’t create backups when editing files in certain directories
 set backupskip=/tmp/*,/private/tmp/*
@@ -122,7 +120,8 @@ set cursorline
 " Make tabs as wide as two spaces
 set tabstop=2
 " Show “invisible” characters
-set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
+"set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
+set lcs=tab:▸\ ,trail:·,nbsp:_
 set list
 " Highlight searches
 set hlsearch
@@ -157,10 +156,6 @@ noremap <leader>ss :FixWhitespace<CR>
 " Save a file as root (,W)
 noremap <leader>W :w !sudo tee % > /dev/null<CR>
 
-" Neocompletecache activated by default
-let g:neocomplete#enable_at_startup = 1
-let g:neocomplcache_enable_at_startup = 1
-
 " Don't like buffergator default keymaps
 let g:buffergator_suppress_keymaps=1
 noremap <leader>b :BuffergatorToggle<CR>
@@ -171,7 +166,7 @@ noremap <leader>n :NERDTreeToggle<CR>
 " Tagbar toggle
 noremap <Leader>t :TagbarToggle<CR>
 
-" Open a new tab and serarch for something
+" Ack search
 nmap <leader>a :Ack ""<Left>
 
 " Open a new tab and search for word under cursor
