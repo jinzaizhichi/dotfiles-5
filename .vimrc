@@ -27,10 +27,11 @@ Plugin 'tomasr/molokai'
 Plugin 'bling/vim-airline'
 Plugin 'airblade/vim-gitgutter'
 " Buffers and sidebars
-Plugin 'vim-scripts/YankRing.vim'
 Plugin 'jeetsukumaran/vim-buffergator'
 Plugin 'scrooloose/nerdtree'
 Plugin 'majutsushi/tagbar'
+Plugin 'sjl/gundo.vim'
+Plugin 'terryma/vim-multiple-cursors'
 " Autocomplete
 Plugin 'ervandew/supertab'
 Plugin 'MarcWeber/vim-addon-mw-utils'
@@ -58,6 +59,9 @@ Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'elzr/vim-json'
 " Git
 Plugin 'tpope/vim-fugitive'
+" Misc
+Plugin 'ap/vim-css-color' " Color HEX colores son css
+Plugin 'rgarver/Kwbd.vim' "Keep window open on close last buffer
 
 call vundle#end()
 if has_vundle == 0
@@ -77,7 +81,7 @@ set laststatus=2
 
 " Use the Solarized Dark theme
 set background=dark
-colorscheme solarized
+colorscheme molokai
 
 " Use the OS clipboard by default (on versions compiled with `+clipboard`)
 set clipboard=unnamed
@@ -184,3 +188,14 @@ autocmd Filetype ruby setlocal ts=2 sts=2 sw=2 expandtab
 autocmd Filetype javascript setlocal ts=4 sts=4 sw=4 expandtab
 autocmd Filetype php setlocal ts=4 sts=4 sw=4 expandtab
 
+" Turn default multicursor mappings
+let g:multi_cursor_use_default_mapping=0
+
+" Change multicursor mappings
+let g:multi_cursor_next_key='<C-d>'
+"let g:multi_cursor_prev_key='<C-p>'
+"let g:multi_cursor_skip_key='<C-x>'
+"let g:multi_cursor_quit_key='<Esc>'
+
+" Toggle GUndo tree
+nnoremap <leader>u :GundoToggle<CR>
