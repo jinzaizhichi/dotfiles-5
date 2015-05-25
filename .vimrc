@@ -167,10 +167,10 @@ noremap <leader>n :NERDTreeToggle<CR>
 noremap <Leader>t :TagbarToggle<CR>
 
 " Ack search
-nmap <leader>a :Ack ""<Left>
+nnoremap <leader>a :Ack ""<Left>
 
 " Open a new tab and search for word under cursor
-nmap <leader>A :Ack <C-r><C-w><CR>
+nnoremap <leader>A :Ack <C-r><C-w><CR>
 
 " Tab navigation
 noremap <C-H> :tabp<CR>
