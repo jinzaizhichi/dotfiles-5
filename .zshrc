@@ -13,8 +13,9 @@ for file in ~/dotfiles/.{path,exports,aliases,functions,extra}; do
 done;
 unset file;
 
+# User shims instead on native ruby/python/php/node interpreters
 eval "$(direnv hook $0)"
-for xenv in rbenv pyenv phpenv; do
+for xenv in rbenv pyenv phpenv ndenv; do
 	if which $xenv > /dev/null; then eval "$($xenv init -)"; fi
 done
 unset xenv
