@@ -81,7 +81,7 @@ set laststatus=2
 
 " Use the Solarized Dark theme
 set background=dark
-colorscheme molokai
+colorscheme solarized
 
 " Use the OS clipboard by default (on versions compiled with `+clipboard`)
 set clipboard=unnamed
@@ -166,6 +166,10 @@ noremap <leader>b :BuffergatorToggle<CR>
 
 " Nerdtree keymaps
 noremap <leader>n :NERDTreeToggle<CR>
+
+" Open NERDTree at startup
+autocmd VimEnter * if !argc() | NERDTree | endif
+
 
 " Tagbar toggle
 noremap <Leader>t :TagbarToggle<CR>
