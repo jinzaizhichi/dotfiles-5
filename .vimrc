@@ -73,15 +73,15 @@ filetype plugin indent on
 
 " Airline
 "let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme='light'
+let g:airline_theme='dark'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#syntastic#enabled = 1
 set laststatus=2
 
-" Use the Solarized Dark theme
+" Set the theme (I like solarized, molokai and Tomorrow-Night-Eighties)
 set background=dark
-colorscheme solarized
+colorscheme molokai
 
 " Use the OS clipboard by default (on versions compiled with `+clipboard`)
 set clipboard=unnamed
@@ -102,6 +102,8 @@ let mapleader=","
 " Don’t add empty newlines at the end of files
 set binary
 set noeol
+
+" Hate distributed swap files. Have it all in .vim dir
 set backupdir=~/.vim/backups
 set directory=~/.vim/swaps
 set undodir=~/.vim/undo
@@ -167,24 +169,21 @@ noremap <leader>b :BuffergatorToggle<CR>
 " Nerdtree keymaps
 noremap <leader>n :NERDTreeToggle<CR>
 
-" Open NERDTree at startup
-autocmd VimEnter * if !argc() | NERDTree | endif
 
+" Open NERDTree at startup if called without arguments
+autocmd VimEnter * if !argc() | NERDTree | endif
 
 " Tagbar toggle
 noremap <Leader>t :TagbarToggle<CR>
 
+" Toggle Gundo tree
+nnoremap <leader>u :GundoToggle<CR>
+
 " Ack search
 nnoremap <leader>a :Ack ""<Left>
 
-" Open a new tab and search for word under cursor
+" Open a new tab and Ack search for word under cursor
 nnoremap <leader>A :Ack <C-r><C-w><CR>
-
-" Tab navigation
-noremap <C-H> :tabp<CR>
-noremap <C-L> :tabn<CR>
-noremap <C-J> :tabc<CR>
-noremap <C-K> :tabe<CR>
 
 " Default ident styles per language
 autocmd Filetype html setlocal ts=4 sts=4 sw=4 expandtab
@@ -201,5 +200,12 @@ let g:multi_cursor_next_key='<C-d>'
 "let g:multi_cursor_skip_key='<C-x>'
 "let g:multi_cursor_quit_key='<Esc>'
 
-" Toggle GUndo tree
-nnoremap <leader>u :GundoToggle<CR>
+" ctrlp config
+" let g:ctrlp_map = '<leader>f'
+let g:ctrlp_max_height = 30
+let g:ctrlp_working_path_mode = 0
+let g:ctrlp_match_window_reversed = 0
+"
+" use silver searcher for ctrlp
+" let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""''"'"
+

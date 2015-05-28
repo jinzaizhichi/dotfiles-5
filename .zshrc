@@ -23,3 +23,5 @@ unset xenv
 #  Temp Aliases
 alias sage="cd ~/Projects/wp_metromile/public/wp-content/themes/sage-8.0.0"
 alias metro="cd ~/Projects/wp_metromile/"
+export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.4/bin
+export _system_type="Darwin"
