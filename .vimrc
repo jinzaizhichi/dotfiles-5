@@ -22,6 +22,7 @@ Plugin 'gmarik/Vundle.vim'
 " Themes and colorshemes
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'chriskempson/vim-tomorrow-theme'
+Plugin 'chriskempson/base16-vim'
 Plugin 'tomasr/molokai'
 " Status bar
 Plugin 'bling/vim-airline'
@@ -48,6 +49,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'Townk/vim-autoclose'
 Plugin 'scrooloose/nerdcommenter'
+Plugin 'godlygeek/tabular'
 " Languages
 Plugin 'spf13/PIV'
 Plugin 'tpope/vim-rails'
@@ -57,11 +59,12 @@ Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'hail2u/vim-css3-syntax'
 Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'elzr/vim-json'
+Plugin 'pangloss/vim-javascript'
 " Git
 Plugin 'tpope/vim-fugitive'
 " Misc
 Plugin 'ap/vim-css-color' " Color HEX colores son css
-Plugin 'rgarver/Kwbd.vim' "Keep window open on close last buffer
+"Plugin 'rgarver/Kwbd.vim' "Keep window open on close last buffer
 
 call vundle#end()
 if has_vundle == 0

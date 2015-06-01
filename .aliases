@@ -143,5 +143,8 @@ alias reload="exec $SHELL -l"
 # bower zsh fix
 if [ "$SHELL" = "/bin/zsh" ]; then
   alias bower="noglob bower"
-fi 
+fi
+
+# Tmux does not comes naturally to me. Alias it to tm
+alias tm="tmux attach -t hack || tmux new -s hack"
 
