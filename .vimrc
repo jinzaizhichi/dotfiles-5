@@ -90,6 +90,8 @@ colorscheme molokai
 set clipboard=unnamed
 " Enhance command-line completion
 set wildmenu
+" Paste chuncks of code
+set pastetoggle=<F2>
 " Allow cursor keys in insert mode
 set esckeys
 " Allow backspace in insert mode
@@ -158,6 +160,12 @@ set title
 set showcmd
 " Start scrolling three lines before the horizontal window border
 set scrolloff=3
+" Hide instead of close
+set hidden
+" insert tabs on the start of a line according to shiftwidth, not tabstop"
+set smarttab
+" Paste chuncks of code
+set pastetoggle=<F2>
 
 " Strip trailing whitespace
 noremap <leader>ss :FixWhitespace<CR>
@@ -208,7 +216,5 @@ let g:multi_cursor_next_key='<C-d>'
 let g:ctrlp_max_height = 30
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_match_window_reversed = 0
-"
 " use silver searcher for ctrlp
-" let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""''"'"
-
+let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""''"'"
