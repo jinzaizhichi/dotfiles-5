@@ -180,9 +180,14 @@ noremap <leader>b :BuffergatorToggle<CR>
 " Nerdtree keymaps
 noremap <leader>n :NERDTreeToggle<CR>
 
+" Go to next window
+nnoremap <leader>w <C-W>W
 
 " Open NERDTree at startup if called without arguments
 autocmd VimEnter * if !argc() | NERDTree | endif
+
+" Auto close NERDTree
+let NERDTreeQuitOnOpen=1
 
 " Tagbar toggle
 noremap <Leader>t :TagbarToggle<CR>
@@ -196,9 +201,12 @@ nnoremap <leader>a :Ack ""<Left>
 " Open a new tab and Ack search for word under cursor
 nnoremap <leader>A :Ack <C-r><C-w><CR>
 
+noremap <leader>m :!open -a Marked %<CR><CR>
+
 " Default ident styles per language
 autocmd Filetype html setlocal ts=4 sts=4 sw=4 expandtab
 autocmd Filetype ruby setlocal ts=2 sts=2 sw=2 expandtab
+autocmd Filetype scss setlocal ts=2 sts=2 sw=2 expandtab
 autocmd Filetype javascript setlocal ts=4 sts=4 sw=4 expandtab
 autocmd Filetype php setlocal ts=4 sts=4 sw=4 expandtab
 
@@ -212,9 +220,21 @@ let g:multi_cursor_next_key='<C-d>'
 "let g:multi_cursor_quit_key='<Esc>'
 
 " ctrlp config
-" let g:ctrlp_map = '<leader>f'
+let g:ctrlp_map = '<leader>f'
 let g:ctrlp_max_height = 30
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_match_window_reversed = 0
 " use silver searcher for ctrlp
-let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""''"'"
+let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+" unmap F1 help
+nmap <F1> <nop>
+imap <F1> <nop>
+
+" unmap ex mode: 'Type visual to go into Normal mode.'
+nnoremap Q <nop>
+
+" hint to keep lines short
+if exists('+colorcolumn')
+  set colorcolumn=80
+endif

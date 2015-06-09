@@ -2,8 +2,20 @@
 
 This is fork of mathiasbynens dotfiles `https://github.com/mathiasbynens/dotfiles`
 
-## Installation
+## Pre requisites
+Install silver searcher. In Mac the command is
 
+	brew install th_silver_searcher
+
+> Instructions for other plataforms are in https://github.com/ggreer/the_silver_searcher
+
+Install vim with ruby and python support
+
+	brew install vim --override-system-vi --with-lua --with-luajit
+
+Install Powerline fonts from  `http://github.com/powerline/fonts.git` and configure your terminal to use one of the provided fonts
+
+## Installation
 ```bash
 git clone https://github.com/marioy47/dotfiles.git && cd dotfiles && ./bootstrap.sh
 ```
@@ -17,19 +29,6 @@ git pull origin master && ./bootstrap.sh
 ### Add custom commands without creating a new fork
 
 If `~/.extra` exists, it will be sourced along with the other files. You can use this to add a few custom commands without the need to fork this entire repository, or to add commands you don’t want to commit to a public repository.
-
-My `~/.extra` looks something like this:
-
-```bash
-# Git credentials
-# Not in the repository, to prevent people from accidentally committing under my name
-GIT_AUTHOR_NAME="Mathias Bynens"
-GIT_COMMITTER_NAME="$GIT_AUTHOR_NAME"
-git config --global user.name "$GIT_AUTHOR_NAME"
-GIT_AUTHOR_EMAIL="mathias@mailinator.com"
-GIT_COMMITTER_EMAIL="$GIT_AUTHOR_EMAIL"
-git config --global user.email "$GIT_AUTHOR_EMAIL"
-```
 
 You could also use `~/.extra` to override settings, functions and aliases from my dotfiles repository. It’s probably better to [fork this repository](https://github.com/mathiasbynens/dotfiles/fork) instead, though.
 
