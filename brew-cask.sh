@@ -12,6 +12,8 @@ cask install flux
 brew cask install spectacle
 brew cask install caffeine
 brew cask install google-drive
+brew cask install mailbox
+brew cask install utorrent
 
 # dev
 brew cask install iterm2
@@ -20,22 +22,23 @@ brew cask install imagealpha
 brew cask install imageoptim
 brew cask install lisanet-gimp
 brew cask install sourcetree
-brew cask install github
+#brew cask install github
 brew cask install phpstorm
 brew cask install virtualbox
 brew cask install vagrant
 brew cask install vagrant-manager
 brew cask install boot2docker
-brew cask install rstudio
+#brew cask install rstudio
 brew cask install mou
 
 # fun
-brew cask install simple-comic
+#brew cask install simple-comic
+brew cask install clementine
 
 # browsers
 brew cask install google-chrome
-brew cask install opera
-brew cask install flash
+#brew cask install opera
+#brew cask install flash
 
 # less often
 brew cask install screenflow4 # 4 specifically not 5.
@@ -47,6 +50,7 @@ brew cask install fluid
 brew cask install libreoffice
 brew cask install calibre
 #brew cask install all2mp3
+brew cask install tagger
 
 # Quicklook plugins
 brew cask install suspicious-package
