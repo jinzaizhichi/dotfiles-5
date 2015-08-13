@@ -82,6 +82,7 @@ brew install nmap
 # Install other useful binaries.
 brew install ack
 brew install the_silver_searcher
+brew install dark-mode
 #brew install exiv2
 brew install git
 brew install git-lfs
