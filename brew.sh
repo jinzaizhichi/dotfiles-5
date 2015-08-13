@@ -118,7 +118,7 @@ brew install --HEAD ruby-build
 brew install pyenv
 
 # PHP Development
-brew install phpenv
+#brew install phpenv
 brew install wp-cli
 #brew install mariadb --with-archive-storage-engine --with-bench
 

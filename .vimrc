@@ -68,7 +68,7 @@ Plugin 'ap/vim-css-color' " Color HEX colores son css
 "Plugin 'rgarver/Kwbd.vim' "Keep window open on close last buffer
 
 call vundle#end()
-if has_vundle == 0
+if has_vundle == 0 "Install plugins if vundle is not present
 	:silent! PluginInstall
 	:qa
 endif
@@ -100,7 +100,7 @@ set backspace=indent,eol,start
 " Optimize for fast terminal connections
 set ttyfast
 " Add the g flag to search/replace by default
-set gdefault
+"set gdefault
 " Use UTF-8 without BOM
 set encoding=utf-8 nobomb
 " Change mapleader
@@ -165,8 +165,6 @@ set scrolloff=3
 set hidden
 " insert tabs on the start of a line according to shiftwidth, not tabstop"
 set smarttab
-" Paste chuncks of code
-set pastetoggle=<F2>
 
 " Strip trailing whitespace
 noremap <leader>ss :FixWhitespace<CR>
@@ -186,9 +184,10 @@ nnoremap <leader>w <C-W>W
 
 " Open NERDTree at startup if called without arguments
 autocmd VimEnter * if !argc() | NERDTree | endif
-
 " Auto close NERDTree
 let NERDTreeQuitOnOpen=1
+" Show hidden files
+let NERDTreeShowHidden=1
 
 " Tagbar toggle
 noremap <Leader>t :TagbarToggle<CR>
@@ -207,6 +206,7 @@ noremap <leader>m :!open -a Marked %<CR><CR>
 " Default ident styles per language
 autocmd Filetype html setlocal ts=4 sts=4 sw=4 expandtab
 autocmd Filetype ruby setlocal ts=2 sts=2 sw=2 expandtab
+autocmd Filetype bash setlocal ts=2 sts=2 sw=2 expandtab
 autocmd Filetype scss setlocal ts=2 sts=2 sw=2 expandtab
 autocmd Filetype javascript setlocal ts=4 sts=4 sw=4 expandtab
 autocmd Filetype php setlocal ts=4 sts=4 sw=4 expandtab

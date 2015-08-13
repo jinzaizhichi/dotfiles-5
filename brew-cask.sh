@@ -8,7 +8,7 @@ brew tap caskroom/versions
 
 # daily
 brew cask install dropbox
-cask install flux
+brew cask install flux
 brew cask install spectacle
 brew cask install caffeine
 brew cask install google-drive
@@ -34,6 +34,8 @@ brew cask install mou
 # fun
 #brew cask install simple-comic
 brew cask install clementine
+brew cask install deezer
+brew cask install spotify
 
 # browsers
 brew cask install google-chrome
@@ -41,14 +43,14 @@ brew cask install google-chrome
 #brew cask install flash
 
 # less often
-brew cask install screenflow4 # 4 specifically not 5.
+#brew cask install screenflow4 # 4 specifically not 5.
 brew cask install vlc
 brew cask install keycastr
 brew cask install android-file-transfer
 brew cask install fugu
 brew cask install fluid
 brew cask install libreoffice
-brew cask install calibre
+#brew cask install calibre
 #brew cask install all2mp3
 brew cask install tagger
 
