@@ -45,7 +45,7 @@ alias week='date +%V'
 alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
 
 # Get OS X Software Updates, and update installed Ruby gems, Homebrew, npm, and their installed packages
-alias update='rbenv local system; pyenv local system; sudo softwareupdate -i -a; brew update; brew upgrade --all; brew cleanup; rbenv local --unset; pyenv local --unset; npm install npm -g; npm update -g;  gem update --system;  gem update; rbenv rehash'
+alias update='sudo softwareupdate -i -a; brew update; brew upgrade --all; brew cleanup; npm install npm -g; npm update -g; sudo gem update --system; sudo gem update'
 
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
@@ -147,4 +147,3 @@ fi
 
 # Tmux does not comes naturally to me. Alias it to tm
 alias tm="tmux attach -t hack || tmux new -s hack"
-
