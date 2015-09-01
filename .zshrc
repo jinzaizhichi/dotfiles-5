@@ -1,4 +1,4 @@
-export PATH=$PATH:~/.phpenv/bin
+export PATH=$PATH:~/.composer/vendor/bin
 
 # Configure oh-my-zsh
 if [ -d $HOME/.oh-my-zsh ]; then
