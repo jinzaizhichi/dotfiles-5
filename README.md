@@ -2,18 +2,6 @@
 
 This is fork of mathiasbynens dotfiles `https://github.com/mathiasbynens/dotfiles`
 
-## Pre requisites
-Install silver searcher. In Mac the command is
-
-	brew install th_silver_searcher
-
-> Instructions for other plataforms are in https://github.com/ggreer/the_silver_searcher
-
-Install vim with ruby and python support
-
-	brew install vim --override-system-vi --with-lua --with-luajit
-
-Install Powerline fonts from  `http://github.com/powerline/fonts.git` and configure your terminal to use one of the provided fonts
 
 ## Installation
 ```bash
@@ -40,11 +28,19 @@ When setting up a new Mac, you may want to set some sensible OS X defaults:
 ./.osx
 ```
 
-### Install Homebrew formulae
+## Powerline fonts
+Install Powerline fonts from  `http://github.com/powerline/fonts.git` and configure your terminal to use one of the provided fonts
 
+## Install Homebrew formulae
 When setting up a new Mac, you may want to install some common [Homebrew](http://brew.sh/) formulae (after installing Homebrew, of course):
 
 ```bash
 ./brew.sh && brew-cask.sh
+```
+
+### OH MY ZSH
+I prefer z shell instead of bash. So go ahead and install it
+```bash
+sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 ```
 

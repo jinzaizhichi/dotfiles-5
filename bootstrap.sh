@@ -1,22 +1,22 @@
 #!/usr/bin/env bash
 
-cd "$(dirname "${BASH_SOURCE}")";
-
+cd "$(dirname "$0")"
 git pull origin master;
 
-function doIt() {
-	rsync --exclude ".git/" --exclude ".DS_Store" --exclude "bootstrap.sh" \
-		--exclude "README.md" --exclude "LICENSE-MIT.txt" -avh --no-perms . ~;
-	source ~/.bash_profile;
-}
+PWD=`pwd`
 
-if [ "$1" == "--force" -o "$1" == "-f" ]; then
-	doIt;
-else
-	read -p "This may overwrite existing files in your home directory. Are you sure? (y/n) " -n 1;
-	echo "";
-	if [[ $REPLY =~ ^[Yy]$ ]]; then
-		doIt;
-	fi;
-fi;
-unset doIt;
+
+for file in `ls -a` ; do
+	if [ $file == ".git" ]; then continue; fi
+	if [ $file == ".DS_Store" ]; then continue; fi
+	if [ $file == ".bootstrap.sh" ]; then continue; fi
+	if [ $file == ".brew.sh" ]; then continue; fi
+	if [ $file == ".brew-cask.sh" ]; then continue; fi
+	if [ $file == "README.md" ]; then continue; fi
+	if [ $file == "LICENSE-MIT.txt" ]; then continue; fi
+	if [ ! -f $file ]; then continue; fi
+	if [[ $file == *".sh" ]]; then continue; fi
+
+	ln -nfs $PWD/$file $HOME/$file
+done
+

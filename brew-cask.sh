@@ -27,7 +27,7 @@ brew cask install phpstorm
 brew cask install virtualbox
 brew cask install vagrant
 brew cask install vagrant-manager
-brew cask install boot2docker
+#brew cask install boot2docker
 #brew cask install rstudio
 brew cask install mou
 
@@ -35,7 +35,7 @@ brew cask install mou
 #brew cask install simple-comic
 brew cask install clementine
 brew cask install deezer
-brew cask install spotify
+#brew cask install spotify
 
 # browsers
 brew cask install google-chrome
