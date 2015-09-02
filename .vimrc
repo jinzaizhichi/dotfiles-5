@@ -239,3 +239,8 @@ nnoremap Q <nop>
 if exists('+colorcolumn')
   set colorcolumn=80
 endif
+
+" Load local conf file if exists (http://blog.sanctum.geek.nz/local-vimrc-files/)
+if filereadable(glob("~/.vimrc.local"))
+    source ~/.vimrc.local
+endif
