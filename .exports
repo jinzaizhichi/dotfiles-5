@@ -30,3 +30,6 @@ export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
 # Make the terminal more compatible with tmux
 export TERM=screen-256color
+
+# add composer to the PATH
+export PATH=$PATH:~/.composer/vendor/bin

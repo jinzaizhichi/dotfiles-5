@@ -1,5 +1,3 @@
-export PATH=$PATH:~/.composer/vendor/bin
-
 # Configure oh-my-zsh
 if [ -d $HOME/.oh-my-zsh ]; then
 	ZSH=$HOME/.oh-my-zsh
