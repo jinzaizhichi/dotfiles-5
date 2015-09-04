@@ -33,3 +33,6 @@ export TERM=screen-256color
 
 # add composer to the PATH
 export PATH=$PATH:~/.composer/vendor/bin
+
+# add local bin dir to the path
+export PATH=$PATH:~/bin
