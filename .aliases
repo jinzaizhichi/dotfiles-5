@@ -145,9 +145,6 @@ if [ "$SHELL" = "/bin/zsh" ]; then
   alias bower="noglob bower"
 fi
 
-# Tmux does not comes naturally to me. Alias it to tm
-alias tm="tmux attach -t hack || tmux new -s hack"
-
 # Chrome with no security
 alias chrome-no-sec="open -a Google\ Chrome --args --disable-web-security"
 

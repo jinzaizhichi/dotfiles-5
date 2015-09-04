@@ -244,3 +244,14 @@ function o() {
 function tre() {
 	tree -aC -I '.git|node_modules|bower_components' --dirsfirst "$@" | less -FRNX;
 }
+
+# Tmux does not comes naturally to me. Create OR attach a tmux session
+function tm() {
+	SESS=$(basename `pwd`);
+	if [ $# -ne 0 ]; then
+		SESS=$1;
+	fi
+	tmux attach -t ${SESS} || tmux new -s ${SESS}
+}
+
+# vim: syntax=sh
