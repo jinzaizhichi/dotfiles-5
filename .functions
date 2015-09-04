@@ -254,4 +254,11 @@ function tm() {
 	tmux attach -t ${SESS} || tmux new -s ${SESS}
 }
 
+# Show a list of terminal colors names and displays the color
+function terminal-colors-list() {
+	for i in {0..255} ; do
+		printf "\x1b[38;5;${i}mcolour${i}\n"
+	done
+}
+
 # vim: syntax=sh
