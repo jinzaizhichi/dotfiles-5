@@ -87,6 +87,7 @@ set laststatus=2
 set background=dark
 colorscheme molokai
 
+
 " Use the OS clipboard by default (on versions compiled with `+clipboard`)
 set clipboard=unnamed
 " Enhance command-line completion
@@ -221,12 +222,26 @@ let g:multi_cursor_next_key='<C-d>'
 let g:multi_cursor_quit_key='<Esc>'
 
 " ctrlp config
-let g:ctrlp_map = '<leader>f'
+let g:ctrlp_map = '<c-p>'
 let g:ctrlp_max_height = 30
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_match_window_reversed = 0
-" use silver searcher for ctrlp
-let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+" Ignore node_modules and .git dir
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+  \ 'file': '\v\.(exe|so|dll)$'
+  \ }
+
+" User silver searcher for grep and ctrlp https://robots.thoughtbot.com/faster-grepping-in-vim
+if executable('ag')
+  " Use ag over grep
+	set grepprg=ag\ --nogroup\ --nocolor
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+endif
+
 
 " unmap F1 help
 nmap <F1> <nop>
