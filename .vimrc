@@ -24,6 +24,7 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'chriskempson/vim-tomorrow-theme'
 Plugin 'chriskempson/base16-vim'
 Plugin 'tomasr/molokai'
+Plugin 'vim-scripts/ekini-dark-colorscheme'
 " Status bar
 Plugin 'bling/vim-airline'
 Plugin 'airblade/vim-gitgutter'

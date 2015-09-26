@@ -1,8 +1,11 @@
-
 # Install command-line tools using Homebrew.
 
 # Ask for the administrator password upfront.
 sudo -v
+
+# Install Hombrew if not present
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
 
 # Keep-alive: update existing `sudo` time stamp until the script has finished.
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
@@ -105,7 +108,8 @@ brew install editorconfig
 
 # Install Node.js. Note: this installs `npm` too, using the recommended
 # installation method.
-brew install node
+#brew install node
+brew install nvm
 
 # Install io.js
 #brew install iojs

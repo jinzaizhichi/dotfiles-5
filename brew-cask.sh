@@ -14,6 +14,7 @@ brew cask install caffeine
 brew cask install google-drive
 brew cask install mailbox
 brew cask install utorrent
+brew cask install slack
 
 # dev
 brew cask install iterm2
@@ -25,6 +26,7 @@ brew cask install sourcetree
 #brew cask install github
 brew cask install phpstorm
 brew cask install virtualbox
+brew cask install virtualbox-extension-pack
 brew cask install vagrant
 brew cask install vagrant-manager
 #brew cask install boot2docker
@@ -58,6 +60,6 @@ brew cask install tagger
 brew cask install suspicious-package
 brew cask install quicklook-json
 brew cask install qlmarkdown
-brew cask install qlstephen
+#brew cask install qlstephen
 brew cask install qlcolorcode
 
