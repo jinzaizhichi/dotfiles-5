@@ -21,9 +21,8 @@ done
 unset xenv
 
 # NVM  shim works different
-#export NVM_DIR="/usr/local/opt/nvm"
-export NVM_DIR=$(brew --prefix nvm)
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+#export NVM_DIR=$(brew --prefix nvm)
+#[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 # Some gems requires this
 export _system_type="Darwin"
