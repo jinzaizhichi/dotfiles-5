@@ -1,7 +1,12 @@
 # Configure oh-my-zsh
 if [ -d $HOME/.oh-my-zsh ]; then
 	ZSH=$HOME/.oh-my-zsh
-	ZSH_THEME="terminalparty"
+	#ZSH_THEME="robbyrusell"
+	ZSH_THEME="cloud"
+	#ZSH_THEME="gnzh"
+	#ZSH_THEME="muse"
+	#ZSH_THEME="smt"
+	#ZSH_THEME="terminalparty"
 	plugins=(git vagrant gulp)
 	source $ZSH/oh-my-zsh.sh
 fi
