@@ -24,6 +24,7 @@ brew cask install imageoptim
 brew cask install lisanet-gimp
 brew cask install sourcetree
 #brew cask install github
+brew cask install caskroom/homebrew-versions/java6
 brew cask install phpstorm
 brew cask install virtualbox
 brew cask install virtualbox-extension-pack
