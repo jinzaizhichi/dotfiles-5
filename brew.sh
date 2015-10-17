@@ -34,6 +34,7 @@ brew install bash
 brew tap homebrew/versions
 brew install bash-completion2
 brew install tmux
+brew install direnv
 
 # Install `wget` with IRI support.
 brew install wget --with-iri

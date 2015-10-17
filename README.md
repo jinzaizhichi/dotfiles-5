@@ -71,3 +71,6 @@ nvm install stable && nvm alias default stable"
 pyenv install 2.7.8 #(or the latest version)"
 ```
 
+### Install additional services
+Unfortunatelly [this](http://www.gingerbeardman.com/services/) services are not installable using `brew` but are very much recommended
+
