@@ -87,7 +87,8 @@ set laststatus=2
 " Set the theme (I like solarized, molokai and Tomorrow-Night-Eighties)
 set background=dark
 colorscheme molokai
-
+let g:molokai_original = 1
+let g:rehash256 = 1
 
 " Use the OS clipboard by default (on versions compiled with `+clipboard`)
 set clipboard=unnamed
