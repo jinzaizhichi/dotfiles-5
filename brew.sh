@@ -2,6 +2,7 @@
 
 # Ask for the administrator password upfront.
 sudo -v
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 # Install Hombrew if not present
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -109,8 +110,8 @@ brew install editorconfig
 
 # Install Node.js. Note: this installs `npm` too, using the recommended
 # installation method.
-#brew install node
-brew install nvm
+brew install node
+#brew install nvm
 
 # Install io.js
 #brew install iojs

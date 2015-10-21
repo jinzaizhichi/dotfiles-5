@@ -2,6 +2,7 @@
 
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 sudo -v
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 brew install caskroom/cask/brew-cask
 brew tap caskroom/versions
@@ -15,6 +16,7 @@ brew cask install google-drive
 brew cask install mailbox
 brew cask install utorrent
 brew cask install slack
+brew cask install the-unarchiver
 
 # dev
 brew cask install iterm2
@@ -24,12 +26,6 @@ brew cask install imageoptim
 brew cask install lisanet-gimp
 brew cask install sourcetree
 #brew cask install github
-brew cask install caskroom/homebrew-versions/java6
-brew cask install phpstorm
-brew cask install virtualbox
-brew cask install virtualbox-extension-pack
-brew cask install vagrant
-brew cask install vagrant-manager
 #brew cask install boot2docker
 #brew cask install rstudio
 brew cask install mou
@@ -52,10 +48,10 @@ brew cask install keycastr
 brew cask install android-file-transfer
 brew cask install fugu
 brew cask install fluid
-brew cask install libreoffice
 #brew cask install calibre
 #brew cask install all2mp3
 brew cask install tagger
+brew cask install skype
 
 # Quicklook plugins
 brew cask install suspicious-package
@@ -64,3 +60,11 @@ brew cask install qlmarkdown
 #brew cask install qlstephen
 brew cask install qlcolorcode
 
+# big ones
+brew cask install virtualbox
+brew cask install virtualbox-extension-pack
+brew cask install vagrant
+brew cask install vagrant-manager
+brew cask install libreoffice
+brew cask install caskroom/homebrew-versions/java6
+brew cask install phpstorm
