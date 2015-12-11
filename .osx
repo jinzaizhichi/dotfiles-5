@@ -337,6 +337,9 @@ defaults write com.apple.finder FXInfoPanesExpanded -dict \
 	OpenWith -bool true \
 	Privileges -bool true
 
+# Enable select text in QuickLook
+defaults write com.apple.finder QLEnableTextSelection -bool TRUE
+
 ###############################################################################
 # Dock, Dashboard, and hot corners                                            #
 ###############################################################################

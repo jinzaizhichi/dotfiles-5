@@ -25,6 +25,7 @@ Plugin 'chriskempson/vim-tomorrow-theme'
 Plugin 'chriskempson/base16-vim'
 Plugin 'tomasr/molokai'
 Plugin 'vim-scripts/ekini-dark-colorscheme'
+Plugin 'daylerees/colour-schemes', { 'rtp': 'vim/'  }
 " Status bar
 Plugin 'bling/vim-airline'
 Plugin 'airblade/vim-gitgutter'
@@ -261,3 +262,6 @@ endif
 if filereadable(glob("~/.vimrc.local"))
     source ~/.vimrc.local
 endif
+
+
+let g:syntastic_javascript_checkers = ['eslint']
