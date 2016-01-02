@@ -38,3 +38,6 @@ export PATH=$PATH:~/.composer/vendor/bin
 
 # add local bin dir to the path
 export PATH=$PATH:~/bin
+
+# Android SDK
+export ANDROID_HOME=/usr/local/opt/android-sdk

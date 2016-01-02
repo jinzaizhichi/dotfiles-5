@@ -33,17 +33,24 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'jeetsukumaran/vim-buffergator'
 Plugin 'scrooloose/nerdtree'
 Plugin 'majutsushi/tagbar'
-Plugin 'sjl/gundo.vim'
-Plugin 'terryma/vim-multiple-cursors'
+"Plugin 'sjl/gundo.vim'
+"Plugin 'terryma/vim-multiple-cursors'
 " Autocomplete
 Plugin 'ervandew/supertab'
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'honza/vim-snippets'
+Plugin 'MarcWeber/vim-addon-mw-utils' " required by snipmate
+Plugin 'tomtom/tlib_vim' " required by snimate
 Plugin 'garbas/vim-snipmate'
-" Find in files
+Plugin 'honza/vim-snippets' " set of snippets
+Plugin 'justinj/vim-react-snippets'
+Plugin 'marioy47/emmet-vim'
+Plugin 'ternjs/tern_for_vim'
+Plugin 'mattn/webapi-vim' "required by gist-vm
+Plugin 'mattn/gist-vim'
+" Find, navigation and visual helpers
 Plugin 'kien/ctrlp.vim'
 Plugin 'mileszs/ack.vim'
+Plugin 'Valloric/MatchTagAlways'
+Plugin 'easymotion/vim-easymotion'
 " Code format and check (Dont forget to install linters)
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'editorconfig/editorconfig-vim'
@@ -58,10 +65,12 @@ Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-markdown'
 Plugin 'markcornick/vim-vagrant'
 Plugin 'ekalinin/Dockerfile.vim'
-Plugin 'hail2u/vim-css3-syntax'
+"Plugin 'hail2u/vim-css3-syntax'
 Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'elzr/vim-json'
 Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
+"Plugin 'jelera/vim-javascript-syntax'
 Plugin 'evanmiller/nginx-vim-syntax'
 " Git
 Plugin 'tpope/vim-fugitive'
@@ -212,7 +221,8 @@ autocmd Filetype html setlocal ts=4 sts=4 sw=4 expandtab
 autocmd Filetype ruby setlocal ts=2 sts=2 sw=2 expandtab
 autocmd Filetype bash setlocal ts=2 sts=2 sw=2 expandtab
 autocmd Filetype scss setlocal ts=2 sts=2 sw=2 expandtab
-autocmd Filetype javascript setlocal ts=4 sts=4 sw=4 expandtab
+autocmd Filetype javascript setlocal ts=2 sts=2 sw=2 expandtab
+autocmd Filetype javascript.jsx setlocal ts=2 sts=2 sw=2 expandtab
 autocmd Filetype php setlocal ts=4 sts=4 sw=4 expandtab
 
 " Turn default multicursor mappings
@@ -263,5 +273,7 @@ if filereadable(glob("~/.vimrc.local"))
     source ~/.vimrc.local
 endif
 
-
 let g:syntastic_javascript_checkers = ['eslint']
+
+" https://jaxbot.me/articles/setting-up-vim-for-react-js-jsx-02-03-2015
+let g:jsx_ext_required = 0 " Allow JSX in normal JS files
