@@ -1,5 +1,5 @@
 [user]
-	name = Mario Andrés Yepes C
+	name = Mario Yepes
 	email = marioy47@gmail.com
 
 [alias]
@@ -184,3 +184,5 @@
 [mergetool "sourcetree"]
 	cmd = /opt/homebrew-cask/Caskroom/sourcetree/2.0.5.5/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
+[github]
+	user = marioy47
