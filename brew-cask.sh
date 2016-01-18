@@ -17,6 +17,7 @@ brew cask install google-drive
 brew cask install utorrent
 brew cask install slack
 brew cask install the-unarchiver
+brew cask install unrarx
 
 # dev
 brew cask install iterm2

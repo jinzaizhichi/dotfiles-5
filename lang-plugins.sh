@@ -23,6 +23,7 @@ npm install -g gulp
 npm install -g scalablepath-toggl
 npm install -g vmd
 npm install -g yo
+npm install -g mup
 
 # Ruby global gems
 
