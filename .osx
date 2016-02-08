@@ -617,7 +617,10 @@ EOD
 
 # Install the Solarized Dark theme for iTerm
 curl -o SolarizedDarkHigherContrast.itermcolors https://raw.githubusercontent.com/mbadolato/iTerm2-Color-Schemes/master/schemes/Solarized%20Dark%20Higher%20Contrast.itermcolors
+# Install Peacocks In Space theme for iTerm
+curl -o PeacocksInSpace .itermcolors https://raw.githubusercontent.com/dionbosschieter/Iterm2-peacocks-in-space/master/Peacocks%20In%20Space.itermcolors
 open SolarizedDarkHigherContrast.itermcolors
+open PeacocksInSpace.itermcolors
 
 # Don’t display the annoying prompt when quitting iTerm
 defaults write com.googlecode.iterm2 PromptOnQuit -bool false

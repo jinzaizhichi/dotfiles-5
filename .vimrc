@@ -22,58 +22,59 @@ Plugin 'gmarik/Vundle.vim'
 " Themes and colorshemes
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'chriskempson/vim-tomorrow-theme'
-Plugin 'chriskempson/base16-vim'
 Plugin 'tomasr/molokai'
-Plugin 'vim-scripts/ekini-dark-colorscheme'
-Plugin 'daylerees/colour-schemes', { 'rtp': 'vim/'  }
+Plugin 'ronny/birds-of-paradise.vim'
 " Status bar
-Plugin 'bling/vim-airline'
-Plugin 'airblade/vim-gitgutter'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+"Plugin 'airblade/vim-gitgutter'
 " Buffers and sidebars
-Plugin 'jeetsukumaran/vim-buffergator'
-Plugin 'scrooloose/nerdtree'
-Plugin 'majutsushi/tagbar'
-"Plugin 'sjl/gundo.vim'
+Plugin 'jeetsukumaran/vim-buffergator' " List of buffers on the sidebar
+Plugin 'scrooloose/nerdtree'           " Filetree on the sidebar
+"Plugin 'majutsushi/tagbar'            " Class outliner on the sidebar
+Plugin 'sjl/gundo.vim'
 "Plugin 'terryma/vim-multiple-cursors'
 " Autocomplete
-Plugin 'ervandew/supertab'
-Plugin 'MarcWeber/vim-addon-mw-utils' " required by snipmate
-Plugin 'tomtom/tlib_vim' " required by snimate
-Plugin 'garbas/vim-snipmate'
-Plugin 'honza/vim-snippets' " set of snippets
-Plugin 'justinj/vim-react-snippets'
 Plugin 'marioy47/emmet-vim'
+Plugin 'Valloric/YouCompleteMe'
+"Plugin 'ervandew/supertab'
+"Plugin 'MarcWeber/vim-addon-mw-utils' " required by snipmate
+"Plugin 'tomtom/tlib_vim'              " required by snimate
+"Plugin 'garbas/vim-snipmate'          " the snipmate plugin
+"Plugin 'honza/vim-snippets'           " set of snippets
+"Plugin 'justinj/vim-react-snippets'
 Plugin 'ternjs/tern_for_vim'
-Plugin 'mattn/webapi-vim' "required by gist-vm
-Plugin 'mattn/gist-vim'
-" Find, navigation and visual helpers
+"Plugin 'mattn/webapi-vim'             " required by gist-vm
+"Plugin 'mattn/gist-vim'
+" Find and Visual Helpers
 Plugin 'kien/ctrlp.vim'
 Plugin 'mileszs/ack.vim'
 Plugin 'Valloric/MatchTagAlways'
-Plugin 'easymotion/vim-easymotion'
+"Plugin 'easymotion/vim-easymotion'
 " Code format and check (Dont forget to install linters)
-Plugin 'bronson/vim-trailing-whitespace'
-Plugin 'editorconfig/editorconfig-vim'
-Plugin 'scrooloose/syntastic'
-Plugin 'jiangmiao/auto-pairs'
-Plugin 'Townk/vim-autoclose'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'godlygeek/tabular'
+Plugin 'bronson/vim-trailing-whitespace' " Removes trailing whitespace
+Plugin 'editorconfig/editorconfig-vim'   " Obey .editorconfig configuration
+Plugin 'scrooloose/syntastic'            " Linting
+Plugin 'jiangmiao/auto-pairs'            " Closes quotes
+Plugin 'Townk/vim-autoclose'             " Auto add closing ) ] } etc
+Plugin 'scrooloose/nerdcommenter'        " Toggle comments on a line
+Plugin 'godlygeek/tabular'               " Lineup text
 " Languages
-Plugin 'spf13/PIV'
+Plugin 'spf13/PIV' " PHP
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-markdown'
 Plugin 'markcornick/vim-vagrant'
 Plugin 'ekalinin/Dockerfile.vim'
 "Plugin 'hail2u/vim-css3-syntax'
 Plugin 'cakebaker/scss-syntax.vim'
+Plugin 'groenewege/vim-less'
 Plugin 'elzr/vim-json'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 "Plugin 'jelera/vim-javascript-syntax'
 Plugin 'evanmiller/nginx-vim-syntax'
 " Git
-Plugin 'tpope/vim-fugitive'
+"Plugin 'tpope/vim-fugitive'
 " Misc
 Plugin 'ap/vim-css-color' " Color HEX colores son css
 "Plugin 'rgarver/Kwbd.vim' "Keep window open on close last buffer
@@ -81,24 +82,21 @@ Plugin 'ap/vim-css-color' " Color HEX colores son css
 call vundle#end()
 if has_vundle == 0 "Install plugins if vundle is not present
 	:silent! PluginInstall
+	echo 'Install tern-js and add support for meteor'
+	!cd ~/.vim/bundle/tern_for_vim && npm install && cd node_modules/tern/plugin && curl https://raw.githubusercontent.com/Slava/tern-meteor/master/meteor.js >> meteor.js
+	echo 'Install YouCompleteMe'
+	! cd ~/.vim/bundle/YouCompleteMe && python install.py --tern-completer
 	:qa
 endif
 
 filetype plugin indent on
-
-" Airline
-"let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme='dark'
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#branch#enabled = 1
-let g:airline#extensions#syntastic#enabled = 1
-set laststatus=2
 
 " Set the theme (I like solarized, molokai and Tomorrow-Night-Eighties)
 set background=dark
 colorscheme molokai
 let g:molokai_original = 1
 let g:rehash256 = 1
+"let g:solarized_termcolors=256 " Only if using solarized in vim but not in your term
 
 " Use the OS clipboard by default (on versions compiled with `+clipboard`)
 set clipboard=unnamed
@@ -185,58 +183,42 @@ noremap <leader>ss :FixWhitespace<CR>
 " Save a file as root (,W)
 noremap <leader>W :w !sudo tee % > /dev/null<CR>
 
-" Don't like buffergator default keymaps
+" Go to next window with ,w or Ctr-W
+nnoremap <leader>w <C-W>W
+
+" Airline
+let g:airline_theme='badwolf'
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#branch#enabled = 0
+let g:airline#extensions#syntastic#enabled = 1
+
+
+" Don't like buffergator default keymaps. Use ,b
 let g:buffergator_suppress_keymaps=1
 noremap <leader>b :BuffergatorToggle<CR>
 
-" Nerdtree keymaps
-noremap <leader>n :NERDTreeToggle<CR>
 
-" Go to next window
-nnoremap <leader>w <C-W>W
+" Show NERDTree with ,n
+noremap <leader>n :NERDTreeToggle<CR>
 
 " Open NERDTree at startup if called without arguments
 autocmd VimEnter * if !argc() | NERDTree | endif
-" Auto close NERDTree
-let NERDTreeQuitOnOpen=1
-" Show hidden files
-let NERDTreeShowHidden=1
+let NERDTreeQuitOnOpen=1 " Auto close NERDTree
+let NERDTreeShowHidden=1 " Show hidden files
 
-" Tagbar toggle
-noremap <Leader>t :TagbarToggle<CR>
-
-" Toggle Gundo tree
+" Gundo Configuration
 nnoremap <leader>u :GundoToggle<CR>
+let g:gundo_width = 50          " Pane widht
+let g:gundo_preview_height = 20 " Bottom height
+let g:gundo_close_on_revert = 1 " Autoclose on select
 
-" Ack search
-nnoremap <leader>a :Ack ""<Left>
+" YouCompleteMe
+let g:ycm_autoclose_preview_window_after_insertion = 1
 
-" Open a new tab and Ack search for word under cursor
-nnoremap <leader>A :Ack <C-r><C-w><CR>
 
-noremap <leader>m :!open -a Marked %<CR><CR>
-
-" Default ident styles per language
-autocmd Filetype html setlocal ts=4 sts=4 sw=4 expandtab
-autocmd Filetype ruby setlocal ts=2 sts=2 sw=2 expandtab
-autocmd Filetype bash setlocal ts=2 sts=2 sw=2 expandtab
-autocmd Filetype scss setlocal ts=2 sts=2 sw=2 expandtab
-autocmd Filetype javascript setlocal ts=2 sts=2 sw=2 expandtab
-autocmd Filetype javascript.jsx setlocal ts=2 sts=2 sw=2 expandtab
-autocmd Filetype php setlocal ts=4 sts=4 sw=4 expandtab
-
-" Turn default multicursor mappings
-let g:multi_cursor_use_default_mapping=0
-
-" Change multicursor mappings
-let g:multi_cursor_next_key='<C-d>'
-"let g:multi_cursor_prev_key='<C-p>'
-"let g:multi_cursor_skip_key='<C-x>'
-let g:multi_cursor_quit_key='<Esc>'
-
-" ctrlp config
+" CtrlP config
 let g:ctrlp_map = '<c-p>'
-let g:ctrlp_max_height = 30
+let g:ctrlp_max_height = 25
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_match_window_reversed = 0
 " Ignore node_modules and .git dir
@@ -245,7 +227,7 @@ let g:ctrlp_custom_ignore = {
   \ 'file': '\v\.(exe|so|dll)$'
   \ }
 
-" User silver searcher for grep and ctrlp https://robots.thoughtbot.com/faster-grepping-in-vim
+" User silver searcher for grep and CtrlP https://robots.thoughtbot.com/faster-grepping-in-vim
 if executable('ag')
   " Use ag over grep
 	set grepprg=ag\ --nogroup\ --nocolor
@@ -255,6 +237,37 @@ if executable('ag')
   let g:ctrlp_use_caching = 0
 endif
 
+
+" Tagbar toggle
+noremap <Leader>t :TagbarToggle<CR>
+
+" Ack search
+nnoremap <leader>a :Ack ""<Left>
+" Open a new tab and Ack search for word under cursor
+nnoremap <leader>A :Ack <C-r><C-w><CR>
+" Ack auto close
+let g:ack_autoclose=1
+
+noremap <leader>m :!open -a Marked %<CR><CR>
+
+" Default ident styles per language
+"autocmd Filetype html setlocal ts=4 sts=4 sw=4 expandtab
+"autocmd Filetype ruby setlocal ts=2 sts=2 sw=2 expandtab
+"autocmd Filetype bash setlocal ts=2 sts=2 sw=2 expandtab
+"autocmd Filetype scss setlocal ts=2 sts=2 sw=2 expandtab
+"autocmd Filetype less setlocal ts=2 sts=2 sw=2 expandtab
+"autocmd Filetype javascript setlocal ts=2 sts=2 sw=2 expandtab
+"autocmd Filetype javascript.jsx setlocal ts=2 sts=2 sw=2 expandtab
+"autocmd Filetype php setlocal ts=4 sts=4 sw=4 expandtab
+
+" Turn Off default multicursor mappings
+let g:multi_cursor_use_default_mapping=0
+
+" Change multicursor mappings
+let g:multi_cursor_next_key='<C-d>'
+"let g:multi_cursor_prev_key='<C-p>'
+"let g:multi_cursor_skip_key='<C-x>'
+let g:multi_cursor_quit_key='<Esc>'
 
 " unmap F1 help
 nmap <F1> <nop>
@@ -273,7 +286,8 @@ if filereadable(glob("~/.vimrc.local"))
     source ~/.vimrc.local
 endif
 
+" Set checkers for syntastic
 let g:syntastic_javascript_checkers = ['eslint']
-
-" https://jaxbot.me/articles/setting-up-vim-for-react-js-jsx-02-03-2015
-let g:jsx_ext_required = 0 " Allow JSX in normal JS files
+"
+" Allow JSX in normal JS files https://jaxbot.me/articles/setting-up-vim-for-react-js-jsx-02-03-2015
+let g:jsx_ext_required = 0
