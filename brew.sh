@@ -51,6 +51,7 @@ brew install vim --override-system-vi --with-lua --with-luajit
 brew install homebrew/dupes/grep
 brew install homebrew/dupes/openssh
 brew install homebrew/dupes/screen
+# brew install homebrew/php/php56 --with-gmp
 
 # Install font tools.
 #brew tap bramstein/webfonttools
@@ -101,6 +102,7 @@ brew install lynx
 #brew install rhino
 #brew install speedtest_cli
 brew install ssh-copy-id
+brew install testssl
 brew install tree
 #brew install webkit2png
 #brew install zopfli
