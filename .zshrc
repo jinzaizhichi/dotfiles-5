@@ -7,7 +7,7 @@ if [ -d $HOME/.oh-my-zsh ]; then
 	#ZSH_THEME="muse"
 	#ZSH_THEME="smt"
 	#ZSH_THEME="terminalparty"
-	plugins=(git vagrant gulp tmux)
+	plugins=(git vagrant gulp tmux meteor)
 	source $ZSH/oh-my-zsh.sh
 fi
 
