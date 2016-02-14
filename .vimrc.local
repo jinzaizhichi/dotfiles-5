@@ -1,3 +1,5 @@
+" Override colorscheme
+colorscheme railscasts
 
 " Enable per-directory .vimrc files and disable unsafe commands in them
 set exrc
@@ -44,7 +46,6 @@ let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 let g:UltiSnipsEditSplit="vertical"
 
 let g:airline#extensions#tabline#enabled = 0
-let g:airline_theme = 'wombat'
 
 
 " Gundo Configuration
@@ -76,7 +77,10 @@ let g:multi_cursor_quit_key='<Esc>'
 
 " Set checkers for syntastic
 let g:syntastic_javascript_checkers = ['eslint']
-"
+" Do not complain in meteor
+" let g:syntastic_html_tidy_ignore_errors = [ '<template> is not recognized!'  ]
+" let syntastic_mode_map = { 'passive_filetypes': ['html']  }
+
 " Allow JSX in normal JS files https://jaxbot.me/articles/setting-up-vim-for-react-js-jsx-02-03-2015
 let g:jsx_ext_required = 0
 

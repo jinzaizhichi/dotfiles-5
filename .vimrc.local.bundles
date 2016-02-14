@@ -1,30 +1,26 @@
 " Required for YouCompleteMe LOOOOONG install
 let g:neobundle#install_process_timeout = 1500
 
-" Required by airline
+" Required here by airline
 let g:airline_powerline_fonts  = 1
 
 " Aditional Themes
 " NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'chriskempson/vim-tomorrow-theme'
 NeoBundle 'ronny/birds-of-paradise.vim'
+NeoBundle 'jpo/vim-railscasts-theme'
+
+" Undo tree.
 NeoBundle 'sjl/gundo.vim'
+
+" Ack to find in files
 NeoBundle 'mileszs/ack.vim'
 
-" Buffers and status
+" List of buffers on the sidebar use <leader>b
 NeoBundle 'jeetsukumaran/vim-buffergator' " List of buffers on the sidebar
 
-" Autocomplete
-NeoBundle 'Valloric/YouCompleteMe', {
-    \ 'build'      : {
-      \ 'mac'     : './install.py --tern-completer',
-      \ 'unix'    : './install.py --tern-completer',
-      \ 'windows' : 'install.py --tern-completer',
-      \ 'cygwin'  : './install.py --tern-completer'
-      \ }
-    \ }
 
-" let g:install_meteor = 'npm install && curl https://raw.githubusercontent.com/Slava/tern-meteor/master/meteor.js >  node_modules/tern/plugin/meteor.js',
+" Completition for Javascript
 NeoBundle 'ternjs/tern_for_vim', {
     \ 'build'      : {
        \ 'mac'     : 'npm install && curl https://raw.githubusercontent.com/Slava/tern-meteor/master/meteor.js >  node_modules/tern/plugin/meteor.js',
@@ -33,7 +29,16 @@ NeoBundle 'ternjs/tern_for_vim', {
        \ 'cygwin'  : 'npm install'
        \ }
     \ }
-" https://raw.githubusercontent.com/Slava/tern-meteor/master/meteor.js
+
+" Autocomplete
+NeoBundle 'Valloric/YouCompleteMe', {
+    \ 'build'      : {
+      \ 'mac'     : './install.py --tern-completer',
+      \ 'unix'    : './install.py --tern-completer',
+      \ 'windows' : 'install.py   --tern-completer',
+      \ 'cygwin'  : './install.py --tern-completer'
+      \ }
+    \ }
 
 " Code formatting
 NeoBundle 'editorconfig/editorconfig-vim'   " Obey .editorconfig configuration
