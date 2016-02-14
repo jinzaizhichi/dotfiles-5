@@ -83,6 +83,12 @@
 		fi \
 	}; f"
 
+	# Fetch a pull request from remote repo using `git pr {pr#} {renmote_name}`
+	pr = "!f() { git fetch -fu ${2:-origin} refs/pull/$1/head:pr/$1 && git checkout pr/$1; }; f"
+
+	# Deletes all created branches created from pr
+	pr-clean = "!git for-each-ref refs/heads/pr/* --format=\"%(refname)\" | while read ref ; do branch=${ref#refs/heads/} ; git branch -D $branch ; done"
+
 [apply]
 
 	# Detect whitespace errors when applying a patch
