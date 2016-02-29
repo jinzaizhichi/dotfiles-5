@@ -1,11 +1,11 @@
 " Required for YouCompleteMe LOOOOONG install
-let g:neobundle#install_process_timeout = 1500
+" let g:neobundle#install_process_timeout = 1500
 
 " Required here by airline
 let g:airline_powerline_fonts  = 1
 
 " Aditional Themes
-" NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'chriskempson/vim-tomorrow-theme'
 NeoBundle 'ronny/birds-of-paradise.vim'
 NeoBundle 'jpo/vim-railscasts-theme'
@@ -39,9 +39,12 @@ NeoBundle 'Valloric/YouCompleteMe', {
       \ 'cygwin'  : './install.py --tern-completer'
       \ }
     \ }
+NeoBundle 'ervandew/supertab'
+
 
 " Code formatting
 NeoBundle 'editorconfig/editorconfig-vim'   " Obey .editorconfig configuration
 NeoBundle 'godlygeek/tabular'               " Lineup text
 NeoBundle 'cakebaker/scss-syntax.vim'
 NeoBundle 'mxw/vim-jsx'
+NeoBundle 'Chiel92/vim-autoformat'
