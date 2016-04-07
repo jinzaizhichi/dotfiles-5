@@ -126,8 +126,8 @@ brew install --HEAD ruby-build
 brew install pyenv
 
 # PHP Development
-brew install composer
-brew install wp-cli
+brew install homebrew/php/composer
+brew install homebrew/php/wp-cli
 
 # Remove outdated versions from the cellar.
 brew cleanup

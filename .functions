@@ -125,7 +125,7 @@ function gz() {
 # Usage: `json '{"foo":42}'` or `echo '{"foo":42}' | json`
 function json() {
 	if [ -t 0 ]; then # argument
-		python -mjson.tool <<< "$*" | pygmentize -l javascript;
+		#python -mjson.tool <<< "$*" | pygmentize -l javascript;
 	else # pipe
 		python -mjson.tool | pygmentize -l javascript;
 	fi;
@@ -259,6 +259,40 @@ function terminal-colors-list() {
 	for i in {0..255} ; do
 		printf "\x1b[38;5;${i}mcolour${i}\n"
 	done
+}
+
+function git_fetch_tags() {
+	echo -e "\nUpdating local tags with remote tags...\n"
+
+	git fetch origin 'refs/tags/*:refs/tags/*'
+
+	echo -e "\nDone.\n"
+}
+
+function git_undo_changes() {
+	echo -e "\nundoing changes...\n"
+
+	# revert changes to modified files.
+	git reset --hard
+
+	# remove all untracked files and directories.
+	git clean -fd
+
+	echo -e "\ndone.\n"
+}
+
+
+# Maintaining a Git Repository | Atlassian Documentation
+# https://confluence.atlassian.com/bitbucket/maintaining-a-git-repository-321848291.html
+function git_gc() {
+	# Garbage collecting dead data
+
+	# 1. Prune all of the reflog references from now on back
+	# (unless you're explicitly only operating on one branch).
+	git reflog expire --expire=now --all
+
+	# 2. Repack the repository by running the garbage collector and pruning old objects.
+	git gc --prune=now
 }
 
 # vim: syntax=sh

@@ -18,6 +18,9 @@ brew cask install utorrent
 brew cask install slack
 brew cask install the-unarchiver
 brew cask install unrarx
+brew cask install nylas-n1
+brew cask install toggldesktop
+
 
 # dev
 brew cask install iterm2
@@ -67,6 +70,7 @@ brew cask install qlstephen
 brew cask install qlcolorcode
 
 # big ones
+brew cask install gimp
 brew cask install virtualbox
 brew cask install virtualbox-extension-pack
 brew cask install vagrant

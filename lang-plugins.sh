@@ -24,6 +24,8 @@ npm install -g scalablepath-toggl
 npm install -g vmd
 npm install -g yo
 npm install -g mup
+npm install -g jscs
 
-# Ruby global gems
+# Vagrant plugins
+vagrant plugin install vagrant-bindfs
 
