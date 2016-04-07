@@ -109,6 +109,7 @@ brew install tree
 brew install htop
 brew install sassc
 brew install editorconfig
+brew install cmake
 
 # Install Node.js. Note: this installs `npm` too, using the recommended
 # installation method.

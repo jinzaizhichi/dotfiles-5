@@ -35,6 +35,7 @@ brew cask install sourcetree
 #brew cask install rstudio
 #brew cask install mou
 brew cask install gitify
+brew cask install skitch
 
 # fun
 #brew cask install simple-comic
@@ -76,6 +77,6 @@ brew cask install virtualbox-extension-pack
 brew cask install vagrant
 brew cask install vagrant-manager
 brew cask install libreoffice
-brew cask install caskroom/homebrew-versions/java6
-brew cask install phpstorm
+#brew cask install caskroom/homebrew-versions/java6
+#brew cask install phpstorm
 
