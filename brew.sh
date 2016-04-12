@@ -109,6 +109,7 @@ brew install tree
 brew install htop
 brew install sassc
 brew install editorconfig
+brew install cmake
 
 # Install Node.js. Note: this installs `npm` too, using the recommended
 # installation method.
@@ -126,8 +127,8 @@ brew install --HEAD ruby-build
 brew install pyenv
 
 # PHP Development
-brew install composer
-brew install wp-cli
+brew install homebrew/php/composer
+brew install homebrew/php/wp-cli
 
 # Remove outdated versions from the cellar.
 brew cleanup

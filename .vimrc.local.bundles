@@ -33,7 +33,7 @@ NeoBundle 'ternjs/tern_for_vim', {
 " Autocomplete
 NeoBundle 'Valloric/YouCompleteMe', {
     \ 'build'      : {
-      \ 'mac'     : './install.py --tern-completer',
+      \ 'mac'     : 'git submodule update --init --recursive && ./install.py --tern-completer',
       \ 'unix'    : './install.py --tern-completer',
       \ 'windows' : 'install.py   --tern-completer',
       \ 'cygwin'  : './install.py --tern-completer'
