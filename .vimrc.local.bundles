@@ -1,50 +1,28 @@
 " Required for YouCompleteMe LOOOOONG install
 " let g:neobundle#install_process_timeout = 1500
 
-" Required here by airline
+" Required here by airline before installing it
 let g:airline_powerline_fonts  = 1
 
 " Aditional Themes
-NeoBundle 'altercation/vim-colors-solarized'
-NeoBundle 'chriskempson/vim-tomorrow-theme'
-NeoBundle 'ronny/birds-of-paradise.vim'
-NeoBundle 'jpo/vim-railscasts-theme'
-
-" Undo tree.
-NeoBundle 'sjl/gundo.vim'
+Plug 'altercation/vim-colors-solarized'
+Plug 'chriskempson/vim-tomorrow-theme'
+Plug 'ronny/birds-of-paradise.vim'
+Plug 'jpo/vim-railscasts-theme'
 
 " Ack to find in files
-NeoBundle 'mileszs/ack.vim'
+Plug 'mileszs/ack.vim'
 
 " List of buffers on the sidebar use <leader>b
-NeoBundle 'jeetsukumaran/vim-buffergator' " List of buffers on the sidebar
-
-
-" Completition for Javascript
-NeoBundle 'ternjs/tern_for_vim', {
-    \ 'build'      : {
-       \ 'mac'     : 'npm install && curl https://raw.githubusercontent.com/Slava/tern-meteor/master/meteor.js >  node_modules/tern/plugin/meteor.js',
-       \ 'unix'    : 'npm install && curl https://raw.githubusercontent.com/Slava/tern-meteor/master/meteor.js >  node_modules/tern/plugin/meteor.js',
-       \ 'windows' : 'npm install',
-       \ 'cygwin'  : 'npm install'
-       \ }
-    \ }
+Plug 'jeetsukumaran/vim-buffergator' " List of buffers on the sidebar
 
 " Autocomplete
-NeoBundle 'Valloric/YouCompleteMe', {
-    \ 'build'      : {
-      \ 'mac'     : 'git submodule update --init --recursive && ./install.py --tern-completer',
-      \ 'unix'    : './install.py --tern-completer',
-      \ 'windows' : 'install.py   --tern-completer',
-      \ 'cygwin'  : './install.py --tern-completer'
-      \ }
-    \ }
-NeoBundle 'ervandew/supertab'
-
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+Plug 'ervandew/supertab'
 
 " Code formatting
-NeoBundle 'editorconfig/editorconfig-vim'   " Obey .editorconfig configuration
-NeoBundle 'godlygeek/tabular'               " Lineup text
-NeoBundle 'cakebaker/scss-syntax.vim'
-NeoBundle 'mxw/vim-jsx'
-NeoBundle 'Chiel92/vim-autoformat'
+Plug 'editorconfig/editorconfig-vim'   " Obey .editorconfig configuration
+Plug 'godlygeek/tabular'               " Lineup text
+Plug 'cakebaker/scss-syntax.vim'
+Plug 'mxw/vim-jsx'
+Plug 'Chiel92/vim-autoformat'
