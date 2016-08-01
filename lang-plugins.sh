@@ -29,3 +29,17 @@ npm install -g jscs
 # Vagrant plugins
 vagrant plugin install vagrant-bindfs
 
+
+# Visual Studio Code
+code --install-extension EditorConfig.EditorConfig
+code --install-extension robertohuertasm.vscode-icons
+code --install-extension hnw.vscode-auto-open-markdown-preview
+code --isntall-extension shinnn.stylelint
+code --isntall-extension Kasik96.format-indent
+code --isntall-extension wcwhitehead.bootstrap-3-snippets
+code --isntall-extension HvyIndustries.crane
+code --isntall-extension marcostazi.VS-code-vagrantfile
+code --isntall-extension tungvn.wordpress-snippet
+
+
+
