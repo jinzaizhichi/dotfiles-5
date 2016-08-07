@@ -34,12 +34,13 @@ vagrant plugin install vagrant-bindfs
 code --install-extension EditorConfig.EditorConfig
 code --install-extension robertohuertasm.vscode-icons
 code --install-extension hnw.vscode-auto-open-markdown-preview
-code --isntall-extension shinnn.stylelint
-code --isntall-extension Kasik96.format-indent
-code --isntall-extension wcwhitehead.bootstrap-3-snippets
-code --isntall-extension HvyIndustries.crane
-code --isntall-extension marcostazi.VS-code-vagrantfile
-code --isntall-extension tungvn.wordpress-snippet
-
-
-
+code --install-extension shinnn.stylelint
+code --install-extension Kasik96.format-indent
+code --install-extension wcwhitehead.bootstrap-3-snippets
+code --install-extension HvyIndustries.crane
+code --install-extension marcostazi.VS-code-vagrantfile
+code --install-extension tungvn.wordpress-snippet
+code --install-extension felipecaputo.git-project-manager
+code --install-extension donjayamanne.githistory
+code --install-extension seanmcbreen.Spell
+code --install-extension xabikos.ReactSnippets
