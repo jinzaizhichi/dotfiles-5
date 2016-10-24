@@ -32,15 +32,19 @@ vagrant plugin install vagrant-bindfs
 
 # Visual Studio Code
 code --install-extension EditorConfig.EditorConfig
-code --install-extension robertohuertasm.vscode-icons
-code --install-extension hnw.vscode-auto-open-markdown-preview
+# code --install-extension robertohuertasm.vscode-icons
+# code --install-extension hnw.vscode-auto-open-markdown-preview
 code --install-extension shinnn.stylelint
 code --install-extension Kasik96.format-indent
-code --install-extension wcwhitehead.bootstrap-3-snippets
+# code --install-extension wcwhitehead.bootstrap-3-snippets
 code --install-extension HvyIndustries.crane
 code --install-extension marcostazi.VS-code-vagrantfile
 code --install-extension tungvn.wordpress-snippet
-code --install-extension felipecaputo.git-project-manager
-code --install-extension donjayamanne.githistory
+# code --install-extension felipecaputo.git-project-manager
+# code --install-extension donjayamanne.githistory
 code --install-extension seanmcbreen.Spell
-code --install-extension xabikos.ReactSnippets
+# code --install-extension xabikos.ReactSnippets
+# code --install-extension steve8708.Align
+code --install-extension dkundel.vscode-new-file
+code --install-extension spywhere.guides
+code --install-extension sleistner.vscode-fileutils
