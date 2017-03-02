@@ -16,15 +16,16 @@ apm install pigments
 apm install seti-ui
 
 # NPM Commands
-npm install -g eslint
-npm install -g babel-eslint
-npm install -g eslint-plugin-react
-npm install -g gulp
-npm install -g scalablepath-toggl
-npm install -g vmd
-npm install -g yo
-npm install -g mup
-npm install -g jscs
+npm install -g yarn
+yarn install -g eslint
+yarn install -g babel-eslint
+yarn install -g eslint-plugin-react
+yarn install -g gulp
+yarn install -g scalablepath-toggl
+yarn install -g vmd
+yarn install -g yo
+yarn install -g mup
+yarn install -g jscs
 
 # Vagrant plugins
 vagrant plugin install vagrant-bindfs
@@ -32,19 +33,7 @@ vagrant plugin install vagrant-bindfs
 
 # Visual Studio Code
 code --install-extension EditorConfig.EditorConfig
-# code --install-extension robertohuertasm.vscode-icons
-# code --install-extension hnw.vscode-auto-open-markdown-preview
+code --install-extension felixfbecker.php-pack
 code --install-extension shinnn.stylelint
-code --install-extension Kasik96.format-indent
-# code --install-extension wcwhitehead.bootstrap-3-snippets
-code --install-extension HvyIndustries.crane
 code --install-extension marcostazi.VS-code-vagrantfile
-code --install-extension tungvn.wordpress-snippet
-# code --install-extension felipecaputo.git-project-manager
-# code --install-extension donjayamanne.githistory
-code --install-extension seanmcbreen.Spell
-# code --install-extension xabikos.ReactSnippets
-# code --install-extension steve8708.Align
-code --install-extension dkundel.vscode-new-file
-code --install-extension spywhere.guides
-code --install-extension sleistner.vscode-fileutils
+code --install-extension emmanuelbeziat.vscode-great-icons

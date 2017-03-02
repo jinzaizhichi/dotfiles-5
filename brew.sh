@@ -114,7 +114,7 @@ brew install cmake
 
 # Install Node.js. Note: this installs `npm` too, using the recommended
 # installation method.
-brew install node4-lts
+brew install node
 #brew install nvm
 
 # Install io.js
