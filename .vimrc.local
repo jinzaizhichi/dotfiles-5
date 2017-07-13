@@ -1,5 +1,5 @@
 " Override colorscheme
-colorscheme railscasts
+"colorscheme railscasts
 
 " Enable per-directory .vimrc files and disable unsafe commands in them
 set exrc
