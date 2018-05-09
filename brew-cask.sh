@@ -39,14 +39,15 @@ brew cask install skitch
 # fun
 #brew cask install simple-comic
 #brew cask install clementine
-brew cask install deezer
+#brew cask install deezer
 #brew cask install spotify
-brew cask install airflow
+#brew cask install airflow
 
 # browsers
 brew cask install google-chrome
 #brew cask install opera
 #brew cask install flash
+brew cask install firefox
 
 # less often
 #brew cask install screenflow4 # 4 specifically not 5.
@@ -62,6 +63,7 @@ brew cask install skype
 #brew cask install noizio
 brew cask install free-ruler
 #brew cask install wordpresscom
+brew cask install licecap
 
 # Quicklook plugins
 brew cask install suspicious-package

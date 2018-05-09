@@ -24,5 +24,6 @@ Plug 'ervandew/supertab'
 Plug 'editorconfig/editorconfig-vim'   " Obey .editorconfig configuration
 Plug 'godlygeek/tabular'               " Lineup text
 Plug 'cakebaker/scss-syntax.vim'
+Plug 'evidens/vim-twig'
 Plug 'mxw/vim-jsx'
 Plug 'Chiel92/vim-autoformat'

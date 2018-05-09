@@ -7,8 +7,9 @@ alias ~="cd ~" # `cd` is probably faster to type though
 alias -- -="cd -"
 
 # Shortcuts
-alias d="cd ~/Dropbox"
-alias dl="cd ~/Downloads"
+alias dr="cd ~/Dropbox"
+alias d="cd ~/Downloads"
+alias content="cd ~/Projects/wp-devenv/wp/wp-content/"
 alias dt="cd ~/Desktop"
 alias p="cd ~/Projects"
 alias g="git"
