@@ -1,5 +1,3 @@
-" Required for YouCompleteMe LOOOOONG install
-" let g:neobundle#install_process_timeout = 1500
 
 " Required here by airline before installing it
 let g:airline_powerline_fonts  = 1
@@ -9,6 +7,7 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'chriskempson/vim-tomorrow-theme'
 Plug 'ronny/birds-of-paradise.vim'
 Plug 'jpo/vim-railscasts-theme'
+Plug 'morhetz/gruvbox'
 
 " Ack to find in files
 Plug 'mileszs/ack.vim'
@@ -17,7 +16,6 @@ Plug 'mileszs/ack.vim'
 Plug 'jeetsukumaran/vim-buffergator' " List of buffers on the sidebar
 
 " Autocomplete
-"Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'ervandew/supertab'
 
 " Code formatting

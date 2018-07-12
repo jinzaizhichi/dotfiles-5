@@ -1,5 +1,3 @@
-" Override colorscheme
-"colorscheme railscasts
 
 " Enable per-directory .vimrc files and disable unsafe commands in them
 set exrc
@@ -32,39 +30,6 @@ noremap <leader>b :BuffergatorToggle<CR>
 " Restore CtrlP keymap
 let g:ctrlp_map = '<c-p>'
 
-" User silver searcher (ag)for grep and CtrlP https://robots.thoughtbot.com/faster-grepping-in-vim
-" if executable('ag')
-"   " Use ag over grep
-" 	set grepprg=ag\ --nogroup\ --nocolor
-"   " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-"   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-"   " ag is fast enough that CtrlP doesn't need to cache
-"   let g:ctrlp_use_caching = 0
-" endif
-
-" Override UltiSnips expand snippets
-" let g:UltiSnipsExpandTrigger="<C-space>"
-" let g:UltiSnipsJumpForwardTrigger="<C-space>"
-" let g:UltiSnipsJumpBackwardTrigger="<c-b>"
-" let g:UltiSnipsEditSplit="vertical"
-
-" make YCM compatible with UltiSnips (using supertab) http://stackoverflow.com/questions/14896327/ultisnips-and-youcompleteme
-let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-let g:SuperTabDefaultCompletionType = '<C-n>'
-
-" YouCompleteMe auto close help window
-let g:ycm_autoclose_preview_window_after_insertion = 1
-
-let g:airline#extensions#tabline#enabled = 0
-
-" Gundo Configuration
-nnoremap <leader>u :GundoToggle<CR>
-let g:gundo_width = 50          " Pane widht
-let g:gundo_preview_height = 20 " Bottom height
-let g:gundo_close_on_revert = 1 " Autoclose on select
-
-
 " Ack search with ',a'
 nnoremap <leader>a :Ack ""<Left>
 " Open a new tab and Ack search for word under cursor
@@ -83,10 +48,9 @@ let g:multi_cursor_quit_key='<Esc>'
 
 " Check syntax with jshint unless there is a .jscsrc file on the root dir
  autocmd FileType javascript let b:syntastic_checkers = findfile('.jscsrc', '.;') != '' ? ['jscs'] : ['jshint']
-" Do not complain in meteor
-" let g:syntastic_html_tidy_ignore_errors = [ '<template> is not recognized!'  ]
-" let syntastic_mode_map = { 'passive_filetypes': ['html']  }
 
-" Allow JSX in normal JS files https://jaxbot.me/articles/setting-up-vim-for-react-js-jsx-02-03-2015
-let g:jsx_ext_required = 0
-
+let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
+set termguicolors
+let g:gruvbox_italic=1
+colorscheme gruvbox

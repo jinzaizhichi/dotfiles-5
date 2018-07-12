@@ -5,6 +5,10 @@ git pull origin master;
 
 PWD=`pwd`
 
+# Make colorschemes compatible with italics
+tic -c init/tmux-256color.terminfo
+tic -x init/xterm-256color-italic.terminfo
+
 
 for file in `ls -a` ; do
 	if [ $file == ".git" ]; then continue; fi

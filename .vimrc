@@ -1,3 +1,5 @@
+" vim-bootstrap b990cad
+
 "*****************************************************************************
 "" Vim-PLug core
 "*****************************************************************************
@@ -7,16 +9,18 @@ endif
 
 let vimplug_exists=expand('~/.vim/autoload/plug.vim')
 
-let g:vim_bootstrap_langs = "javascript,php,html"
+let g:vim_bootstrap_langs = "html,javascript,php"
 let g:vim_bootstrap_editor = "vim"				" nvim or vim
 
 if !filereadable(vimplug_exists)
+  if !executable("curl")
+    echoerr "You have to install curl or first install vim-plug yourself!"
+    execute "q!"
+  endif
   echo "Installing Vim-Plug..."
   echo ""
   silent !\curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   let g:not_finish_vimplug = "yes"
-
-  " Run shell script if exist on custom select language
 
   autocmd VimEnter * PlugInstall
 endif
@@ -31,11 +35,9 @@ Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
-Plug 'sheerun/vim-polyglot'
 Plug 'vim-scripts/grep.vim'
 Plug 'vim-scripts/CSApprox'
 Plug 'bronson/vim-trailing-whitespace'
@@ -44,9 +46,15 @@ Plug 'majutsushi/tagbar'
 Plug 'scrooloose/syntastic'
 Plug 'Yggdroot/indentLine'
 Plug 'avelino/vim-bootstrap-updater'
-
+Plug 'sheerun/vim-polyglot'
+if isdirectory('/usr/local/opt/fzf')
+  Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
+else
+  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
+  Plug 'junegunn/fzf.vim'
+endif
 let g:make = 'gmake'
-if system('uname -o') =~ '^GNU/'
+if exists('make')
         let g:make = 'make'
 endif
 Plug 'Shougo/vimproc.vim', {'do': g:make}
@@ -62,7 +70,6 @@ endif
 if v:version >= 704
   "" Snippets
   Plug 'SirVer/ultisnips'
-  Plug 'FelikZ/ctrlp-py-matcher'
 endif
 
 Plug 'honza/vim-snippets'
@@ -70,19 +77,30 @@ Plug 'honza/vim-snippets'
 "" Color
 Plug 'tomasr/molokai'
 
+"*****************************************************************************
 "" Custom bundles
-"" Javascript Bundle
-Plug 'jelera/vim-javascript-syntax'
+"*****************************************************************************
 
+" html
 "" HTML Bundle
-Plug 'amirh/HTML-AutoCloseTag'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'gorodinskiy/vim-coloresque'
 Plug 'tpope/vim-haml'
 Plug 'mattn/emmet-vim'
 
+
+" javascript
+"" Javascript Bundle
+Plug 'jelera/vim-javascript-syntax'
+
+
+" php
 "" PHP Bundle
 Plug 'arnaud-lb/vim-php-namespace'
+
+
+"*****************************************************************************
+"*****************************************************************************
 
 "" Include user's extra bundle
 if filereadable(expand("~/.vimrc.local.bundles"))
@@ -102,6 +120,9 @@ filetype plugin indent on
 set encoding=utf-8
 set fileencoding=utf-8
 set fileencodings=utf-8
+set bomb
+set binary
+set ttyfast
 
 "" Fix backspace indent
 set backspace=indent,eol,start
@@ -124,18 +145,17 @@ set incsearch
 set ignorecase
 set smartcase
 
-"" Encoding
-set bomb
-set binary
-set ttyfast
-
 "" Directories for swp files
 set nobackup
 set noswapfile
 
 set fileformats=unix,dos,mac
-set showcmd
-set shell=/bin/sh
+
+if exists('$SHELL')
+    set shell=$SHELL
+else
+    set shell=/bin/sh
+endif
 
 " session management
 let g:session_directory = "~/.vim/session"
@@ -174,7 +194,7 @@ else
   let g:indentLine_char = '┆'
   let g:indentLine_faster = 1
 
-
+  
   if $COLORTERM == 'gnome-terminal'
     set term=gnome-256color
   else
@@ -182,12 +202,14 @@ else
       set term=xterm-256color
     endif
   endif
-
+  
 endif
+
 
 if &term =~ '256color'
   set t_ut=
 endif
+
 
 "" Disable the blinking cursor.
 set gcr=a:blinkon0
@@ -206,6 +228,11 @@ set titlestring=%F
 
 set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)\
 
+" Search mappings: These will make it so that going to the next one in a
+" search will center on the line it's found in.
+nnoremap n nzzzv
+nnoremap N Nzzzv
+
 if exists("*fugitive#statusline")
   set statusline+=%{fugitive#statusline()}
 endif
@@ -216,6 +243,7 @@ let g:airline#extensions#syntastic#enabled = 1
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tagbar#enabled = 1
+let g:airline_skip_empty_sections = 1
 
 "*****************************************************************************
 "" Abbreviations
@@ -242,7 +270,7 @@ let g:NERDTreeMapOpenInTabSilent = '<RightMouse>'
 let g:NERDTreeWinSize = 50
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
 nnoremap <silent> <F2> :NERDTreeFind<CR>
-noremap <F3> :NERDTreeToggle<CR>
+nnoremap <silent> <F3> :NERDTreeToggle<CR>
 
 " grep.vim
 nnoremap <silent> <leader>f :Rgrep<CR>
@@ -275,10 +303,10 @@ endif
 "*****************************************************************************
 "" Autocmd Rules
 "*****************************************************************************
-"" The PC is fast enough, do syntax highlight syncing from start
+"" The PC is fast enough, do syntax highlight syncing from start unless 200 lines
 augroup vimrc-sync-fromstart
   autocmd!
-  autocmd BufEnter * :syntax sync fromstart
+  autocmd BufEnter * :syntax sync maxlines=200
 augroup END
 
 "" Remember cursor position
@@ -305,6 +333,7 @@ set autoread
 "*****************************************************************************
 "" Mappings
 "*****************************************************************************
+
 "" Split
 noremap <Leader>h :<C-u>split<CR>
 noremap <Leader>v :<C-u>vsplit<CR>
@@ -339,25 +368,27 @@ noremap <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 "" Opens a tab edit command with the path of the currently edited file filled
 noremap <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
 
-"" ctrlp.vim
+"" fzf.vim
 set wildmode=list:longest,list:full
 set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,__pycache__
-let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|tox|ico|git|hg|svn))$'
-let g:ctrlp_user_command = "find %s -type f | grep -Ev '"+ g:ctrlp_custom_ignore +"'"
-let g:ctrlp_use_caching = 1
+let $FZF_DEFAULT_COMMAND =  "find * -path '*/\.*' -prune -o -path 'node_modules/**' -prune -o -path 'target/**' -prune -o -path 'dist/**' -prune -o  -type f -print -o -type l -print 2> /dev/null"
 
 " The Silver Searcher
 if executable('ag')
+  let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
   set grepprg=ag\ --nogroup\ --nocolor
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-  let g:ctrlp_use_caching = 0
+endif
+
+" ripgrep
+if executable('rg')
+  let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow --glob "!.git/*"'
+  set grepprg=rg\ --vimgrep
+  command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
 endif
 
 cnoremap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
-noremap <leader>b :CtrlPBuffer<CR>
-let g:ctrlp_map = '<leader>e'
-let g:ctrlp_open_new_file = 'r'
-let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
+nnoremap <silent> <leader>b :Buffers<CR>
+nnoremap <silent> <leader>e :FZF -m<CR>
 
 " snippets
 let g:UltiSnipsExpandTrigger="<tab>"
@@ -379,7 +410,10 @@ nmap <silent> <F4> :TagbarToggle<CR>
 let g:tagbar_autofocus = 1
 
 " Disable visualbell
-set novisualbell t_vb=
+set noerrorbells visualbell t_vb=
+if has('autocmd')
+  autocmd GUIEnter * set visualbell t_vb=
+endif
 
 "" Copy/Paste/Cut
 if has('unnamedplus')
@@ -425,17 +459,30 @@ vnoremap K :m '<-2<CR>gv=gv
 "" Open current line on GitHub
 nnoremap <Leader>o :.Gbrowse<CR>
 
+"*****************************************************************************
 "" Custom configs
+"*****************************************************************************
 
+" html
+" for html files, 2 spaces
+autocmd Filetype html setlocal ts=2 sw=2 expandtab
+
+
+" javascript
 let g:javascript_enable_domhtmlcss = 1
 
 " vim-javascript
 augroup vimrc-javascript
   autocmd!
-  autocmd FileType javascript set tabstop=4|set shiftwidth=4|set expandtab softtabstop=4 smartindent
+  autocmd FileType javascript set tabstop=4|set shiftwidth=4|set expandtab softtabstop=4
 augroup END
 
 
+" php
+
+
+"*****************************************************************************
+"*****************************************************************************
 
 "" Include user's local vim config
 if filereadable(expand("~/.vimrc.local"))

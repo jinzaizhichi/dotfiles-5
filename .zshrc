@@ -16,14 +16,16 @@ for file in ~/.{path,exports,aliases,functions,extra}; do
 done;
 unset file;
 
+export TERM=xterm-256color-italic
+
 
 
 # User shims instead on native ruby/python/php/node interpreters
-eval "$(direnv hook $0)"
-for xenv in rbenv pyenv phpenv ndenv; do
-	if which $xenv > /dev/null; then eval "$($xenv init -)"; fi
-done
-unset xenv
+# eval "$(direnv hook $0)"
+# for xenv in rbenv pyenv phpenv ndenv; do
+# 	if which $xenv > /dev/null; then eval "$($xenv init -)"; fi
+# done
+# unset xenv
 
 # NVM  shim works different
 #export NVM_DIR=$(brew --prefix nvm)
