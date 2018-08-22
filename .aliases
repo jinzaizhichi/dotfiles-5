@@ -161,3 +161,5 @@ alias chrome-no-sec="open -a Google\ Chrome --args --disable-web-security"
 
 # Backups up dotfiles that can not be in a PUBLIC repo
 alias dotbackup="cd ~ && zip -FSr ~/Dropbox/backup-secret-dotfiles.zip .netrc .rclone.conf .ssh .gnupg .ultrahook .extra -x '*.DS_Store'"
+
+alias vim="TERM=xterm-256color-italic vim"
