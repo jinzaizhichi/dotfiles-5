@@ -2,7 +2,7 @@
 if [ -d $HOME/.oh-my-zsh ]; then
 	ZSH=$HOME/.oh-my-zsh
 	ZSH_THEME="cloud"
-	plugins=(git vagrant)
+	plugins=( git vagrant )
 	source $ZSH/oh-my-zsh.sh
 fi
 
@@ -14,4 +14,3 @@ unset file;
 # Some gems requires this
 export _system_type="Darwin"
 
-PATH=$PATH:$HOME/.composer/vendor/bin
