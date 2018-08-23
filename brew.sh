@@ -15,12 +15,11 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 brew update
 
 # Upgrade any already-installed formulae.
-brew upgrade --all
+brew upgrade
 
-# Install GNU core utilities (those that come with OS X are outdated).
+# Install GNU core utilities (those that come with macOS are outdated).
 # Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
 brew install coreutils
-sudo ln -s /usr/local/bin/gsha256sum /usr/local/bin/sha256sum
 
 # Install some other useful utilities like `sponge`.
 brew install moreutils
@@ -32,10 +31,15 @@ brew install gnu-sed --with-default-names
 # Note: don’t forget to add `/usr/local/bin/bash` to `/etc/shells` before
 # running `chsh`.
 brew install bash
-brew tap homebrew/versions
 brew install bash-completion2
 brew install tmux
 brew install direnv
+
+# Switch to using brew-installed bash as default shell
+if ! fgrep -q '/usr/local/bin/bash' /etc/shells; then
+  echo '/usr/local/bin/bash' | sudo tee -a /etc/shells;
+  chsh -s /usr/local/bin/bash;
+fi;
 
 # Install `wget` with IRI support.
 brew install wget --with-iri
@@ -46,13 +50,15 @@ brew install wget --with-iri
 #brew install ringojs
 #brew install narwhal
 
-# Install more recent versions of some OS X tools.
+
+# Install more recent versions of some macOS tools.
 brew install ctags
-brew install vim --with-override-system-vi --with-lua --with-luajit
-brew install homebrew/dupes/grep
-brew install homebrew/dupes/openssh
-brew install homebrew/dupes/screen
-# brew install homebrew/php/php56 --with-gmp
+brew install vim --with-override-system-vi --with-luajit
+brew install grep
+brew install openssh
+brew install screen
+# Install GnuPG to enable PGP-signing commits.
+brew install gnupg
 
 # Install font tools.
 #brew tap bramstein/webfonttools
@@ -88,48 +94,21 @@ brew install nmap
 
 # Install other useful binaries.
 brew install ack
-brew install the_silver_searcher
-brew install dark-mode
 #brew install exiv2
 brew install git
 brew install git-lfs
 #brew install imagemagick --with-webp
 #brew install lua
 brew install lynx
-#brew install p7zip
-#brew install pigz
-#brew install pv
-#brew install rename
-#brew install rhino
-#brew install speedtest_cli
+brew install p7zip
+brew install pigz
+brew install pv
+brew install rename
+brew install rlwrap
 brew install ssh-copy-id
-brew install testssl
 brew install tree
-#brew install webkit2png
-#brew install zopfli
-brew install htop
-brew install sassc
-brew install editorconfig
-brew install cmake
-
-# Install Node.js. Note: this installs `npm` too, using the recommended
-# installation method.
-brew install node
-#brew install nvm
-
-# Install io.js
-#brew install iojs
-
-# Ruby
-brew install rbenv
-brew install --HEAD ruby-build
-
-# Python
-brew install pyenv
-
-# PHP Development
-brew install homebrew/php/composer
-brew install homebrew/php/wp-cli
+brew install vbindiff
+brew install zopfli
 
 # Remove outdated versions from the cellar.
 brew cleanup

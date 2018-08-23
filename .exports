@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # Make vim the default editor.
 export EDITOR='vim';
 
@@ -27,21 +29,6 @@ export LESS_TERMCAP_md="${yellow}";
 # Don’t clear the screen after quitting a manual page.
 export MANPAGER='less -X';
 
-# Always enable colored `grep` output.
-export GREP_OPTIONS='--color=auto';
-
-# User /Applications to install softwarwe downloaded by brew cask
-export HOMEBREW_CASK_OPTS="--appdir=/Applications"
-
-# Make the terminal more compatible with tmux
-export TERM=screen-256color
-#export TERM=xterm-256color-italic
-
-# add composer to the PATH
-export PATH=$PATH:~/.composer/vendor/bin
-
-# add local bin dir to the path
-export PATH=$PATH:~/bin
-
-# Android SDK
-export ANDROID_HOME=/usr/local/opt/android-sdk
+# Avoid issues with `gpg` as installed via Homebrew.
+# https://stackoverflow.com/a/42265848/96656
+export GPG_TTY=$(tty);
