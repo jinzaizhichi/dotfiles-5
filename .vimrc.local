@@ -1,9 +1,9 @@
 
-" Enable per-directory .vimrc files and disable unsafe commands in them
-set exrc
-set secure
+" 1. Install vimrrc with: curl -s 'http://vim-bootstrap.com/generate.vim' --data 'langs=javascript&langs=php&langs=html&langs=go&editor=vim' > ~/.vimrc
+" 2. Copy this file to ~/.vimrc.local
+" 3. copy vimrc.local.bundles to ~/.vimrc.local.bundles
 
-" Show “invisible” characters
+" Show 'invisible' characters
 set listchars=tab:▸\ ,trail:·,nbsp:_ "set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
 set list
 
@@ -12,45 +12,42 @@ if exists('+colorcolumn')
   set colorcolumn=80
 endif
 
-
-" Show NERDTree with ,n
-noremap <leader>n :NERDTreeToggle<CR>
-noremap <leader>nt :NERDTreeToggle<CR>
-noremap <leader>nf :NERDTreeFind<CR>
-
-" Open NERDTree at startup if called without arguments
+" NERDTree (autohow at startup, ,n to toggle, show hidden files)
 autocmd VimEnter * if !argc() | NERDTree | endif
-let NERDTreeQuitOnOpen=1 " Auto close NERDTree
+noremap <leader>n :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1 " Show hidden files
+let NERDTreeQuitOnOpen=1 " Auto close NERDTree
 
-" Don't like buffergator default keymaps. Use ,b
+" Don't like buffergator default keymaps. Use ,b for toggle
 let g:buffergator_suppress_keymaps=1
 noremap <leader>b :BuffergatorToggle<CR>
 
-" Restore CtrlP keymap
-let g:ctrlp_map = '<c-p>'
+" No tabline at the top. I prefer to use ,b for tab switchnig
+let g:airline#extensions#tabline#enabled = 0
 
-" Ack search with ',a'
-nnoremap <leader>a :Ack ""<Left>
-" Open a new tab and Ack search for word under cursor
-nnoremap <leader>A :Ack <C-r><C-w><CR>
-" Ack auto close
-let g:ack_autoclose=1
+" Strip trailing whitespace on save
+function! <SID>StripTrailingWhitespaces()
+    let l = line(".")
+    let c = col(".")
+    %s/\s\+$//e
+    call cursor(l, c)
+endfun
+autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 
-" Turn Off default multicursor mappings
-let g:multi_cursor_use_default_mapping=0
+" Change colorscheme to gruvbox
 
-" Change multicursor mappings
-let g:multi_cursor_next_key='<C-d>'
-"let g:multi_cursor_prev_key='<C-p>'
-"let g:multi_cursor_skip_key='<C-x>'
-let g:multi_cursor_quit_key='<Esc>'
-
-" Check syntax with jshint unless there is a .jscsrc file on the root dir
- autocmd FileType javascript let b:syntastic_checkers = findfile('.jscsrc', '.;') != '' ? ['jscs'] : ['jshint']
-
-let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
-let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
 set termguicolors
+let g:gruvbox_improved_warnings=1
 let g:gruvbox_italic=1
-colorscheme gruvbox
+try
+    let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
+    colorscheme gruvbox
+catch
+endtry
+
+" Change vim-commentary for php files from /* */ to //
+autocmd FileType php setlocal commentstring=//\ %s
+
+" Tagbar
+nmap <silent> <leader>t :TagbarToggle<CR>

@@ -1,27 +1,10 @@
 
-" Required here by airline before installing it
-let g:airline_powerline_fonts  = 1
+Plug 'jeetsukumaran/vim-buffergator' " Buffer list
+Plug 'sgur/vim-editorconfig'
+Plug 'StanAngeloff/php.vim'          " Better PHP Syntax
+Plug 'neomake/neomake'               " Detect errors on save
+Plug 'chr4/nginx.vim'                " Nginx Syntax
+Plug 'morhetz/gruvbox'               " Super Cool theme
+Plug 'lifepillar/vim-solarized8'     " Another nice theme
+Plug 'ervandew/supertab'             " Tab complete everything
 
-" Aditional Themes
-Plug 'altercation/vim-colors-solarized'
-Plug 'chriskempson/vim-tomorrow-theme'
-Plug 'ronny/birds-of-paradise.vim'
-Plug 'jpo/vim-railscasts-theme'
-Plug 'morhetz/gruvbox'
-
-" Ack to find in files
-Plug 'mileszs/ack.vim'
-
-" List of buffers on the sidebar use <leader>b
-Plug 'jeetsukumaran/vim-buffergator' " List of buffers on the sidebar
-
-" Autocomplete
-Plug 'ervandew/supertab'
-
-" Code formatting
-Plug 'editorconfig/editorconfig-vim'   " Obey .editorconfig configuration
-Plug 'godlygeek/tabular'               " Lineup text
-Plug 'cakebaker/scss-syntax.vim'
-Plug 'evidens/vim-twig'
-Plug 'mxw/vim-jsx'
-Plug 'Chiel92/vim-autoformat'
