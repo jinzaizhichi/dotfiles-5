@@ -7,4 +7,5 @@ Plug 'chr4/nginx.vim'                " Nginx Syntax
 Plug 'morhetz/gruvbox'               " Super Cool theme
 Plug 'lifepillar/vim-solarized8'     " Another nice theme
 Plug 'ervandew/supertab'             " Tab complete everything
-
+Plug 'godlygeek/tabular'
+Plug 'jwalton512/vim-blade'          " Laravel Blade Templating
