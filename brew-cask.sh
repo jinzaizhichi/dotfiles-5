@@ -40,14 +40,14 @@ brew cask install skitch
 #brew cask install simple-comic
 #brew cask install clementine
 #brew cask install deezer
-#brew cask install spotify
+brew cask install spotify
 #brew cask install airflow
 
 # browsers
 brew cask install google-chrome
 #brew cask install opera
 #brew cask install flash
-brew cask install firefox
+brew cask install firefox-developer-edition
 
 # less often
 #brew cask install screenflow4 # 4 specifically not 5.

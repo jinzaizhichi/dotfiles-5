@@ -91,6 +91,7 @@ brew install nmap
 #brew install ucspi-tcp # `tcpserver` etc.
 #brew install xpdf
 #brew install xz
+brew install jq
 
 # Install other useful binaries.
 brew install ack
