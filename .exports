@@ -10,14 +10,14 @@ export HISTFILESIZE="${HISTSIZE}";
 # Omit duplicates and commands that begin with a space from history.
 export HISTCONTROL='ignoreboth';
 
-# Prefer US English and use UTF-8.
-# export LANG='en_US.UTF-8';
-# export LC_ALL='en_US.UTF-8';
-
 # Highlight section titles in manual pages.
 export LESS_TERMCAP_md="${yellow}";
 
-# Avoid issues with `gpg` as installed via Homebrew.
-# https://stackoverflow.com/a/42265848/96656
-# export GPG_TTY=$(tty);
+# Some gems requires this
+export _system_type="Darwin"
 
+# Grubvox requires this
+export TERM=xterm-256color
+
+export PATH=$PATH:~/.composer/vendor/bin
+export PATH=$PATH:~/Projects/flutter/bin
