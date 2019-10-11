@@ -21,33 +21,23 @@ brew upgrade
 # Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
 brew install coreutils
 
-# Install some other useful utilities like `sponge`.
-brew install moreutils
-# Install GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed.
-brew install findutils
 # Install GNU `sed`, overwriting the built-in `sed`.
 brew install gnu-sed --with-default-names
 
 # Install `wget` with IRI support.
-brew install wget --with-iri
+# brew install wget --with-iri
 
 brew install vim --with-override-system-vi --with-luajit
-brew install grep
-brew install openssh
-brew install screen
+# brew install grep
+# brew install openssh
 # Install GnuPG to enable PGP-signing commits.
-brew install gnupg
+# brew install gnupg
 
 brew install nmap
-brew install bat
 
-brew install git
-brew install git-lfs
-brew install pv
-brew install ssh-copy-id
-brew install tree
-brew install vbindiff
-brew install zopfli
+# brew install git
+# brew install ssh-copy-id
+# brew install tree
 
 # Remove outdated versions from the cellar.
 brew cleanup

@@ -6,6 +6,7 @@ brew tap caskroom/fonts
 
 brew cask install font-fira-code
 brew cask install font-monego
+brew cask install font-monoid
 
 
 

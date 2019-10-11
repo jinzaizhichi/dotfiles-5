@@ -12,9 +12,7 @@ brew cask install dropbox
 brew cask install flux
 brew cask install spectacle
 brew cask install caffeine
-brew cask install utorrent
-brew cask install the-unarchiver
-brew cask install unrarx
+brew cask install qttorrent
 brew cask install toggldesktop
 
 
@@ -33,7 +31,6 @@ brew cask install spotify
 
 # browsers
 brew cask install google-chrome
-brew cask install firefox-developer-edition
 
 # less often
 brew cask install vlc
