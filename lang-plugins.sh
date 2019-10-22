@@ -40,3 +40,4 @@ code --install-extension wongjn.php-sniffer
 code --install-extension Shan.code-settings-sync # Backup Settings
 
 
+composer global install phpcs

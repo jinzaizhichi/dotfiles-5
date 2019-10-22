@@ -7,5 +7,17 @@ function terminal-colors-list() {
 	done
 }
 
+# Creates a backup of secret .files in Google Drive
+function backup-security() {
+    DEST=backup-secret-dotfiles.zip
+    cd ${HOME}
+    zip /tmp/${DEST} .rclone.conf
+    for i in .netrc .ssh .gnupg .ultrahook .extra .rclone.conf; do
+        zip -r -u /tmp/${DEST} ${i}
+    done
+    cd /tmp
+    rclone -P copy ${DEST} GdriveMario:/Backups/${DEST}
+}
+
 
 # vim: syntax=sh

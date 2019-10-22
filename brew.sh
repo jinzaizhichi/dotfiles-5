@@ -39,6 +39,9 @@ brew install nmap
 # brew install ssh-copy-id
 # brew install tree
 
+brew install composer
+brew install rclone
+
 # Remove outdated versions from the cellar.
 brew cleanup
 
