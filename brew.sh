@@ -27,7 +27,7 @@ brew install gnu-sed --with-default-names
 # Install `wget` with IRI support.
 # brew install wget --with-iri
 
-brew install vim --with-override-system-vi --with-luajit
+brew install vim
 # brew install grep
 # brew install openssh
 # Install GnuPG to enable PGP-signing commits.
@@ -41,6 +41,7 @@ brew install nmap
 
 brew install composer
 brew install rclone
+brew install node
 
 # Remove outdated versions from the cellar.
 brew cleanup
