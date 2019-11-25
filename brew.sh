@@ -25,7 +25,7 @@ brew install coreutils
 brew install gnu-sed --with-default-names
 
 # Install `wget` with IRI support.
-# brew install wget --with-iri
+brew install wget --with-iri
 
 brew install vim
 # brew install grep
@@ -42,6 +42,8 @@ brew install nmap
 brew install composer
 brew install rclone
 brew install node
+brew install youtube-dl
+brew install ffmpeg
 
 # Remove outdated versions from the cellar.
 brew cleanup

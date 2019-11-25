@@ -14,6 +14,7 @@ brew cask install spectacle
 brew cask install caffeine
 brew cask install qttorrent
 brew cask install toggldesktop
+brew cask install harvest
 
 
 # dev
@@ -28,6 +29,7 @@ brew cask install skitch
 
 # fun
 brew cask install spotify
+brew cask install flume
 
 # browsers
 brew cask install google-chrome
