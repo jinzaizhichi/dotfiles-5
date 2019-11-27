@@ -14,7 +14,6 @@ vagrant plugin install vagrant-bindfs
 code --install-extension jdinhlife.gruvbox
 code --install-extension PKief.material-icon-theme
 code --install-extension sdras.night-owl
-code --install-extension smlombardi.slime
 
 # VSCode Productivity
 code --install-extension patbenatar.advanced-new-file
@@ -40,4 +39,5 @@ code --install-extension wongjn.php-sniffer
 code --install-extension Shan.code-settings-sync # Backup Settings
 
 
-composer global install phpcs
+# PHP Composer
+#composer global require phpcs

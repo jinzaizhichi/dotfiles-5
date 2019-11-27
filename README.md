@@ -6,7 +6,7 @@
 
 ## Installation
 
-- Install Git (On MacOS)
+- Install Git (On MacOS and Windows)
 - Clone the repo
 - Execute the bootstrap script
 - Install packages and extensions
@@ -23,15 +23,11 @@ In linux, you probably will get `git` out of the box
 
 ### Clone the repo and install the bootstrap script
 
-This can be done with just 1 line of code
+This can be done with the following commands
 
 ```bash
-git clone https://github.com/marioy47/dotfiles.git && cd dotfiles && source bootstrap.sh
-```
-
-To update, `cd` into your local `dotfiles` repository and then:
-
-```bash
+git clone https://github.com/marioy47/dotfiles.git
+cd dotfiles
 source bootstrap.sh
 ```
 
@@ -54,29 +50,20 @@ Unfortunatelly [this](http://www.gingerbeardman.com/services/) services are not 
 
 I'm using [iTerm2](https://www.iterm2.com) terminal emulator with the [Night Owl](https://github.com/nickcernis/iterm2-night-owl) color scheme. More information on how to set it up [here](http://iterm2colorschemes.com/)
 
-For the command interpreter, I'm using [ZIM](https://github.com/zimfw/zimfw) (Zsh IMproved Framework) since `oh-my-zshell` its too slow for my computer.
-
-Updated installations instructions are [here](https://github.com/zimfw/zimfw#installation) but in a nutshell is:
+For the command interpreter, I'm using zshell with [oh-my-zshell](https://ohmyz.sh/). You can install it with
 
 ```bash
-zsh
-git clone --recursive https://github.com/zimfw/zimfw.git ${ZDOTDIR:-${HOME}}/.zim
-for template_file in ${ZDOTDIR:-${HOME}}/.zim/templates/*; do
-  user_file="${ZDOTDIR:-${HOME}}/.${template_file:t}"
-  cat ${template_file} ${user_file}(.N) > ${user_file}.tmp && mv ${user_file}{.tmp,}
-done
-chsh -s =zsh
-source ${ZDOTDIR:-${HOME}}/.zlogin
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 
 ## VIM
 
-I really like `vim` but I don't really have the time to configure all the possible packages and extensions. So I use [Vim Bootstrap]() for configuration.
+I really like `vim` but I don't really have the time to configure all the possible packages and extensions. So I use [Vim Bootstrap](https://github.com/editor-bootstrap/vim-bootstrap) for configuration.
 
 To install vim bootstrap just execute
 
 ```bash
-curl -s 'http://vim-bootstrap.com/generate.vim' --data 'langs=javascript&langs=php&langs=html&langs=go&editor=vim' > ~/.vimrc
+curl -s 'http://vim-bootstrap.com/generate.vim' --data 'langs=javascript&langs=typescript&langs=php&langs=html&langs=python&editor=vim' > ~/.vimrc
 ```
 
 And then execute `vim` normally

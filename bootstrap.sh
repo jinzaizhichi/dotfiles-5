@@ -14,7 +14,6 @@ for file in `ls -a` ; do
 	if [ $file == ".DS_Store" ]; then continue; fi
 	if [ $file == ".zshrc" ]; then continue; fi
 	if [[ $file == *".sh" ]]; then continue; fi
-	if [ $file == "bootstrap.sh" ]; then continue; fi
 	if [ $file == "README.md" ]; then continue; fi
 	if [ $file == "LICENSE-MIT.txt" ]; then continue; fi
 	if [ ! -f $file ]; then continue; fi
@@ -28,6 +27,5 @@ cp .zshrc $HOME/
 
 echo "Next steps:"
 echo "Re-stablish your ssh keys in .ssh"
-echo "Install Xcode (if you haven't done so): xcode-select --install"
 echo "Install MacOS packages with: ./brew.sh && ./brew-cask.sh && ./brew-cask-fonts.sh"
-echo "Install ZIMi following the instructions on: https://github.com/zimfw/zimfw"
+echo "Install Plugins and extensions with : ./lang-plugins.sh"

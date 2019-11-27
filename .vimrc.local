@@ -12,7 +12,7 @@ if exists('+colorcolumn')
   set colorcolumn=80
 endif
 
-" NERDTree (autohow at startup, ,n to toggle, show hidden files)
+" NERDTree (autoshow at startup, ,n to toggle, show hidden files)
 autocmd VimEnter * if !argc() | NERDTree | endif
 noremap <leader>n :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1 " Show hidden files
@@ -35,7 +35,6 @@ endfun
 autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 
 " Change colorscheme to gruvbox
-
 set termguicolors
 let g:gruvbox_improved_warnings=1
 let g:gruvbox_italic=1

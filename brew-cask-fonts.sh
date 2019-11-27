@@ -2,7 +2,7 @@
 
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
-brew tap caskroom/fonts
+brew tap homebrew/cask-fonts
 
 brew cask install font-fira-code
 brew cask install font-monego
