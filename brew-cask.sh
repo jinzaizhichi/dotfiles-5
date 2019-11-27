@@ -12,8 +12,8 @@ brew cask install dropbox
 brew cask install flux
 brew cask install spectacle
 brew cask install caffeine
-brew cask install qttorrent
-brew cask install toggldesktop
+brew cask install qbittorrent
+brew cask install toggl
 brew cask install harvest
 
 
