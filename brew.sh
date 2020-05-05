@@ -20,6 +20,7 @@ brew upgrade
 # Install GNU core utilities (those that come with macOS are outdated).
 # Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
 brew install coreutils
+brew install tree
 
 # Install GNU `sed`, overwriting the built-in `sed`.
 brew install gnu-sed --with-default-names
@@ -28,7 +29,7 @@ brew install gnu-sed --with-default-names
 brew install wget --with-iri
 
 brew install vim
-# brew install grep
+brew install rg
 # brew install openssh
 # Install GnuPG to enable PGP-signing commits.
 # brew install gnupg

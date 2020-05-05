@@ -25,6 +25,7 @@ brew cask install imagealpha
 brew cask install imageoptim
 brew cask install sourcetree
 brew cask install skitch
+brew cask install figma
 #brew cask install paparazzi
 
 # fun
@@ -42,6 +43,8 @@ brew cask install fugu
 brew cask install fluid
 brew cask install free-ruler
 brew cask install knockknock
+brew cask install kodi
+brew cask install lastpass
 
 # Quicklook plugins
 brew cask install quicklook-json
@@ -54,6 +57,11 @@ brew cask install qlcolorcode
 brew cask install virtualbox
 brew cask install virtualbox-extension-pack
 brew cask install vagrant
+
+# Commercial
+brew cask install parallels
+brew cask install tuxera-ntfs
+
 
 # Remove outdated versions from the cellar.
 brew cleanup

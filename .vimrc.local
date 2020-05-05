@@ -50,3 +50,15 @@ autocmd FileType php setlocal commentstring=//\ %s
 
 " Tagbar
 nmap <silent> <leader>t :TagbarToggle<CR>
+
+" Centralize backups, swapfiles and undo history
+silent !mkdir ~/.vim/{backups,swaps,undo} > /dev/null 2>&1
+set backupdir=~/.vim/backups
+set directory=~/.vim/swaps
+if exists("&undodir")
+	set undodir=~/.vim/undo
+endif
+
+" PHPactor
+nmap <Leader>mm :call phpactor#ContextMenu()<CR>
+

@@ -1,0 +1,73 @@
+window:
+  dimensions:
+    columns: 80
+    lines: 24
+  padding:
+    x: 5
+    # y: 20
+  decorations: none
+
+scrolling:
+  history: 50000
+  multiplier: 2
+
+font:
+  normal:
+    family: Menlo
+    style: Regular
+  bold:
+    family: Menlo
+    style: Bold
+  italic:
+    family: Menlo
+    style: Italic
+  bold_italic:
+    family: Menlo
+    style: Italic Bold
+  size: 14.5
+  offset:
+    y: 4
+
+# Colors (Monokai Soda)
+colors:
+  # Default colors
+  primary:
+    background: '#1a1a1a'
+    foreground: '#c4c5b5'
+
+  # Normal colors
+  normal:
+    black:   '#1a1a1a'
+    red:     '#f4005f'
+    green:   '#98e024'
+    yellow:  '#fa8419'
+    blue:    '#9d65ff'
+    magenta: '#f4005f'
+    cyan:    '#58d1eb'
+    white:   '#c4c5b5'
+
+  # Bright colors
+  bright:
+    black:   '#625e4c'
+    red:     '#f4005f'
+    green:   '#98e024'
+    yellow:  '#e0d561'
+    blue:    '#9d65ff'
+    magenta: '#f4005f'
+    cyan:    '#58d1eb'
+    white:   '#f6f6ef'
+
+key_bindings:
+  # https://github.com/alacritty/alacritty/issues/753#issuecomment-533040040
+  - { key: 10,        mods: Alt,    chars: "\x5c" } # barra invertida `\`
+  - { key: 18,        mods: Alt,    chars: "\x7c" } # barra vertical `|`
+  - { key: Key2,      mods: Alt,    chars: "@" } # arroba `@`
+  - { key: Key3,      mods: Alt,    chars: "#" } # almohadilla/cardinalidad `#`
+  - { key: Key6,      mods: Alt,    chars: "¬" } # negación en lógica `¬`
+  - { key: 39,        mods: Alt,    chars: "{" } # abre llaves `{`
+  - { key: 42,        mods: Alt,    chars: "}" } # cierra llaves `}`
+  - { key: 33,        mods: Alt,    chars: "[" } # abre corchetes `[`
+  - { key: 30,        mods: Alt,    chars: "]" } # cierra corchetes `]`
+  #  https://github.com/alacritty/alacritty/blob/master/alacritty.yml#L635
+  - { key: N,      mods: Command,            action: SpawnNewInstance }
+

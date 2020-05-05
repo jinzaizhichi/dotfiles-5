@@ -63,7 +63,7 @@ I really like `vim` but I don't really have the time to configure all the possib
 To install vim bootstrap just execute
 
 ```bash
-curl -s 'http://vim-bootstrap.com/generate.vim' --data 'langs=javascript&langs=typescript&langs=php&langs=html&langs=python&editor=vim' > ~/.vimrc
+curl -s 'http://vim-bootstrap.com/generate.vim' --data 'langs=javascript&langs=typescript&langs=html&langs=python&editor=vim' > ~/.vimrc
 ```
 
 And then execute `vim` normally
@@ -73,3 +73,10 @@ And then execute `vim` normally
 If `~/.extra` exists, it will be sourced along with the other files. You can use this to add a few custom commands without the need to fork this entire repository, or to add commands you don’t want to commit to a public repository.
 
 You could also use `~/.extra` to override settings, functions and aliases from Mathias Bynens dotfiles repository. It’s probably better to [fork this repository](https://github.com/mathiasbynens/dotfiles/fork) instead, though.
+
+## Key Repeat issue
+If you use VIM emulation on Visual Studio code or Sublime Text you'll notice that keeping the `h,j,k,l` keys pressed doesn't repeat the movement. For that you have to execute this on the terminal:
+
+```bash
+defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
+```
