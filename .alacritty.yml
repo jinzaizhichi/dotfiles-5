@@ -2,10 +2,12 @@ window:
   dimensions:
     columns: 80
     lines: 24
-  padding:
-    x: 5
-    # y: 20
   decorations: none
+  dynamic_padding: true
+  padding: 
+    x: 5
+    y: 4
+
 
 scrolling:
   history: 50000
