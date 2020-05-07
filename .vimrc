@@ -29,14 +29,15 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
-Plug 'tpope/vim-sensible'
-Plug 'kaicataldo/material.vim'
-Plug 'itchyny/lightline.vim'
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-Plug 'preservim/nerdcommenter'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'tpope/vim-sensible'               " Sensible defaults
+Plug 'kaicataldo/material.vim'          " Material Themes
+Plug 'Yggdroot/indentLine'              " Show tabs 
+Plug 'itchyny/lightline.vim'            " Simple status line
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } " File navigator
+Plug 'preservim/nerdcommenter'          " Use <leader>c<space> for comments
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Install fuzzy finder
+Plug 'junegunn/fzf.vim'                 " <C-P> (find files) o
+Plug 'neoclide/coc.nvim', {'branch': 'release'} " Make Vim work like an IDE (requires node)
 call plug#end()
 
 " Material and NightOwl theme settings
