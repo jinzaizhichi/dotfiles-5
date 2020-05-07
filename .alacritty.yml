@@ -14,19 +14,19 @@ scrolling:
   multiplier: 2
 
 font:
-  normal:
-    family: Menlo
+  normal: 
+    family: Fira Code Light
     style: Regular
   bold:
-    family: Menlo
+    family: Fira Code Bold
     style: Bold
   italic:
-    family: Menlo
+    family: Fira Code Light
     style: Italic
   bold_italic:
-    family: Menlo
+    family: Fira Code Bold
     style: Italic Bold
-  size: 14.5
+  size: 14
   offset:
     y: 4
 

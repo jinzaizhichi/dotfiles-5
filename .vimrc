@@ -1,22 +1,17 @@
 
 let mapleader = ","
-syntax enable
 
 set number
-set encoding=utf-8
 set hlsearch
-set incsearch
 set ignorecase
 set smartcase
 set noerrorbells
 set tabstop=4 softtabstop=4
 set shiftwidth=4
 set expandtab
-set smartindent
 set nowrap
 set smartcase
 set noswapfile
-set backspace=indent,eol,start " Fix backspace indent
 
 filetype plugin on " For NERDCommenter
 
@@ -34,6 +29,7 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
+Plug 'tpope/vim-sensible'
 Plug 'kaicataldo/material.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
@@ -57,9 +53,6 @@ colorscheme material "night-owl
 noremap <C-b> :NERDTreeToggle<cr>
 inoremap <C-b> <esc>:NERDTreeToggle<cr>
 
-" LightLine
-set laststatus=2
-
 " FZF keymaps
 nnoremap <C-p> :Files<cr>
 nnoremap <C-g> :GFiles<cr>
@@ -67,6 +60,11 @@ nnoremap <leader>h :History<cr>
 nnoremap <leader>b :Buffers<cr>
 
 " CoC https://github.com/neoclide/coc.nvim#example-vim-configuration
+let g:coc_global_extensions = [
+    \ 'coc-tsserver',
+    \ 'coc-eslint',
+    \ 'coc-phpls'
+    \]
 set hidden
 set nobackup
 set nowritebackup
@@ -195,3 +193,4 @@ let g:lightline = {
   \ },
   \ }
 autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
+
