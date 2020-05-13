@@ -6,8 +6,7 @@ window:
   dynamic_padding: true
   padding: 
     x: 5
-    y: 4
-
+    y: 3
 
 scrolling:
   history: 50000
@@ -15,20 +14,20 @@ scrolling:
 
 font:
   normal: 
-    family: Fira Code Light
+    family: Hack
     style: Regular
   bold:
-    family: Fira Code Bold
+    family: Hack Bold
     style: Bold
   italic:
-    family: Fira Code Light
+    family: Hack Italic
     style: Italic
   bold_italic:
-    family: Fira Code Bold
+    family: Hack Bold Italic
     style: Italic Bold
   size: 14
   offset:
-    y: 4
+    y: 6
 
 # Colors (Monokai Soda)
 colors:

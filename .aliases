@@ -27,3 +27,6 @@ alias mergepdf='/System/Library/Automator/Combine\ PDF\ Pages.action/Contents/Re
 
 # Vim with italic support
 alias vim="TERM=xterm-256color-italic vim"
+
+# Don't know, but tmux is hard to type for me
+alias tm="tmux attach || tmux new"

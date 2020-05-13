@@ -12,8 +12,10 @@ set expandtab
 set nowrap
 set smartcase
 set noswapfile
+set list lcs=tab:\|\ " Show tabs 
+set mouse=a " Enable mouse scroll on CoC floating window
 
-filetype plugin on " For NERDCommenter
+filetype plugin indent on " For NERDCommenter
 
 nnoremap <C-j> :terminal<cr><C-w>J
 vmap < <gv " Vmap for maintain Visual Mode after shifting <
@@ -29,15 +31,17 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
-Plug 'tpope/vim-sensible'               " Sensible defaults
 Plug 'kaicataldo/material.vim'          " Material Themes
-Plug 'Yggdroot/indentLine'              " Show tabs 
+Plug 'morhetz/gruvbox'
+Plug 'tpope/vim-sensible'               " Sensible defaults
 Plug 'itchyny/lightline.vim'            " Simple status line
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } " File navigator
 Plug 'preservim/nerdcommenter'          " Use <leader>c<space> for comments
+Plug 'Xuyuanp/nerdtree-git-plugin'      " File git status on NERDTree
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Install fuzzy finder
 Plug 'junegunn/fzf.vim'                 " <C-P> (find files) o
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " Make Vim work like an IDE (requires node)
+Plug 'liuchengxu/vista.vim'             " Like ctags but for coc
 call plug#end()
 
 " Material and NightOwl theme settings
@@ -46,13 +50,15 @@ if exists('+termguicolors')
   let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
   set termguicolors
 endif
-let g:material_theme_style = 'ocean' " 'default' | 'palenight' | 'ocean' | 'lighter' | 'darker'
+let g:material_theme_style = 'palenight' " 'default' | 'palenight' | 'ocean' | 'lighter' | 'darker'
 let g:lightline = { 'colorscheme': 'material_vim' }
-colorscheme material "night-owl
+colorscheme material "material gruvbox night-owl
 
 " NERDTreeToggle keymaps
-noremap <C-b> :NERDTreeToggle<cr>
-inoremap <C-b> <esc>:NERDTreeToggle<cr>
+noremap <leader>n :NERDTreeToggle<cr>
+inoremap <C-,> <esc>:NERDTreeToggle<cr>
+let NERDTreeShowHidden=1
+
 
 " FZF keymaps
 nnoremap <C-p> :Files<cr>
@@ -60,16 +66,21 @@ nnoremap <C-g> :GFiles<cr>
 nnoremap <leader>h :History<cr>
 nnoremap <leader>b :Buffers<cr>
 
+" Vista 
+nnoremap <leader>t :Vista!!<cr>
+
 " CoC https://github.com/neoclide/coc.nvim#example-vim-configuration
+" Enable 'wordpress' in ~/.config/coc/extensions/node_modules/coc-phpls/package.json
 let g:coc_global_extensions = [
     \ 'coc-tsserver',
     \ 'coc-eslint',
     \ 'coc-phpls'
     \]
+
 set hidden
 set nobackup
 set nowritebackup
-set cmdheight=2
+"set cmdheight=2
 set updatetime=300
 set shortmess+=c
 set signcolumn=yes
@@ -182,15 +193,29 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
-" CoC lightline
+" Vista.Vim
+let g:vista_default_executive = 'coc'
+let g:vista_fzf_preview = ['right:50%']
+
+
+function! NearestMethodOrFunction() abort
+  return get(b:, 'vista_nearest_method_or_function', '')
+endfunction
+
+set statusline+=%{NearestMethodOrFunction()}
+
+autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
+
+" Lightline with Material Theme, CoC  and Vista status support
 let g:lightline = {
-  \ 'colorscheme': 'material_vim',
+  \ 'colorscheme': 'material',
   \ 'active': {
   \   'left': [ [ 'mode', 'paste' ],
-  \             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
+  \             [ 'method', 'readonly', 'filename', 'modified', 'cocstatus' ] ]
   \ },
   \ 'component_function': {
-  \   'cocstatus': 'coc#status'
+  \   'cocstatus': 'coc#status',
+  \   'method': 'NearestMethodOrFunction'
   \ },
   \ }
 autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
