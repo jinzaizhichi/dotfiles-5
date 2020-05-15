@@ -44,12 +44,14 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'} " Make Vim work like an IDE (req
 Plug 'liuchengxu/vista.vim'             " Like ctags but for coc
 call plug#end()
 
-" Material and NightOwl theme settings
+" Material, NightOwl and Grubox theme settings
 if exists('+termguicolors')
   let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
   let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
   set termguicolors
 endif
+let g:gruvbox_italic=1
+let g:material_terminal_italics = 1
 let g:material_theme_style = 'palenight' " 'default' | 'palenight' | 'ocean' | 'lighter' | 'darker'
 let g:lightline = { 'colorscheme': 'material_vim' }
 colorscheme material "material gruvbox night-owl
@@ -74,7 +76,8 @@ nnoremap <leader>t :Vista!!<cr>
 let g:coc_global_extensions = [
     \ 'coc-tsserver',
     \ 'coc-eslint',
-    \ 'coc-phpls'
+    \ 'coc-phpls',
+    \ 'coc-marketplace'
     \]
 
 set hidden

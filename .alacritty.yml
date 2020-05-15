@@ -14,26 +14,28 @@ scrolling:
 
 font:
   normal: 
-    family: Hack
+    family: Monaco
     style: Regular
-  bold:
-    family: Hack Bold
-    style: Bold
-  italic:
-    family: Hack Italic
-    style: Italic
-  bold_italic:
-    family: Hack Bold Italic
-    style: Italic Bold
+  #bold:
+    #family: Dank Mono
+    #style: Bold
+  #italic:
+    #family: Dank Mono Italic
+    #style: Italic
+  #bold_italic:
+    #family: Dank Mono Italic
+    #style: Italic Bold
   size: 14
   offset:
-    y: 6
+    x: 0
+    y: 0
 
 # Colors (Monokai Soda)
 colors:
   # Default colors
   primary:
     background: '#1a1a1a'
+    #background: '#000000'
     foreground: '#c4c5b5'
 
   # Normal colors
