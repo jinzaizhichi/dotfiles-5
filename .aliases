@@ -5,7 +5,7 @@ alias d="cd ~/Downloads"
 alias content="cd ~/Projects/wp-devenv/wp/wp-content/"
 alias dt="cd ~/Desktop"
 alias p="cd ~/Projects"
-alias blog="cd ~/Projects/blog-site/src/posts/"
+alias blog="cd ~/Projects/blog-site/posts/"
 
 # Always enable colored `grep` output
 alias grep='grep --color=auto'
