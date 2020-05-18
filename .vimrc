@@ -31,8 +31,9 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
-Plug 'kaicataldo/material.vim'          " Material Themes
-Plug 'morhetz/gruvbox'
+Plug 'kaicataldo/material.vim'          " Material Themes (y like the lighter one)
+Plug 'morhetz/gruvbox'                  " Retro cool theme
+Plug 'haishanh/night-owl.vim'           " A 'Night Time' cool theme
 Plug 'tpope/vim-sensible'               " Sensible defaults
 Plug 'itchyny/lightline.vim'            " Simple status line
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } " File navigator
@@ -40,8 +41,9 @@ Plug 'preservim/nerdcommenter'          " Use <leader>c<space> for comments
 Plug 'Xuyuanp/nerdtree-git-plugin'      " File git status on NERDTree
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Install fuzzy finder
 Plug 'junegunn/fzf.vim'                 " <C-P> (find files) o
-Plug 'neoclide/coc.nvim', {'branch': 'release'} " Make Vim work like an IDE (requires node)
+Plug 'neoclide/coc.nvim', {'branch': 'release'}      " Make Vim work like an IDE (requires node)
 Plug 'liuchengxu/vista.vim'             " Like ctags but for coc
+Plug 'dense-analysis/ale'               " To use PHPCS or flake8 to check syntax errors
 call plug#end()
 
 " Material, NightOwl and Grubox theme settings
@@ -77,15 +79,17 @@ let g:coc_global_extensions = [
     \ 'coc-tsserver',
     \ 'coc-eslint',
     \ 'coc-phpls',
-    \ 'coc-marketplace'
+    \ 'coc-marketplace',
+    \ 'coc-markdownlint'
     \]
 
 set hidden
 set nobackup
 set nowritebackup
-"set cmdheight=2
+set cmdheight=2
 set updatetime=300
-set shortmess+=c
+"set shortmess+=c
+set shortmess=aFc
 set signcolumn=yes
 
 " Use tab for trigger completion with characters ahead and navigate.
@@ -223,3 +227,10 @@ let g:lightline = {
   \ }
 autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
 
+
+" ALE PHPCS 
+let g:ale_fix_on_save = 1
+let g:ale_fixers = {'php': ['phpcbf']}
+
+" Wrap on markdown files
+autocmd BufRead,BufNewFile *.md setlocal wrap
