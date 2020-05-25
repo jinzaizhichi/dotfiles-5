@@ -14,10 +14,10 @@ scrolling:
 
 font:
   normal: 
-    family: Monaco
+    family: CONSOLAS Powerline
     style: Regular
   #bold:
-    #family: Dank Mono
+    #family: Monaco
     #style: Bold
   #italic:
     #family: Dank Mono Italic
@@ -28,36 +28,85 @@ font:
   size: 14
   offset:
     x: 0
-    y: 0
+    y: 2
 
-# Colors (Monokai Soda)
+# Base16 Material Palenight 256 - alacritty color config
+# Nate Peterson
 colors:
   # Default colors
   primary:
-    background: '#1a1a1a'
-    foreground: '#c4c5b5'
+    background: '0x292d3e'
+    foreground: '0x959dcb'
+
+  # Colors the cursor will use if `custom_cursor_colors` is true
+  cursor:
+    text: '0x292d3e'
+    cursor: '0x959dcb'
 
   # Normal colors
   normal:
-    black:   '#1a1a1a'
-    red:     '#f4005f'
-    green:   '#98e024'
-    yellow:  '#fa8419'
-    blue:    '#9d65ff'
-    magenta: '#f4005f'
-    cyan:    '#58d1eb'
-    white:   '#c4c5b5'
+    black:   '0x292d3e'
+    red:     '0xf07178'
+    green:   '0xc3e88d'
+    yellow:  '0xffcb6b'
+    blue:    '0x82aaff'
+    magenta: '0xc792ea'
+    cyan:    '0x89ddff'
+    white:   '0x959dcb'
 
   # Bright colors
   bright:
-    black:   '#625e4c'
-    red:     '#f4005f'
-    green:   '#98e024'
-    yellow:  '#e0d561'
-    blue:    '#9d65ff'
-    magenta: '#f4005f'
-    cyan:    '#58d1eb'
-    white:   '#f6f6ef'
+    black:   '0x676e95'
+    red:     '0xf07178'
+    green:   '0xc3e88d'
+    yellow:  '0xffcb6b'
+    blue:    '0x82aaff'
+    magenta: '0xc792ea'
+    cyan:    '0x89ddff'
+    white:   '0xffffff'
+
+  indexed_colors:
+    - { index: 16, color: '0xf78c6c' }
+    - { index: 17, color: '0xff5370' }
+    - { index: 18, color: '0x444267' }
+    - { index: 19, color: '0x32374d' }
+    - { index: 20, color: '0x8796b0' }
+    - { index: 21, color: '0x959dcb' }
+
+
+# Colors (Night Owl by Sarah Drasner)
+_colors:
+  # Default colors
+  primary:
+    background: '0x011627'
+    foreground: '0xd6deeb'
+
+  # Colors the cursor will use if `custom_cursor_colors` is true
+  cursor:
+    text: '0xffffff'
+    cursor: '0x7e57c2'
+
+  # Normal colors
+  normal:
+    black:   '0x000000'
+    red:     '0xef5350'
+    green:   '0x22da6e'
+    yellow:  '0xaddb67'
+    blue:    '0x82aaff'
+    magenta: '0xc792ea'
+    cyan:    '0x21c7a8'
+    white:   '0xffffff'
+
+  # Bright colors
+  bright:
+    black:   '0x575656'
+    red:     '0xef5350'
+    green:   '0x22da6e'
+    yellow:  '0xffeb95'
+    blue:    '0x82aaff'
+    magenta: '0xc792ea'
+    cyan:    '0x7fdbca'
+    white:   '0xffffff'
 
 key_bindings:
   # https://github.com/alacritty/alacritty/issues/753#issuecomment-533040040
@@ -73,3 +122,4 @@ key_bindings:
   #  https://github.com/alacritty/alacritty/blob/master/alacritty.yml#L635
   - { key: N,      mods: Command,            action: SpawnNewInstance }
 
+# vim: ts=2 sw=2 et

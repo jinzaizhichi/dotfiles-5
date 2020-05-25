@@ -12,41 +12,60 @@ set expandtab
 set nowrap
 set smartcase
 set noswapfile
-set list lcs=tab:\|\ " Show tabs 
-set mouse=a " Enable mouse scroll on CoC floating window
+set list lcs=tab:\|\        " Show tabs
+set mouse=a                 " Enable mouse on all modes
 
-filetype plugin indent on " For NERDCommenter
+filetype plugin indent on   " Detect filetype 
 
-nnoremap <C-j> :terminal<cr><C-w>J
-vmap < <gv " Vmap for maintain Visual Mode after shifting <
-vmap > >gv " Vmap for maintain Visual Mode after shifting > 
+" Keep VisualMode after indent with > or <
+vmap < <gv 
+vmap > >gv 
+
+" Move Visual blocks with J an K
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
-" Plugins
+" Toggle terminal
+nnoremap <C-j> :terminal<cr><C-w>J
+
+" Wrap on markdown files
+autocmd BufRead,BufNewFile *.md setlocal wrap 
+
+" Install vim-plug for vim and neovim
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  silent !mkdir -p ~/.config/nvim/autoload/ && ln -s ~/.vim/autoload/plug.vim ~/.config/nvim/autoload/
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
+" Plugins
 call plug#begin('~/.vim/plugged')
-Plug 'kaicataldo/material.vim'          " Material Themes (y like the lighter one)
-Plug 'morhetz/gruvbox'                  " Retro cool theme
-Plug 'haishanh/night-owl.vim'           " A 'Night Time' cool theme
-Plug 'tpope/vim-sensible'               " Sensible defaults
-Plug 'itchyny/lightline.vim'            " Simple status line
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } " File navigator
-Plug 'preservim/nerdcommenter'          " Use <leader>c<space> for comments
-Plug 'Xuyuanp/nerdtree-git-plugin'      " File git status on NERDTree
+
+" Themes (I usually switch between them)
+Plug 'kaicataldo/material.vim'                                    " Material Themes
+Plug 'morhetz/gruvbox'                                            " Retro cool theme
+Plug 'haishanh/night-owl.vim'                                     " A 'Night Time' cool theme
+
+" Utilities
+Plug 'itchyny/lightline.vim'                                      " Simple status line
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }           " File navigator
+Plug 'preservim/nerdcommenter'                                    " Use <leader>c<space> for comments
+Plug 'Xuyuanp/nerdtree-git-plugin'                                " Git status on NERDTree
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Install fuzzy finder
-Plug 'junegunn/fzf.vim'                 " <C-P> (find files) o
-Plug 'neoclide/coc.nvim', {'branch': 'release'}      " Make Vim work like an IDE (requires node)
-Plug 'liuchengxu/vista.vim'             " Like ctags but for coc
-Plug 'dense-analysis/ale'               " To use PHPCS or flake8 to check syntax errors
+Plug 'junegunn/fzf.vim'                                           " <C-P> (find files) o
+Plug 'godlygeek/tabular'
+
+" Misc
+Plug 'tpope/vim-sensible'                                         " Sensible defaults
+
+" Make Vim work like an IDE (requires node)
+Plug 'neoclide/coc.nvim', {'branch': 'release'}                   " Autocomplete
+Plug 'liuchengxu/vista.vim'                                       " Like ctags but for coc
+Plug 'dense-analysis/ale'                                         " To use PHPCS or flake8 to check syntax errors
 call plug#end()
 
-" Material, NightOwl and Grubox theme settings
+" Most of the themes share configuration. Lest do them all toghether 
 if exists('+termguicolors')
   let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
   let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
@@ -54,13 +73,12 @@ if exists('+termguicolors')
 endif
 let g:gruvbox_italic=1
 let g:material_terminal_italics = 1
-let g:material_theme_style = 'palenight' " 'default' | 'palenight' | 'ocean' | 'lighter' | 'darker'
-let g:lightline = { 'colorscheme': 'material_vim' }
-colorscheme material "material gruvbox night-owl
+let g:material_theme_style = 'palenight' " Options ara:'default' | 'palenight' | 'ocean' | 'lighter' | 'darker'
+let g:lightline = { 'colorscheme': 'material' }
+colorscheme material " Options are: material gruvbox night-owl palenight
 
-" NERDTreeToggle keymaps
-noremap <leader>n :NERDTreeToggle<cr>
-inoremap <C-,> <esc>:NERDTreeToggle<cr>
+" NERDTree
+noremap <leader>n :NERDTreeToggle<cr> 
 let NERDTreeShowHidden=1
 
 
@@ -70,11 +88,16 @@ nnoremap <C-g> :GFiles<cr>
 nnoremap <leader>h :History<cr>
 nnoremap <leader>b :Buffers<cr>
 
-" Vista 
+" Vista.Vim
 nnoremap <leader>t :Vista!!<cr>
+let g:vista_default_executive = 'coc'
+let g:vista_fzf_preview = ['right:50%'] " This is very cool Ctrl-P preview!!!
 
-" CoC https://github.com/neoclide/coc.nvim#example-vim-configuration
-" Enable 'wordpress' in ~/.config/coc/extensions/node_modules/coc-phpls/package.json
+" ALE
+let g:ale_fix_on_save = 1
+let g:ale_fixers = {'php': ['phpcbf']} " Use phpcbf for PHP code formatting
+
+" CoC Install Extensions
 let g:coc_global_extensions = [
     \ 'coc-tsserver',
     \ 'coc-eslint',
@@ -83,16 +106,40 @@ let g:coc_global_extensions = [
     \ 'coc-markdownlint'
     \]
 
+" {{{ 
+" CoC START!!!!
+" - Taken from https://github.com/neoclide/coc.nvim#example-vim-configuration
+" - Enable 'wordpress' in ~/.config/coc/extensions/node_modules/coc-phpls/package.json
+
+" TextEdit might fail if hidden is not set.
 set hidden
+
+" Some servers have issues with backup files, see #649.
 set nobackup
 set nowritebackup
+
+" Give more space for displaying messages.
 set cmdheight=2
+
+" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
+" delays and poor user experience.
 set updatetime=300
-"set shortmess+=c
-set shortmess=aFc
-set signcolumn=yes
+
+" Don't pass messages to |ins-completion-menu|.
+set shortmess+=c
+
+" Always show the signcolumn, otherwise it would shift the text each time
+" diagnostics appear/become resolved.
+if has("patch-8.1.1564")
+  " Recently vim can merge signcolumn and number column into one
+  set signcolumn=number
+else
+  set signcolumn=yes
+endif
 
 " Use tab for trigger completion with characters ahead and navigate.
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config.
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
@@ -108,11 +155,17 @@ endfunction
 inoremap <silent><expr> <c-space> coc#refresh()
 
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
+" position. Coc only does snippet and additional edit on confirm.
+" <cr> could be remapped by other vim plugin, try `:verbose imap <CR>`.
 if exists('*complete_info')
   inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
 else
   inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 endif
+
+" Use `[g` and `]g` to navigate diagnostics
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
@@ -122,6 +175,7 @@ nmap <silent> gr <Plug>(coc-references)
 
 " Use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>
+
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
@@ -129,6 +183,9 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
+
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
@@ -150,23 +207,26 @@ augroup end
 xmap <leader>a  <Plug>(coc-codeaction-selected)
 nmap <leader>a  <Plug>(coc-codeaction-selected)
 
-" Remap keys for applying codeAction to the current line.
+" Remap keys for applying codeAction to the current buffer.
 nmap <leader>ac  <Plug>(coc-codeaction)
 " Apply AutoFix to problem on the current line.
 nmap <leader>qf  <Plug>(coc-fix-current)
 
-" Introduce function text object
+" Map function and class text objects
 " NOTE: Requires 'textDocument.documentSymbol' support from the language server.
 xmap if <Plug>(coc-funcobj-i)
-xmap af <Plug>(coc-funcobj-a)
 omap if <Plug>(coc-funcobj-i)
+xmap af <Plug>(coc-funcobj-a)
 omap af <Plug>(coc-funcobj-a)
+xmap ic <Plug>(coc-classobj-i)
+omap ic <Plug>(coc-classobj-i)
+xmap ac <Plug>(coc-classobj-a)
+omap ac <Plug>(coc-classobj-a)
 
-" Use <TAB> for selections ranges.
-" NOTE: Requires 'textDocument/selectionRange' support from the language server.
-" coc-tsserver, coc-python are the examples of servers that support it.
-nmap <silent> <TAB> <Plug>(coc-range-select)
-xmap <silent> <TAB> <Plug>(coc-range-select)
+" Use CTRL-S for selections ranges.
+" Requires 'textDocument/selectionRange' support of LS, ex: coc-tsserver
+nmap <silent> <C-s> <Plug>(coc-range-select)
+xmap <silent> <C-s> <Plug>(coc-range-select)
 
 " Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocAction('format')
@@ -200,37 +260,5 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
-" Vista.Vim
-let g:vista_default_executive = 'coc'
-let g:vista_fzf_preview = ['right:50%']
-
-
-function! NearestMethodOrFunction() abort
-  return get(b:, 'vista_nearest_method_or_function', '')
-endfunction
-
-set statusline+=%{NearestMethodOrFunction()}
-
-autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
-
-" Lightline with Material Theme, CoC  and Vista status support
-let g:lightline = {
-  \ 'colorscheme': 'material',
-  \ 'active': {
-  \   'left': [ [ 'mode', 'paste' ],
-  \             [ 'method', 'readonly', 'filename', 'modified', 'cocstatus' ] ]
-  \ },
-  \ 'component_function': {
-  \   'cocstatus': 'coc#status',
-  \   'method': 'NearestMethodOrFunction'
-  \ },
-  \ }
-autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
-
-
-" ALE PHPCS 
-let g:ale_fix_on_save = 1
-let g:ale_fixers = {'php': ['phpcbf']}
-
-" Wrap on markdown files
-autocmd BufRead,BufNewFile *.md setlocal wrap
+" CoC END!!!! 
+" }}}
