@@ -14,18 +14,18 @@ scrolling:
 
 font:
   normal: 
-    family: CONSOLAS Powerline
+    family: Hasklig
     style: Regular
-  #bold:
-    #family: Monaco
-    #style: Bold
-  #italic:
-    #family: Dank Mono Italic
-    #style: Italic
-  #bold_italic:
-    #family: Dank Mono Italic
-    #style: Italic Bold
-  size: 14
+  bold:
+    family: Hasklig
+    style: Bold
+  italic:
+    family: Hasklig
+    style: Italic
+  bold_italic:
+    family: Hasklig
+    style: Regular Italic
+  size: 15
   offset:
     x: 0
     y: 2
