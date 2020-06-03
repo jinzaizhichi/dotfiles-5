@@ -65,6 +65,7 @@ Plug 'itchyny/lightline.vim'                            " Lightweight status lin
 Plug 'maximbaz/lightline-ale'                           " Lightline ALE support
 Plug 'airblade/vim-gitgutter'                           " Show which lines changed
 Plug 'mattn/emmet-vim'                                  " Emmet support with <C-y>,
+Plug 'sheerun/vim-polyglot'
 Plug 'drewtempelmeyer/palenight.vim'                    " Soothing color scheme for your favorite [best] text editor
 call plug#end()
 
@@ -127,7 +128,6 @@ inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
       \ coc#refresh()
-
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 function! s:check_back_space() abort
@@ -154,12 +154,12 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
+
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 command! -nargs=0 Format :call CocAction('format')
 command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
-
 
 " Theme(s) settings
 if has('nvim')
