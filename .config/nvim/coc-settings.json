@@ -1,15 +1,11 @@
 {
-  "coc.preferences.formatOnSaveFiletypes": ["json", "javascript"],
-  "codeLens.enable": false,
-  "suggest.echodocSupport": true,
-  "diagnostic.displayByAle": true,
   "diagnostic-languageserver.filetypes": {
     "php": ["phpcs"]
   },
   "diagnostic-languageserver.linters": {
     "phpcs": {
       "command": "./vendor/bin/phpcs",
-      "debounce": 100,
+      "debounce": 300,
       "rootPatterns": ["composer.json", "composer.lock", "vendor", ".git"],
       "args": ["--report=emacs", "-s", "-"],
       "offsetLine": 0,
