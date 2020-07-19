@@ -6,7 +6,7 @@ window:
   dynamic_padding: true
   padding: 
     x: 5
-    y: 3
+    y: 1
 
 scrolling:
   history: 50000
@@ -15,7 +15,7 @@ scrolling:
 font:
   normal: 
     family: Hasklig
-    style: Regular
+    style: Light
   bold:
     family: Hasklig
     style: Bold
@@ -29,6 +29,7 @@ font:
   offset:
     x: 0
     y: 2
+  use_thin_strokes: true
 
 # Base16 Material Palenight 256 - alacritty color config
 # Nate Peterson

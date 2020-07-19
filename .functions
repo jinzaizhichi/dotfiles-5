@@ -11,8 +11,8 @@ function terminal-colors-list() {
 function backup-security() {
     DEST=backup-secret-dotfiles.zip
     cd ${HOME}
-    zip /tmp/${DEST} .rclone.conf
-    for i in .netrc .ssh .gnupg .ultrahook .extra .rclone.conf; do
+    zip /tmp/${DEST} .rclone.conf # This is a trick so the `zip -u` to work
+    for i in .aws .netrc .ssh .gnupg .ultrahook .extra .rclone.conf .todoist.config.json; do
         zip -r -u /tmp/${DEST} ${i}
     done
     cd /tmp

@@ -14,8 +14,8 @@ for file in `ls -a` ; do
 	if [ $file == ".DS_Store" ]; then continue; fi
 	if [ $file == ".zshrc" ]; then continue; fi
 	if [[ $file == *".sh" ]]; then continue; fi
-	if [ $file == "README.md" ]; then continue; fi
-	if [ $file == "LICENSE-MIT.txt" ]; then continue; fi
+	if [[ $file == *".md" ]]; then continue; fi
+	if [ $file == "Brewfile" ]; then continue; fi
 	if [ ! -f $file ]; then continue; fi
 
     echo $file;
@@ -25,7 +25,9 @@ done
 
 cp .zshrc $HOME/
 
-echo "Next steps:"
-echo "Re-stablish your ssh keys in .ssh"
-echo "Install MacOS packages with: ./brew.sh && ./brew-cask.sh && ./brew-cask-fonts.sh"
-echo "Install Plugins and extensions with : ./lang-plugins.sh"
+echo 'Next steps:'
+echo 'Re-stablish your ssh keys in .ssh'
+echo 'Install homebrew with: bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"'
+echo 'Install oh-my-zsh with: bash -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"'
+echo 'Install MacOS packages with: "sudo -v && brew bundle"'
+echo 'Install Plugins and extensions with : "source plugins.sh"'
