@@ -6,6 +6,7 @@
     "typescript",
     "typescriptreact"
   ],
+  "intelephense.licenceKey": "~/.intelephense",
   "intelephense.stubs": [
     "apache",
     "bcmath",
@@ -86,7 +87,7 @@
     "wordpress"
   ],
   "diagnostic-languageserver.filetypes": {
-    "php": ["phpcs"]
+    "php": []
   },
   "diagnostic-languageserver.linters": {
     "phpcs": {
@@ -114,7 +115,7 @@
     }
   },
   "diagnostic-languageserver.formatFiletypes": {
-    "php": ["phpcbf"]
+    "php": []
   },
   "diagnostic-languageserver.formatters": {
     "phpcbf": {
@@ -123,5 +124,6 @@
       "rootPatterns": ["composer.json", "composer.lock", "vendor", ".git"],
       "args": ["%file"]
     }
-  }
+  },
+  "python.jediEnabled": false
 }

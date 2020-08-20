@@ -70,7 +70,10 @@ endif
 " Plugins
 call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-sensible'                               " Sensible defaults
-Plug 'neoclide/coc.nvim', {'branch': 'release'}         " Make Vim like Visual Studio Code
+if !exists('g:vscode')
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}       " Make Vim like Visual Studio Code
+  Plug 'liuchengxu/vista.vim'                           " Like Ctags but for LSP (CoC)
+endif
 Plug 'itchyny/lightline.vim'                            " Beautify status line
 Plug 'josa42/vim-lightline-coc'                         " Show CoC diagnostics in LightLine
 Plug 'sheerun/vim-polyglot'                             " Metapackage with a bunch of syntax highlight libs
@@ -87,7 +90,6 @@ Plug 'junegunn/vim-easy-align'                          " Align text by characte
 Plug 'mattn/emmet-vim'                                  " Emmet support with <C-y>,
 Plug 'terryma/vim-multiple-cursors'                     " Multiple cursors like Sublime with <C-n>
 Plug 'tpope/vim-fugitive'                               " Like :!git but better
-Plug 'liuchengxu/vista.vim'                             " Like Ctags but for LSP (CoC)
 Plug 'jiangmiao/auto-pairs'                             " Auto close qutoes, parens, brakets, etc
 Plug 'plasticboy/vim-markdown'                          " Fold on markdown and syntax highlighting 
 call plug#end()
@@ -274,3 +276,4 @@ silent! colorscheme palenight
 ":autocmd BufWritePost *.php Format
 ":autocmd BufWritePost *.php e
 
+" vim: ts=2 sw=2 et
