@@ -2,9 +2,9 @@
 
 # Show a list of terminal colors names and displays the color
 function terminal-colors-list() {
-	for i in {0..255} ; do
-		printf "\x1b[38;5;${i}mcolour${i}\n"
-	done
+    for i in {0..255} ; do
+        printf "\x1b[38;5;${i}mcolour${i}\n"
+    done
 }
 
 # Creates a backup of secret .files in Google Drive
@@ -19,5 +19,9 @@ function backup-security() {
     rclone -P copy ${DEST} GdriveMario:/Backups/${DEST}
 }
 
+function update_pip3() {
+    pip3 list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip3 install -U
+}
 
-# vim: syntax=sh
+
+# vim: syntax=sh ts=4 sw=4 et

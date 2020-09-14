@@ -236,6 +236,7 @@ call lightline#coc#register()
 " NERDTree
 let NERDTreeShowHidden=1
 let NERDTreeQuitOnOpen=1
+let NERDTreeWinSize=45
 map <C-k><C-k> :NERDTreeToggle<cr>
 map <C-k><C-f> :NERDTreeFind<cr>
 augroup nerdtree-auto-open-if-param-is-dir
