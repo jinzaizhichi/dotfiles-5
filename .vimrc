@@ -1,5 +1,6 @@
 " config.vim
 
+" {{{ Basic configuration
 let mapleader=","
 set nocompatible
 set number                " Show numbers on the left
@@ -60,6 +61,7 @@ augroup vimrc-remember-cursor-position
   autocmd!
   autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 augroup END
+" }}}
 
 " Install vim-plug
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -70,31 +72,39 @@ endif
 " Plugins
 call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-sensible'                               " Makes vim work as you'd expect
+
 Plug 'neoclide/coc.nvim', {'branch': 'release'}         " Make Vim like Visual Studio Code
 Plug 'liuchengxu/vista.vim'                             " Like Ctags but for LSP (CoC)
+
 Plug 'sheerun/vim-polyglot'                             " Metapackage with a bunch of syntax highlight libs
+
 Plug 'itchyny/lightline.vim'                            " Beautify status line
 Plug 'josa42/vim-lightline-coc'                         " Show CoC diagnostics in LightLine
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } " File navigator with <C-k><C-k>
+Plug 'Xuyuanp/nerdtree-git-plugin'                      " Show git status on NERDTree
+Plug 'ryanoasis/vim-devicons'                           " Icons on NERDtree and Vista
+Plug 'airblade/vim-gitgutter'                           " Show which lines changed on gutter
+
 Plug 'drewtempelmeyer/palenight.vim'                    " Soothing color scheme based on material palenight
 Plug 'sainnhe/gruvbox-material'                         " The gruvbox theme but with Material-UI colors
 Plug 'patstockwell/vim-monokai-tasty'                   " Theme that is '74% tastier than competitors'
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } " File navigator with <C-k><C-k>
-Plug 'Xuyuanp/nerdtree-git-plugin'                      " Show git status on NERDTree
+
+Plug 'terryma/vim-multiple-cursors'                     " Multiple cursors like Sublime with <C-n>
 Plug 'preservim/nerdcommenter'                          " Language sensitive comments with <leader>c<space>
-Plug 'airblade/vim-gitgutter'                           " Show which lines changed on gutter
-Plug 'editorconfig/editorconfig-vim'                    " Configure tab or spaces per project
+Plug 'junegunn/vim-easy-align'                          " Align text by characters or reguex
+Plug 'tpope/vim-fugitive'                               " Like :!git but better
+
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }     " Install fuzzy finder binary
 Plug 'junegunn/fzf.vim'                                 " Enable fuzzy finder in Vim with <C-p>
-Plug 'junegunn/vim-easy-align'                          " Align text by characters or reguex
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+
 Plug 'mattn/emmet-vim'                                  " Emmet support with <C-y>,
-Plug 'terryma/vim-multiple-cursors'                     " Multiple cursors like Sublime with <C-n>
-Plug 'tpope/vim-fugitive'                               " Like :!git but better
 Plug 'jiangmiao/auto-pairs'                             " Auto close quotes, parens, brakets, etc
-Plug 'plasticboy/vim-markdown'                          " Fold on markdown and syntax highlighting
+
+"Plug 'plasticboy/vim-markdown'                          " Fold on markdown and syntax highlighting
+Plug 'editorconfig/editorconfig-vim'                    " Configure tab or spaces per project
 Plug 'dense-analysis/ale', { 'for': 'php' }             " Code sniffing using external tools
 Plug 'bogado/file-line'                                 " Enable opening vim like - vim my_file.php:8
-Plug 'ryanoasis/vim-devicons'                           " Icons on nerdtree and vista
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 call plug#end()
 
 " CoC extensions to be auto installed
@@ -324,8 +334,10 @@ let g:mkdp_auto_close = 0
 let g:mkdp_refresh_slow = 1
 
 " ALE
+let g:ale_disable_lsp = 1
 let g:ale_php_phpcs_executable='./vendor/bin/phpcs'
 let g:ale_php_php_cs_fixer_executable='./vendor/bin/phpcbf'
 let g:ale_fixers = {'php': ['phpcbf']}
+let g:ale_fix_on_save = 1
 
 " vim: ts=2 sw=2 et
