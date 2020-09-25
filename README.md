@@ -7,6 +7,7 @@
 ## Installation
 
 - Install Git (On MacOS and Windows)
+- Log in to the App Store (On MacOS)
 - Clone the repo
 - Source the `bootstrap.sh` script
 - Install packages and extensions
@@ -21,6 +22,10 @@ xcode-select --install
 
 In linux, you probably will get `git` right out of the box
 
+### Login to the App Store
+
+On mac, the installation of apps is done using [Homebrew](https://brew.sh/) and the unofficial [Mac App Store command line interface](https://github.com/mas-cli/mas). And for the latter to work, you need to log in into the Apps Store app first.
+
 ### Clone the repo and source the bootstrap script
 
 This can be done with the following commands
@@ -31,7 +36,7 @@ cd dotfiles
 source bootstrap.sh
 ```
 
-This will create _symlinks_ into your home directory.
+This will create several _symlinks_ into your home directory. That's why you **should never remove the dotfiles directory**.
 
 ### Install packages and extensions
 
@@ -49,7 +54,7 @@ Unfortunatelly [this](http://www.gingerbeardman.com/services/) services are not 
 
 ## Terminal setup
 
-I'm using [iTerm2](https://www.iterm2.com) terminal emulator on Mac with a [customized](init/material-design-colors-darker.itermcolors) version of the the [Material Design Color Scheme](https://github.com/MartinSeeler/iterm2-material-design). More information on how to set it up [here](http://iterm2colorschemes.com/)
+I'm using [iTerm2](https://www.iterm2.com) terminal emulator on Mac with a customized version of the the [Material Design Color Scheme](https://github.com/MartinSeeler/iterm2-material-design). More information on how to set it up [here](http://iterm2colorschemes.com/)
 
 There is also an [Alacritty](https://github.com/alacritty/alacritty/) dotfile configuration if you are more interested in an speedy terminal.
 

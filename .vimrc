@@ -276,6 +276,8 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 " {{{ Vista
 let g:vista#renderer#enable_icon = 1
 let g:vista_default_executive = 'coc'
+let g:vista_sidebar_width = 45
+let g:vista_close_on_jump = 1
 nnoremap <C-k><C-o> :Vista finder<cr>
 inoremap <C-k><C-o> <esc>:Vista finder<cr>
 " }}}
@@ -340,12 +342,12 @@ let g:lightline.active.left = [
 let g:lightline.active.right = [
   \      ['lineinfo'], ['fileformat', 'filetype']
   \]
-" let g:lightline.colorscheme = 'ayu_mirage'
+let g:lightline.colorscheme = 'ayu_mirage'
 " let g:lightline.colorscheme = 'darcula'
 " let g:lightline.colorscheme = 'gruvbox_material'
 " let g:lightline.colorscheme = 'monokai_tasty'
 " let g:lightline.colorscheme = 'nightowl'
-let g:lightline.colorscheme = 'palenight'
+" let g:lightline.colorscheme = 'palenight'
 " let g:lightline.colorscheme = 'selenized_dark' " Goes great with night owl
 " }}}
 

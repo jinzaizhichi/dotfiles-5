@@ -1,5 +1,5 @@
 # NPM Commands
-npm install -g gulp vmd pnpm yarn
+npm install -g vmd pnpm yarn
 
 # Vagrant plugins
 vagrant plugin install vagrant-bindfs
