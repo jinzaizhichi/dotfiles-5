@@ -20,6 +20,8 @@ brew "ffmpeg"
 brew "fzf"
 brew "git"
 brew "htop"
+brew "lazygit"
+brew "mas"
 brew "neovim", args: ["HEAD"]
 brew "nmap"
 brew "node"
@@ -32,7 +34,6 @@ brew "tmux"
 brew "tree"
 brew "vim"
 brew "youtube-dl"
-brew "sachaos/todoist/todoist"
 cask "adoptopenjdk"
 cask "alfred"
 cask "android-file-transfer"
@@ -46,9 +47,8 @@ cask "dropbox"
 cask "figma"
 cask "fluid"
 cask "flume"
-cask "font-fira-code"
-cask "font-hack"
 cask "font-hasklig"
+cask "font-hasklug-nerd-font"
 cask "free-ruler"
 cask "google-backup-and-sync"
 cask "google-chrome"
@@ -81,3 +81,13 @@ cask "visual-studio-code"
 cask "vlc"
 cask "whatsapp"
 cask "zoomus"
+mas "Fantastical", id: 975937182
+mas "Harvest", id: 506189836
+mas "Sip", id: 507257563
+mas "Skitch", id: 425955336
+mas "Slack", id: 803453959
+mas "The Clock", id: 488764545
+mas "Todoist", id: 585829637
+mas "Trello", id: 1278508951
+mas "VOX", id: 461369673
+mas "Xcode", id: 497799835
