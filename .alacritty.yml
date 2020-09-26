@@ -1,3 +1,4 @@
+# {{{ window
 window:
   dimensions:
     columns: 80
@@ -30,14 +31,15 @@ font:
     x: 0
     y: 2
   use_thin_strokes: true
+# }}}
 
-# Base16 Material Palenight 256 - alacritty color config
-# Nate Peterson
+# {{{ Color Base16 Material Palenight 256 - alacritty color config -  Nate Peterson
 colors:
   # Default colors
   primary:
     background: '0x292d3e'
-    foreground: '0x959dcb'
+    # foreground: '0x959dcb'
+    foreground: '0xffffff'
 
   # Colors the cursor will use if `custom_cursor_colors` is true
   cursor:
@@ -73,10 +75,10 @@ colors:
     - { index: 19, color: '0x32374d' }
     - { index: 20, color: '0x8796b0' }
     - { index: 21, color: '0x959dcb' }
+# }}}
 
-
-# Colors (Night Owl by Sarah Drasner)
-_colors:
+# {{{ Colors Night Owl by Sarah Drasner
+colors_night_owl:
   # Default colors
   primary:
     background: '0x011627'
@@ -108,7 +110,149 @@ _colors:
     magenta: '0xc792ea'
     cyan:    '0x7fdbca'
     white:   '0xffffff'
+# }}}
 
+# {{{ Colors Challenger deep
+colors_challenger:
+  # Default colors
+  primary:
+    background: '0x1b182c'
+    foreground: '0xcbe3e7'
+
+  # Normal colors
+  normal:
+    black:   '0x100e23'
+    red:     '0xff8080'
+    green:   '0x95ffa4'
+    yellow:  '0xffe9aa'
+    blue:    '0x91ddff'
+    magenta: '0xc991e1'
+    cyan:    '0xaaffe4'
+    white:   '0xcbe3e7'
+
+  # Bright colors
+  bright:
+    black:   '0x565575'
+    red:     '0xff5458'
+    green:   '0x62d196'
+    yellow:  '0xffb378'
+    blue:    '0x65b2ff'
+    magenta: '0x906cff'
+    cyan:    '0x63f2f1'
+    white:   '0xa6b3cc'
+# }}}
+
+# {{{ Colors (Dracula)
+colors_dracula:
+  # Default colors
+  primary:
+    background: '0x282a36'
+    foreground: '0xf8f8f2'
+
+    # Bright and dim foreground colors
+    #
+    # The dimmed foreground color is calculated automatically if it is not present.
+    # If the bright foreground color is not set, or `draw_bold_text_with_bright_colors`
+    # is `false`, the normal foreground color will be used.
+    #dim_foreground: '0x9a9a9a'
+    #bright_foreground: '0xffffff'
+
+  # Cursor colors
+  #
+  # Colors which should be used to draw the terminal cursor. If these are unset,
+  # the cursor color will be the inverse of the cell color.
+  cursor:
+    text: '0x44475a'
+    cursor: '0xf8f8f2'
+
+  # Selection colors
+  #
+  # Colors which should be used to draw the selection area. If selection
+  # background is unset, selection color will be the inverse of the cell colors.
+  # If only text is unset the cell text color will remain the same.
+  selection:
+    text: '0xf8f8f2'
+    background: '0x44475a'
+
+  # Normal colors
+  normal:
+    black:   '0x000000'
+    red:     '0xff5555'
+    green:   '0x50fa7b'
+    yellow:  '0xf1fa8c'
+    blue:    '0xbd93f9'
+    magenta: '0xff79c6'
+    cyan:    '0x8be9fd'
+    white:   '0xbfbfbf'
+
+  # Bright colors
+  bright:
+    black:   '0x4d4d4d'
+    red:     '0xff6e67'
+    green:   '0x5af78e'
+    yellow:  '0xf4f99d'
+    blue:    '0xcaa9fa'
+    magenta: '0xff92d0'
+    cyan:    '0x9aedfe'
+    white:   '0xe6e6e6'
+
+  # Dim colors
+  #
+  # If the dim colors are not set, they will be calculated automatically based
+  # on the `normal` colors.
+  dim:
+    black:   '0x14151b'
+    red:     '0xff2222'
+    green:   '0x1ef956'
+    yellow:  '0xebf85b'
+    blue:    '0x4d5b86'
+    magenta: '0xff46b0'
+    cyan:    '0x59dffc'
+    white:   '0xe6e6d1'
+
+  # Indexed Colors
+  #
+  # The indexed colors include all colors from 16 to 256.
+  # When these are not set, they're filled with sensible defaults.
+  #
+  # Example:
+  #   `- { index: 16, color: '0xff00ff' }`
+  #
+  indexed_colors: [] 
+
+# }}}
+
+# {{{ Colors One Dark
+colors_one_dar:
+  # Default colors
+  primary:
+    background: '0x1e2127'
+    foreground: '0xabb2bf'
+
+  # Normal colors
+  normal:
+    black:   '0x1e2127'
+    red:     '0xe06c75'
+    green:   '0x98c379'
+    yellow:  '0xd19a66'
+    blue:    '0x61afef'
+    magenta: '0xc678dd'
+    cyan:    '0x56b6c2'
+    white:   '0xabb2bf'
+
+  # Bright colors
+  bright:
+    black:   '0x5c6370'
+    red:     '0xe06c75'
+    green:   '0x98c379'
+    yellow:  '0xd19a66'
+    blue:    '0x61afef'
+    magenta: '0xc678dd'
+    cyan:    '0x56b6c2'
+    white:   '0xffffff'
+# }}}
+
+# {{{ key Bindings
 key_bindings:
   # https://github.com/alacritty/alacritty/issues/753#issuecomment-533040040
   - { key: 10,        mods: Alt,    chars: "\x5c" } # barra invertida `\`
@@ -122,5 +266,6 @@ key_bindings:
   - { key: 30,        mods: Alt,    chars: "]" } # cierra corchetes `]`
   #  https://github.com/alacritty/alacritty/blob/master/alacritty.yml#L635
   - { key: N,      mods: Command,            action: SpawnNewInstance }
+# }}}
 
-# vim: ts=2 sw=2 et
+# vim: ts=2 sw=2 et fdm=marker
