@@ -58,6 +58,14 @@ I'm using [iTerm2](https://www.iterm2.com) terminal emulator on Mac with a custo
 
 There is also an [Alacritty](https://github.com/alacritty/alacritty/) dotfile configuration if you are more interested in an speedy terminal.
 
+### Alacritty Terminfo
+
+```bash
+cd ~/Downloads/
+curl https://raw.githubusercontent.com/alacritty/alacritty/master/extra/alacritty.info -O 
+sudo tic -xe alacritty,alacritty-direct extra/alacritty.info
+```
+
 ## Add custom commands without creating a new fork
 
 If the `~/.extra` file exists, it will be sourced along with the other files. You can use this to add a few custom commands without the need to fork this entire repository, or to add commands you don’t want to commit to a public repository.

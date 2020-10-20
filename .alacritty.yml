@@ -1,40 +1,43 @@
-# {{{ window
+# {{{ Window & Scrolling
 window:
   dimensions:
     columns: 80
     lines: 24
-  decorations: none
-  dynamic_padding: true
+  decorations: none 
   padding: 
-    x: 5
-    y: 1
+    x: 1
+    y: 0
+  dynamic_padding: true
 
 scrolling:
   history: 50000
   multiplier: 2
+# }}}
 
+# {{{ Font
 font:
   normal: 
-    family: Hasklug Nerd Font
+    # family: JetBrainsMono Nerd Font
+    family: Hasklug Nerd Font Mono
     style: Regular
   bold:
-    family: Hasklug Nerd Font
+    family: Hasklug Nerd Font Mono
     style: Black
   italic:
-    family: Hasklug Nerd Font
+    family: Hasklug Nerd Font Mono
     style: Italic
   bold_italic:
-    family: Hasklug Nerd Font
+    family: Hasklug Nerd Font Mono
     style: Regular Italic
   size: 14
   offset:
     x: 0
-    y: 2
+    y: 1
   use_thin_strokes: true
 # }}}
 
 # {{{ Color Base16 Material Palenight 256 - alacritty color config -  Nate Peterson
-colors:
+colors_palenight:
   # Default colors
   primary:
     background: '0x292d3e'
@@ -223,7 +226,7 @@ colors_dracula:
 # }}}
 
 # {{{ Colors One Dark
-colors_one_dar:
+colors:
   # Default colors
   primary:
     background: '0x1e2127'
