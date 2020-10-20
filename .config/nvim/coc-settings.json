@@ -1,10 +1,9 @@
 {
   "eslint.autoFixOnSave": true,
-  "diagnostic-languageserver.enable":true,
   "diagnostic-languageserver.linters": {
     "phpcs": {
       "command": "./vendor/bin/phpcs",
-      "debounce": 100,
+      "debounce": 3000,
       "rootPatterns": ["composer.json", "composer.lock", "vendor", ".git"],
       "args": [ "--report=emacs", "-s", "-"],
       "offsetLine": 0,

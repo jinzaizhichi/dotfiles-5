@@ -22,7 +22,7 @@ set showmatch             " Highlights the matching parenthesis
 set termguicolors         " Required for some themes
 set splitright splitbelow " Changes the behaviour of vertical and horizontal splits
 set foldlevel=1           " Better for markdown and PHP classes
-set cursorline            " Highlight the current cursor line
+set cursorline            " Highlight the current cursor line (Can slow the UI)
 filetype plugin indent on " Enable file type detection.
 let &t_EI = "\e[2 q"      " Make cursor a line in insert on Vim
 let &t_SI = "\e[6 q"      " Make cursor a line in insert on Vim
@@ -73,6 +73,12 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
+
+" AutoOpen NetRW of called without parammters
+augroup netrw-auto-open-if-no-params
+  autocmd!
+  autocmd VimEnter * if argc() == 0 | Explore! | endif
+augroup END
 " }}}
 
 " {{{ Plugins
@@ -352,10 +358,11 @@ let g:lightline.colorscheme = 'ayu_mirage'
 " }}}
 
 " {{{ NERDTree
-let NERDTreeShowHidden=1
-let NERDTreeQuitOnOpen=1
-let NERDTreeWinSize=45
-let NERDTreeWinPos='right'
+let NERDTreeMinimalUI=1    " Remove the help at the top
+let NERDTreeQuitOnOpen=1   " Close sidebar when opening a file
+let NERDTreeShowHidden=1   " Do I have to explain this
+let NERDTreeWinPos='right' " Or this?
+let NERDTreeWinSize=45     " Increase the sidebar size
 map <C-k><C-k> :NERDTreeToggle<cr>
 map <C-k><C-f> :NERDTreeFind<cr>
 " Open up nerdtree if started like 'vim .'
@@ -394,7 +401,7 @@ nmap ?? :Rg!!<cr>
 let g:mkdp_auto_close = 0
 let g:mkdp_refresh_slow = 1
 let g:mkdp_preview_options = {
-  \ 'sync_scroll_type': 'top',
+  \ 'sync_scroll_type': 'relative',
   \ }
 " }}}
 
