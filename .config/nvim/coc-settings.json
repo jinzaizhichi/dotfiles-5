@@ -1,4 +1,10 @@
 {
+  "css.validate": false,
+  "less.validate": false,
+  "scss.validate": false,
+  "wxss.validate": false,
+  "stylelintplus.autoFixOnSave": true,
+  "stylelintplus.validateOnSave": true,
   "eslint.autoFixOnSave": true,
   "diagnostic-languageserver.linters": {
     "phpcs": {
@@ -40,6 +46,8 @@
   "diagnostic-languageserver.formatFiletypes": {
     "php": "phpcbf"
   },
+  "intelephense.completion.maxItems": 10,
+  "intelephense.diagnostics.enable": false,
   "intelephense.diagnostics.run": "onSave",
   "intelephense.format.enable": false,
   "intelephense.licenceKey": "~/.intelephense",

@@ -88,7 +88,9 @@ Plug 'tpope/vim-sensible'                               " Makes vim work as you'
 Plug 'drewtempelmeyer/palenight.vim'                    " Soothing color scheme based on material palenight
 Plug 'sainnhe/gruvbox-material'                         " The gruvbox theme but with Material-UI colors
 Plug 'patstockwell/vim-monokai-tasty'                   " Theme that is '74% tastier than competitors'
-Plug 'haishanh/night-owl.vim'
+Plug 'haishanh/night-owl.vim'                           " Hight contrast but relaxed theme
+Plug 'mhartington/oceanic-next'                         " Beautiful pastell-y colors
+Plug 'nanotech/jellybeans.vim'                          " Hight contrast but colorfoul
 
 Plug 'sheerun/vim-polyglot'                             " Metapackage with a bunch of syntax highlight libs
 
@@ -135,17 +137,22 @@ let g:gruvbox_material_enable_italic = 1
 let g:gruvbox_material_palette = 'mix'
 let g:palenight_terminal_italics = 1
 let g:vim_monokai_tasty_italic = 1
+let g:jellybeans_use_term_italics = 1
+
 
 " silent! colorscheme gruvbox-material
 " silent! colorscheme gruvbox8
 " silent! colorscheme night-owl
-silent! colorscheme palenight
+" silent! colorscheme palenight
+silent! colorscheme OceanicNext
 " silent! colorscheme vim-monokai-tasty
+" silent! colorscheme jellybeans
  " }}}
 
 " {{{ CoC extensions to be auto installed
 let g:coc_global_extensions = [
     \ 'coc-css',
+    \ 'coc-diagnostic',
     \ 'coc-eslint',
     \ 'coc-html',
     \ 'coc-json',
@@ -153,7 +160,8 @@ let g:coc_global_extensions = [
     \ 'coc-phpls',
     \ 'coc-prettier',
     \ 'coc-python',
-    \ 'coc-tsserver'
+    \ 'coc-stylelintplus',
+    \ 'coc-tsserver',
     \]
 " }}}
 
@@ -162,7 +170,7 @@ set hidden
 set nobackup
 set nowritebackup
 set cmdheight=2
-set updatetime=400
+set updatetime=1000
 set shortmess+=c
 if has("patch-8.1.1564")
   " Recently vim can merge signcolumn and number column into one
