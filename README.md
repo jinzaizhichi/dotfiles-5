@@ -62,13 +62,13 @@ There is also an [Alacritty](https://github.com/alacritty/alacritty/) dotfile co
 
 ```bash
 cd ~/Downloads/
-curl https://raw.githubusercontent.com/alacritty/alacritty/master/extra/alacritty.info -O 
+curl https://raw.githubusercontent.com/alacritty/alacritty/master/extra/alacritty.info -O
 sudo tic -xe alacritty,alacritty-direct extra/alacritty.info
 ```
 
-## Add custom commands without creating a new fork
+## Add custom commands and variables without creating a new fork
 
-If the `~/.extra` file exists, it will be sourced along with the other files. You can use this to add a few custom commands without the need to fork this entire repository, or to add commands you don’t want to commit to a public repository.
+If the `~/.extra` file exists, it will be sourced along with the other files when the terminal startups up. You can use this to add a few custom commands without the need to fork this entire repository, or to add variables you don’t want to commit to a public repository.
 
 ## Key Repeat issue on Mac
 
@@ -77,3 +77,14 @@ If you use VIM emulation on Visual Studio code or Sublime Text you'll notice tha
 ```bash
 defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 ```
+
+## Update the `Brewfile`
+
+If you install additional brew commands, you should update the [Brewfile](Brewfile):
+
+```bash
+cd path/to/dotfiles
+brew bundle dump --force 
+```
+
+The `--force` file updates the file.
