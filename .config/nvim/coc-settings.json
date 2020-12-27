@@ -6,6 +6,9 @@
   "stylelintplus.autoFixOnSave": true,
   "stylelintplus.validateOnSave": true,
   "eslint.autoFixOnSave": true,
+  "markdownlint.config": {
+    "line-length": false
+  },
   "diagnostic-languageserver.linters": {
     "phpcs": {
       "command": "./vendor/bin/phpcs",

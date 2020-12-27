@@ -36,7 +36,7 @@ font:
   use_thin_strokes: true
 # }}}
 
-# {{{ Color Base16 Material Palenight 256 - alacritty color config -  Nate Peterson
+# {{{ Colors (Base16 Material Palenight 256 - alacritty color config -  Nate Peterson)
 colors_palenight:
   # Default colors
   primary:
@@ -80,7 +80,7 @@ colors_palenight:
     - { index: 21, color: '0x959dcb' }
 # }}}
 
-# {{{ Colors Night Owl by Sarah Drasner
+# {{{ Colors (Night Owl by Sarah Drasner)
 colors_night_owl:
   # Default colors
   primary:
@@ -115,7 +115,7 @@ colors_night_owl:
     white:   '0xffffff'
 # }}}
 
-# {{{ Colors Challenger deep
+# {{{ Colors (Challenger deep)
 colors_challenger:
   # Default colors
   primary:
@@ -225,8 +225,8 @@ colors_dracula:
 
 # }}}
 
-# {{{ Colors One Dark
-colors:
+# {{{ Colors (One Dark)
+colors_one_dark:
   # Default colors
   primary:
     background: '0x1e2127'
@@ -255,6 +255,36 @@ colors:
     white:   '0xffffff'
 # }}}
 
+# {{{ Colors (Oceanic Next)
+colors:
+  # Default colors
+  primary:
+    background: '0x1b2b34'
+    foreground: '0xd8dee9'
+
+  # Normal colors
+  normal:
+    black:   '0x29414f'
+    red:     '0xec5f67'
+    green:   '0x99c794'
+    yellow:  '0xfac863'
+    blue:    '0x6699cc'
+    magenta: '0xc594c5'
+    cyan:    '0x5fb3b3'
+    white:   '0x65737e'
+
+  # Bright colors
+  bright:
+    black:   '0x405860'
+    red:     '0xec5f67'
+    green:   '0x99c794'
+    yellow:  '0xfac863'
+    blue:    '0x6699cc'
+    magenta: '0xc594c5'
+    cyan:    '0x5fb3b3'
+    white:   '0xadb5c0'
+# }}}
+#
 # {{{ key Bindings
 key_bindings:
   # https://github.com/alacritty/alacritty/issues/753#issuecomment-533040040

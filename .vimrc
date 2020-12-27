@@ -91,6 +91,7 @@ Plug 'patstockwell/vim-monokai-tasty'                   " Theme that is '74% tas
 Plug 'haishanh/night-owl.vim'                           " Hight contrast but relaxed theme
 Plug 'mhartington/oceanic-next'                         " Beautiful pastell-y colors
 Plug 'nanotech/jellybeans.vim'                          " Hight contrast but colorfoul
+Plug 'phanviet/vim-monokai-pro'
 
 Plug 'sheerun/vim-polyglot'                             " Metapackage with a bunch of syntax highlight libs
 
