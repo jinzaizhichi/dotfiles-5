@@ -23,6 +23,8 @@ set termguicolors         " Required for some themes
 set splitright splitbelow " Changes the behaviour of vertical and horizontal splits
 set foldlevel=1           " Better for markdown and PHP classes
 set cursorline            " Highlight the current cursor line (Can slow the UI)
+set signcolumn=yes        " Always show the signcolumn, otherwise it would shift the text
+set hidden
 filetype plugin indent on " Enable file type detection.
 let &t_EI = "\e[2 q"      " Make cursor a line in insert on Vim
 let &t_SI = "\e[6 q"      " Make cursor a line in insert on Vim
@@ -85,23 +87,22 @@ augroup END
 call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-sensible'                               " Makes vim work as you'd expect
 
+" Themes
 Plug 'drewtempelmeyer/palenight.vim'                    " Soothing color scheme based on material palenight
-Plug 'sainnhe/gruvbox-material'                         " The gruvbox theme but with Material-UI colors
-Plug 'patstockwell/vim-monokai-tasty'                   " Theme that is '74% tastier than competitors'
 Plug 'haishanh/night-owl.vim'                           " Hight contrast but relaxed theme
 Plug 'mhartington/oceanic-next'                         " Beautiful pastell-y colors
 Plug 'nanotech/jellybeans.vim'                          " Hight contrast but colorfoul
-Plug 'phanviet/vim-monokai-pro'
 
 Plug 'sheerun/vim-polyglot'                             " Metapackage with a bunch of syntax highlight libs
 
-Plug 'neoclide/coc.nvim', {'branch': 'release'}         " Make Vim like Visual Studio Code
+" Make VIM an IDE
+Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
+
 Plug 'liuchengxu/vista.vim'                             " Like Ctags but for LSP (CoC)
-Plug 'dense-analysis/ale'                               " Code sniffing using external tools
+"Plug 'dense-analysis/ale'                               " Code sniffing using external tools
 Plug 'tpope/vim-fugitive'                               " Like :!git but better
 
 Plug 'itchyny/lightline.vim'                            " Beautify status line
-" Plug 'maximbaz/lightline-ale'
 Plug 'josa42/vim-lightline-coc'                         " Show CoC diagnostics in LightLine
 
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } " File navigator with <C-k><C-k>
@@ -109,14 +110,11 @@ Plug 'Xuyuanp/nerdtree-git-plugin'                      " Show git status on NER
 Plug 'airblade/vim-gitgutter'                           " Show which lines changed on gutter
 Plug 'editorconfig/editorconfig-vim'                    " Configure tab or spaces per project
 Plug 'bogado/file-line'                                 " Enable opening vim like - vim my_file.php:8
-Plug 'roman/golden-ratio'                               " Resize (make bigger) the focused window
 Plug 'ryanoasis/vim-devicons'                           " Icons on NERDtree and Vista
 
 Plug 'terryma/vim-multiple-cursors'                     " Multiple cursors like Sublime with <C-n>
-" Plug 'preservim/nerdcommenter'                          " Language sensitive comments with <leader>c<space>
 Plug 'junegunn/vim-easy-align'                          " Align text by characters or reguex
 Plug 'mattn/emmet-vim'                                  " Emmet support with <C-y>,
-" Plug 'jiangmiao/auto-pairs'                             " Auto close quotes, parens, brakets, etc
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 
@@ -141,16 +139,14 @@ let g:vim_monokai_tasty_italic = 1
 let g:jellybeans_use_term_italics = 1
 
 
-" silent! colorscheme gruvbox-material
-" silent! colorscheme gruvbox8
 " silent! colorscheme night-owl
 " silent! colorscheme palenight
 silent! colorscheme OceanicNext
-" silent! colorscheme vim-monokai-tasty
 " silent! colorscheme jellybeans
  " }}}
 
 " {{{ CoC extensions to be auto installed
+let g:coc_node_args = ['--max-old-space-size=8192']
 let g:coc_global_extensions = [
     \ 'coc-css',
     \ 'coc-diagnostic',
@@ -160,27 +156,17 @@ let g:coc_global_extensions = [
     \ 'coc-marketplace',
     \ 'coc-phpls',
     \ 'coc-prettier',
-    \ 'coc-python',
     \ 'coc-stylelintplus',
     \ 'coc-tsserver',
     \]
 " }}}
+    " \ 'coc-python',
 
-" {{{ CoC (taken from github.com/neoclide/coc.nvim with comments removed)
-set hidden
-set nobackup
-set nowritebackup
-set cmdheight=2
-set updatetime=1000
-set shortmess+=c
-if has("patch-8.1.1564")
-  " Recently vim can merge signcolumn and number column into one
-  set signcolumn=number
-else
-  set signcolumn=yes
-endif
+" {{{ CoC (taken from github.com/neoclide/coc.nvim some comments removed)
 
 " Use tab for trigger completion with characters ahead and navigate.
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config.
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
@@ -191,26 +177,6 @@ function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
-
-" Use <c-space> to trigger completion.
-if has('nvim')
-  inoremap <silent><expr> <c-space> coc#refresh()
-else
-  inoremap <silent><expr> <c-@> coc#refresh()
-endif
-
-" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
-" position. Coc only does snippet and additional edit on confirm.
-" <cr> could be remapped by other vim plugin, try `:verbose imap <CR>`.
-if exists('*complete_info')
-  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
-else
-  inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-endif
-
-" Use `[g` and `]g` to navigate diagnostics
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
@@ -224,77 +190,35 @@ nnoremap <silent> K :call <SID>show_documentation()<CR>
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
   else
-    call CocAction('doHover')
+    execute '!' . &keywordprg . " " . expand('<cword>')
   endif
 endfunction
 
-" Highlight the symbol and its references when holding the cursor.
-autocmd CursorHold * silent call CocActionAsync('highlight')
-
-" Symbol renaming.
-nmap <leader>rn <Plug>(coc-rename)
-
-" Formatting selected code.
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
-
-augroup mygroup
-  autocmd!
-  " Setup formatexpr specified filetype(s).
-  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-  " Update signature help on jump placeholder.
-  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-augroup end
-
-" Applying codeAction to the selected region.
-xmap <leader>a  <Plug>(coc-codeaction-selected)
-nmap <leader>a  <Plug>(coc-codeaction-selected)
-
-" Remap keys for applying codeAction to the current buffer.
-nmap <leader>ac  <Plug>(coc-codeaction)
-" Apply AutoFix to problem on the current line.
-nmap <leader>qf  <Plug>(coc-fix-current)
-
-" Map function and class text objects
-xmap if <Plug>(coc-funcobj-i)
-omap if <Plug>(coc-funcobj-i)
-xmap af <Plug>(coc-funcobj-a)
-omap af <Plug>(coc-funcobj-a)
-xmap ic <Plug>(coc-classobj-i)
-omap ic <Plug>(coc-classobj-i)
-xmap ac <Plug>(coc-classobj-a)
-omap ac <Plug>(coc-classobj-a)
-
-" Use CTRL-S for selections ranges.
-nmap <silent> <C-s> <Plug>(coc-range-select)
-xmap <silent> <C-s> <Plug>(coc-range-select)
-
+" Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocAction('format')
+
+" Add `:Fold` command to fold current buffer.
 command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+
+" Add `:OR` command for organize imports of the current buffer.
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
 
-" Add (Neo)Vim's native statusline support.
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
-
 " Mappings for CoCList
+" Show all diagnostics.
 nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
-nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
-nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
-nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
-nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
-nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
-nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
-nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 " }}}
 
 " {{{ Vista
-let g:vista#renderer#enable_icon = 1
-let g:vista_default_executive = 'coc'
-let g:vista_sidebar_width = 45
-let g:vista_close_on_jump = 1
-nnoremap <C-k><C-o> :Vista finder<cr>
-inoremap <C-k><C-o> <esc>:Vista finder<cr>
+" let g:vista_default_executive = 'coc'
+" let g:vista#renderer#enable_icon = 1
+" let g:vista_sidebar_width = 45
+" let g:vista_close_on_jump = 1
+" let g:vista_close_on_fzf_select = 1
+" let g:vista_fzf_preview = ['right:50%']
+nnoremap <C-k><C-o> :Vista finder fzf:coc<cr>
 " }}}
 
 " {{{ ALE
@@ -374,13 +298,6 @@ let NERDTreeWinPos='right' " Or this?
 let NERDTreeWinSize=45     " Increase the sidebar size
 map <C-k><C-k> :NERDTreeToggle<cr>
 map <C-k><C-f> :NERDTreeFind<cr>
-" Open up nerdtree if started like 'vim .'
-"augroup nerdtree-auto-open-if-param-is-dir
-  "autocmd!
-  "autocmd StdinReadPre * let s:std_in=1
-  "autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | exe 'NERDTreeCWD' | wincmd p | ene | exe 'cd '.argv()[0] | endif
-  "autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-"augroup END
 " Do not show lightline on NERDTree
 augroup nerdtree-normal-statusline
     autocmd!
@@ -413,10 +330,5 @@ let g:mkdp_preview_options = {
   \ 'sync_scroll_type': 'relative',
   \ }
 " }}}
-
-" {{{ Golden Ratio
-let g:golden_ratio_autocommand = 0
-" }}}
-
 
 " vim: ts=2 sw=2 et fdm=marker

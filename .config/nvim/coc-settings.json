@@ -1,14 +1,12 @@
 {
+  "intelephense.maxMemory": 2048,
   "css.validate": false,
   "less.validate": false,
   "scss.validate": false,
   "wxss.validate": false,
-  "stylelintplus.autoFixOnSave": true,
-  "stylelintplus.validateOnSave": true,
+  "stylelintplus.autoFixOnSave": false,
+  "stylelintplus.validateOnSave": false,
   "eslint.autoFixOnSave": true,
-  "markdownlint.config": {
-    "line-length": false
-  },
   "diagnostic-languageserver.linters": {
     "phpcs": {
       "command": "./vendor/bin/phpcs",

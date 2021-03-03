@@ -1,0 +1,8 @@
+# All options on https://github.com/gokcehan/lf/blob/master/etc/lfrc.example
+set dircounts
+set hidden on
+set icons on # Add icons on .exports
+set info size
+set number on
+set relativenumber on
+set scrolloff 2
