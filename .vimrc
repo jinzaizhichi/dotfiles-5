@@ -281,12 +281,8 @@ let g:lightline.active.left = [
 let g:lightline.active.right = [
   \      ['lineinfo'], ['fileformat', 'filetype']
   \]
-let g:lightline.colorscheme = 'ayu_mirage'
-" let g:lightline.colorscheme = 'darcula'
-" let g:lightline.colorscheme = 'gruvbox_material'
-" let g:lightline.colorscheme = 'monokai_tasty'
-" let g:lightline.colorscheme = 'nightowl'
-" let g:lightline.colorscheme = 'palenight'
+" https://github.com/itchyny/lightline.vim/tree/master/autoload/lightline/colorscheme
+let g:lightline.colorscheme = 'materia'
 " let g:lightline.colorscheme = 'selenized_dark' " Goes great with night owl
 " }}}
 
@@ -328,6 +324,8 @@ let g:mkdp_auto_close = 0
 let g:mkdp_refresh_slow = 1
 let g:mkdp_preview_options = {
   \ 'sync_scroll_type': 'relative',
+  \ 'disable_sync_scroll': 1,
+  \ 'disable_filename': 1
   \ }
 " }}}
 

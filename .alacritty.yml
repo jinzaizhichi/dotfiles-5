@@ -3,8 +3,8 @@ window:
   dimensions:
     columns: 80
     lines: 24
-  decorations: none 
-  padding: 
+  decorations: none
+  padding:
     x: 1
     y: 0
   dynamic_padding: true
@@ -16,20 +16,27 @@ scrolling:
 
 # {{{ Font
 font:
-  normal: 
-    # family: JetBrainsMono Nerd Font
+  normal:
     family: Hasklug Nerd Font Mono
+    # family: FiraCode Nerd Font Mono
+    # family: Inconsolata Nerd Font
     style: Regular
   bold:
     family: Hasklug Nerd Font Mono
-    style: Black
+    # family: FiraCode Nerd Font Mono
+    # family: Inconsolata Nerd Font
+    style: Bold
   italic:
     family: Hasklug Nerd Font Mono
+    # family: FiraCode Nerd Font Mono
+    # family: Inconsolata Nerd Font
     style: Italic
   bold_italic:
     family: Hasklug Nerd Font Mono
-    style: Regular Italic
-  size: 14
+    # family: FiraCode Nerd Font Mono
+    # family: Inconsolata Nerd Font
+    style: Bold Italic
+  size: 14.5
   offset:
     x: 0
     y: 1
@@ -40,117 +47,117 @@ font:
 colors_palenight:
   # Default colors
   primary:
-    background: '0x292d3e'
+    background: "0x292d3e"
     # foreground: '0x959dcb'
-    foreground: '0xffffff'
+    foreground: "0xffffff"
 
   # Colors the cursor will use if `custom_cursor_colors` is true
   cursor:
-    text: '0x292d3e'
-    cursor: '0x959dcb'
+    text: "0x292d3e"
+    cursor: "0x959dcb"
 
   # Normal colors
   normal:
-    black:   '0x292d3e'
-    red:     '0xf07178'
-    green:   '0xc3e88d'
-    yellow:  '0xffcb6b'
-    blue:    '0x82aaff'
-    magenta: '0xc792ea'
-    cyan:    '0x89ddff'
-    white:   '0x959dcb'
+    black: "0x292d3e"
+    red: "0xf07178"
+    green: "0xc3e88d"
+    yellow: "0xffcb6b"
+    blue: "0x82aaff"
+    magenta: "0xc792ea"
+    cyan: "0x89ddff"
+    white: "0x959dcb"
 
   # Bright colors
   bright:
-    black:   '0x676e95'
-    red:     '0xf07178'
-    green:   '0xc3e88d'
-    yellow:  '0xffcb6b'
-    blue:    '0x82aaff'
-    magenta: '0xc792ea'
-    cyan:    '0x89ddff'
-    white:   '0xffffff'
+    black: "0x676e95"
+    red: "0xf07178"
+    green: "0xc3e88d"
+    yellow: "0xffcb6b"
+    blue: "0x82aaff"
+    magenta: "0xc792ea"
+    cyan: "0x89ddff"
+    white: "0xffffff"
 
   indexed_colors:
-    - { index: 16, color: '0xf78c6c' }
-    - { index: 17, color: '0xff5370' }
-    - { index: 18, color: '0x444267' }
-    - { index: 19, color: '0x32374d' }
-    - { index: 20, color: '0x8796b0' }
-    - { index: 21, color: '0x959dcb' }
+    - { index: 16, color: "0xf78c6c" }
+    - { index: 17, color: "0xff5370" }
+    - { index: 18, color: "0x444267" }
+    - { index: 19, color: "0x32374d" }
+    - { index: 20, color: "0x8796b0" }
+    - { index: 21, color: "0x959dcb" }
 # }}}
 
 # {{{ Colors (Night Owl by Sarah Drasner)
 colors_night_owl:
   # Default colors
   primary:
-    background: '0x011627'
-    foreground: '0xd6deeb'
+    background: "0x011627"
+    foreground: "0xd6deeb"
 
   # Colors the cursor will use if `custom_cursor_colors` is true
   cursor:
-    text: '0xffffff'
-    cursor: '0x7e57c2'
+    text: "0xffffff"
+    cursor: "0x7e57c2"
 
   # Normal colors
   normal:
-    black:   '0x000000'
-    red:     '0xef5350'
-    green:   '0x22da6e'
-    yellow:  '0xaddb67'
-    blue:    '0x82aaff'
-    magenta: '0xc792ea'
-    cyan:    '0x21c7a8'
-    white:   '0xffffff'
+    black: "0x000000"
+    red: "0xef5350"
+    green: "0x22da6e"
+    yellow: "0xaddb67"
+    blue: "0x82aaff"
+    magenta: "0xc792ea"
+    cyan: "0x21c7a8"
+    white: "0xffffff"
 
   # Bright colors
   bright:
-    black:   '0x575656'
-    red:     '0xef5350'
-    green:   '0x22da6e'
-    yellow:  '0xffeb95'
-    blue:    '0x82aaff'
-    magenta: '0xc792ea'
-    cyan:    '0x7fdbca'
-    white:   '0xffffff'
+    black: "0x575656"
+    red: "0xef5350"
+    green: "0x22da6e"
+    yellow: "0xffeb95"
+    blue: "0x82aaff"
+    magenta: "0xc792ea"
+    cyan: "0x7fdbca"
+    white: "0xffffff"
 # }}}
 
 # {{{ Colors (Challenger deep)
 colors_challenger:
   # Default colors
   primary:
-    background: '0x1b182c'
-    foreground: '0xcbe3e7'
+    background: "0x1b182c"
+    foreground: "0xcbe3e7"
 
   # Normal colors
   normal:
-    black:   '0x100e23'
-    red:     '0xff8080'
-    green:   '0x95ffa4'
-    yellow:  '0xffe9aa'
-    blue:    '0x91ddff'
-    magenta: '0xc991e1'
-    cyan:    '0xaaffe4'
-    white:   '0xcbe3e7'
+    black: "0x100e23"
+    red: "0xff8080"
+    green: "0x95ffa4"
+    yellow: "0xffe9aa"
+    blue: "0x91ddff"
+    magenta: "0xc991e1"
+    cyan: "0xaaffe4"
+    white: "0xcbe3e7"
 
   # Bright colors
   bright:
-    black:   '0x565575'
-    red:     '0xff5458'
-    green:   '0x62d196'
-    yellow:  '0xffb378'
-    blue:    '0x65b2ff'
-    magenta: '0x906cff'
-    cyan:    '0x63f2f1'
-    white:   '0xa6b3cc'
+    black: "0x565575"
+    red: "0xff5458"
+    green: "0x62d196"
+    yellow: "0xffb378"
+    blue: "0x65b2ff"
+    magenta: "0x906cff"
+    cyan: "0x63f2f1"
+    white: "0xa6b3cc"
 # }}}
 
 # {{{ Colors (Dracula)
 colors_dracula:
   # Default colors
   primary:
-    background: '0x282a36'
-    foreground: '0xf8f8f2'
+    background: "0x282a36"
+    foreground: "0xf8f8f2"
 
     # Bright and dim foreground colors
     #
@@ -165,8 +172,8 @@ colors_dracula:
   # Colors which should be used to draw the terminal cursor. If these are unset,
   # the cursor color will be the inverse of the cell color.
   cursor:
-    text: '0x44475a'
-    cursor: '0xf8f8f2'
+    text: "0x44475a"
+    cursor: "0xf8f8f2"
 
   # Selection colors
   #
@@ -174,44 +181,44 @@ colors_dracula:
   # background is unset, selection color will be the inverse of the cell colors.
   # If only text is unset the cell text color will remain the same.
   selection:
-    text: '0xf8f8f2'
-    background: '0x44475a'
+    text: "0xf8f8f2"
+    background: "0x44475a"
 
   # Normal colors
   normal:
-    black:   '0x000000'
-    red:     '0xff5555'
-    green:   '0x50fa7b'
-    yellow:  '0xf1fa8c'
-    blue:    '0xbd93f9'
-    magenta: '0xff79c6'
-    cyan:    '0x8be9fd'
-    white:   '0xbfbfbf'
+    black: "0x000000"
+    red: "0xff5555"
+    green: "0x50fa7b"
+    yellow: "0xf1fa8c"
+    blue: "0xbd93f9"
+    magenta: "0xff79c6"
+    cyan: "0x8be9fd"
+    white: "0xbfbfbf"
 
   # Bright colors
   bright:
-    black:   '0x4d4d4d'
-    red:     '0xff6e67'
-    green:   '0x5af78e'
-    yellow:  '0xf4f99d'
-    blue:    '0xcaa9fa'
-    magenta: '0xff92d0'
-    cyan:    '0x9aedfe'
-    white:   '0xe6e6e6'
+    black: "0x4d4d4d"
+    red: "0xff6e67"
+    green: "0x5af78e"
+    yellow: "0xf4f99d"
+    blue: "0xcaa9fa"
+    magenta: "0xff92d0"
+    cyan: "0x9aedfe"
+    white: "0xe6e6e6"
 
   # Dim colors
   #
   # If the dim colors are not set, they will be calculated automatically based
   # on the `normal` colors.
   dim:
-    black:   '0x14151b'
-    red:     '0xff2222'
-    green:   '0x1ef956'
-    yellow:  '0xebf85b'
-    blue:    '0x4d5b86'
-    magenta: '0xff46b0'
-    cyan:    '0x59dffc'
-    white:   '0xe6e6d1'
+    black: "0x14151b"
+    red: "0xff2222"
+    green: "0x1ef956"
+    yellow: "0xebf85b"
+    blue: "0x4d5b86"
+    magenta: "0xff46b0"
+    cyan: "0x59dffc"
+    white: "0xe6e6d1"
 
   # Indexed Colors
   #
@@ -221,7 +228,7 @@ colors_dracula:
   # Example:
   #   `- { index: 16, color: '0xff00ff' }`
   #
-  indexed_colors: [] 
+  indexed_colors: []
 
 # }}}
 
@@ -229,76 +236,76 @@ colors_dracula:
 colors_one_dark:
   # Default colors
   primary:
-    background: '0x1e2127'
-    foreground: '0xabb2bf'
+    background: "0x1e2127"
+    foreground: "0xabb2bf"
 
   # Normal colors
   normal:
-    black:   '0x1e2127'
-    red:     '0xe06c75'
-    green:   '0x98c379'
-    yellow:  '0xd19a66'
-    blue:    '0x61afef'
-    magenta: '0xc678dd'
-    cyan:    '0x56b6c2'
-    white:   '0xabb2bf'
+    black: "0x1e2127"
+    red: "0xe06c75"
+    green: "0x98c379"
+    yellow: "0xd19a66"
+    blue: "0x61afef"
+    magenta: "0xc678dd"
+    cyan: "0x56b6c2"
+    white: "0xabb2bf"
 
   # Bright colors
   bright:
-    black:   '0x5c6370'
-    red:     '0xe06c75'
-    green:   '0x98c379'
-    yellow:  '0xd19a66'
-    blue:    '0x61afef'
-    magenta: '0xc678dd'
-    cyan:    '0x56b6c2'
-    white:   '0xffffff'
+    black: "0x5c6370"
+    red: "0xe06c75"
+    green: "0x98c379"
+    yellow: "0xd19a66"
+    blue: "0x61afef"
+    magenta: "0xc678dd"
+    cyan: "0x56b6c2"
+    white: "0xffffff"
 # }}}
 
 # {{{ Colors (Oceanic Next)
 colors:
   # Default colors
   primary:
-    background: '0x1b2b34'
-    foreground: '0xd8dee9'
+    background: "0x1b2b34"
+    foreground: "0xd8dee9"
 
   # Normal colors
   normal:
-    black:   '0x29414f'
-    red:     '0xec5f67'
-    green:   '0x99c794'
-    yellow:  '0xfac863'
-    blue:    '0x6699cc'
-    magenta: '0xc594c5'
-    cyan:    '0x5fb3b3'
-    white:   '0x65737e'
+    black: "0x29414f"
+    red: "0xec5f67"
+    green: "0x99c794"
+    yellow: "0xfac863"
+    blue: "0x6699cc"
+    magenta: "0xc594c5"
+    cyan: "0x5fb3b3"
+    white: "0x65737e"
 
   # Bright colors
   bright:
-    black:   '0x405860'
-    red:     '0xec5f67'
-    green:   '0x99c794'
-    yellow:  '0xfac863'
-    blue:    '0x6699cc'
-    magenta: '0xc594c5'
-    cyan:    '0x5fb3b3'
-    white:   '0xadb5c0'
+    black: "0x405860"
+    red: "0xec5f67"
+    green: "0x99c794"
+    yellow: "0xfac863"
+    blue: "0x6699cc"
+    magenta: "0xc594c5"
+    cyan: "0x5fb3b3"
+    white: "0xadb5c0"
 # }}}
 #
 # {{{ key Bindings
 key_bindings:
   # https://github.com/alacritty/alacritty/issues/753#issuecomment-533040040
-  - { key: 10,        mods: Alt,    chars: "\x5c" } # barra invertida `\`
-  - { key: 18,        mods: Alt,    chars: "\x7c" } # barra vertical `|`
-  - { key: Key2,      mods: Alt,    chars: "@" } # arroba `@`
-  - { key: Key3,      mods: Alt,    chars: "#" } # almohadilla/cardinalidad `#`
-  - { key: Key6,      mods: Alt,    chars: "¬" } # negación en lógica `¬`
-  - { key: 39,        mods: Alt,    chars: "{" } # abre llaves `{`
-  - { key: 42,        mods: Alt,    chars: "}" } # cierra llaves `}`
-  - { key: 33,        mods: Alt,    chars: "[" } # abre corchetes `[`
-  - { key: 30,        mods: Alt,    chars: "]" } # cierra corchetes `]`
+  - { key: 10, mods: Alt, chars: "\x5c" } # barra invertida `\`
+  - { key: 18, mods: Alt, chars: "\x7c" } # barra vertical `|`
+  - { key: Key2, mods: Alt, chars: "@" } # arroba `@`
+  - { key: Key3, mods: Alt, chars: "#" } # almohadilla/cardinalidad `#`
+  - { key: Key6, mods: Alt, chars: "¬" } # negación en lógica `¬`
+  - { key: 39, mods: Alt, chars: "{" } # abre llaves `{`
+  - { key: 42, mods: Alt, chars: "}" } # cierra llaves `}`
+  - { key: 33, mods: Alt, chars: "[" } # abre corchetes `[`
+  - { key: 30, mods: Alt, chars: "]" } # cierra corchetes `]`
   #  https://github.com/alacritty/alacritty/blob/master/alacritty.yml#L635
-  - { key: N,      mods: Command,            action: SpawnNewInstance }
+  - { key: N, mods: Command, action: SpawnNewInstance }
 # }}}
 
 # vim: ts=2 sw=2 et fdm=marker
