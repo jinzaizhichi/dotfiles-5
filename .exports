@@ -26,11 +26,8 @@ export PATH="/usr/local/sbin:$PATH"
 # OH-MY-ZSH variables
 export ZSH_THEME_CLOUD_PREFIX="👽"
 export ZSH_THEME="cloud"
-export LANG=es_ES.UTF-8
-export LC_ALL=es_ES.UTF-8
-
-# ZSH customizations
-export ZSH_THEME_CLOUD_PREFIX="👽"
+#export LANG=es_ES.UTF-8
+#export LC_ALL=es_ES.UTF-8
 
 # lf icon support
 export LF_ICONS="\
