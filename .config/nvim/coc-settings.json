@@ -10,7 +10,7 @@
   "diagnostic-languageserver.linters": {
     "phpcs": {
       "command": "./vendor/bin/phpcs",
-      "debounce": 3000,
+      "debounce": 100,
       "rootPatterns": ["composer.json", "composer.lock", "vendor", ".git"],
       "args": [ "--report=emacs", "-s", "-"],
       "offsetLine": 0,
@@ -36,9 +36,11 @@
     "phpcbf": {
       "command": "./vendor/bin/phpcbf",
       "args": ["-"],
-      "rootPatterns": ["composer.json", "phpcs.xml", "phpcs.xml.dist", ".git"],
+      "rootPatterns": ["composer.json", "composer.lock", "vendor", "phpcs.xml", "phpcs.xml.dist", ".git"],
       "isStderr": false,
-      "isStdout": true
+      "isStdout": true,
+      "doesWriteToFile": false,
+      "ignoreExitCode": [1]
     }
   },
   "diagnostic-languageserver.filetypes": {
@@ -47,7 +49,7 @@
   "diagnostic-languageserver.formatFiletypes": {
     "php": "phpcbf"
   },
-  "intelephense.completion.maxItems": 10,
+  "intelephense.completion.maxItems": 15,
   "intelephense.diagnostics.enable": false,
   "intelephense.diagnostics.run": "onSave",
   "intelephense.format.enable": false,
