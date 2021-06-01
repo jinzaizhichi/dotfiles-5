@@ -16,7 +16,7 @@ function backup-security() {
         zip -r -u /tmp/${DEST} ${i}
     done
     cd /tmp
-    rclone -P copy ${DEST} GdriveMario:/Backups/${DEST}
+    rclone -P copy ${DEST} GdriveMario:/Backups/
 }
 
 # Updates Python packages
