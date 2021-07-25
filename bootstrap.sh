@@ -9,21 +9,33 @@ PWD=`pwd`
 tic -c init/tmux-256color.terminfo
 tic -x init/xterm-256color-italic.terminfo
 
+# Link DotFiles on the home directory
 for file in `ls -a` ; do
 	if [ $file == ".git" ]; then continue; fi
 	if [ $file == ".DS_Store" ]; then continue; fi
 	if [ $file == ".zshrc" ]; then continue; fi
 	if [[ $file == *".sh" ]]; then continue; fi
 	if [[ $file == *".md" ]]; then continue; fi
+	if [[ $file == *".ps1" ]]; then continue; fi
 	if [ $file == "Brewfile" ]; then continue; fi
 	if [ ! -f $file ]; then continue; fi
 
     echo $file;
 
-	ln -nfs $PWD/$file $HOME/$file
+	ln -nfs ${PWD}/$file ${HOME}/$file
 done
 
-cp .zshrc $HOME/
+# Create or append content to .zshrc
+if [ -f ~/.zshrc ]; then
+	cat ${PWD}/.zshrc >> ~/.zshrc
+else
+	cp .zshrc $HOME/
+fi
+
+# .ini files in .config
+mkdir -p ~/.config
+ln -nfs ${PWD}/.config/nvim ~/.config/nvim
+ln -nfs ${PWD}/.config/lf ~/.config/lf
 
 echo 'Next steps:'
 echo 'Re-stablish your ssh keys in .ssh'
