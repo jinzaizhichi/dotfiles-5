@@ -1,6 +1,6 @@
 # {{{ On Windows 10 execute WSL (comment out the window decoration)
-shell: 
-  program: "C:\\Windows\\System32\\wsl.exe"
+# shell: 
+#   program: "C:\\Windows\\System32\\wsl.exe"
 # }}}
 
 # {{{ Window & Scrolling
