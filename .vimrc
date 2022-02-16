@@ -13,7 +13,7 @@ set belloff=esc           " Disable bell if type <esc> multiple times
 set tabstop=4             " Tab size of 4 spaces
 set softtabstop=4         " On insert use 4 spaces for tab
 set shiftwidth=0
-" set expandtab             " Use appropriate number of spaces
+" set expandtab             " Use appropriate number of spaces (no so good for PHP)
 set nowrap                " Wrapping sucks (except on markdown)
 set noswapfile            " Do not leave any backup files
 set mouse=i               " Enable mouse on insert mode
@@ -24,7 +24,8 @@ set splitright splitbelow " Changes the behaviour of vertical and horizontal spl
 set foldlevel=1           " Better for markdown and PHP classes
 set cursorline            " Highlight the current cursor line (Can slow the UI)
 set signcolumn=yes        " Always show the signcolumn, otherwise it would shift the text
-set hidden
+set hidden                " Allow multple buffers
+set completeopt=menuone,noinsert,noselect " Let the user decide about the autocomplete
 filetype plugin indent on " Enable file type detection.
 let &t_EI = "\e[2 q"      " Make cursor a line in insert on Vim
 let &t_SI = "\e[6 q"      " Make cursor a line in insert on Vim
@@ -282,7 +283,8 @@ let g:lightline.active.right = [
   \      ['lineinfo'], ['fileformat', 'filetype']
   \]
 " https://github.com/itchyny/lightline.vim/tree/master/autoload/lightline/colorscheme
-let g:lightline.colorscheme = 'materia'
+" let g:lightline.colorscheme = 'materia' " Works better with oceanic
+let g:lightline.colorscheme = 'nord' " Works better with palenight
 " let g:lightline.colorscheme = 'selenized_dark' " Goes great with night owl
 " }}}
 

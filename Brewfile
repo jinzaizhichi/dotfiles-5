@@ -14,7 +14,7 @@ brew "glib"
 brew "coreutils"
 brew "curl"
 brew "dos2unix"
-brew "unbound", restart_service: true
+brew "unbound"
 brew "gobject-introspection"
 brew "harfbuzz"
 brew "ffmpeg"
@@ -27,8 +27,8 @@ brew "lf"
 brew "mas"
 brew "ncdu"
 brew "neovim"
-brew "node"
-brew "php@7.4", restart_service: true, link: true
+brew "nvm"
+brew "php@7.4", link: true
 brew "python@3.10"
 brew "pipenv"
 brew "rclone"
@@ -40,6 +40,7 @@ brew "tree"
 brew "wget"
 brew "youtube-dl"
 cask "android-file-transfer"
+cask "appdelete"
 cask "authy"
 cask "brave-browser"
 cask "caffeine"
@@ -47,6 +48,7 @@ cask "docker"
 cask "figma"
 cask "fluid"
 cask "font-hasklug-nerd-font"
+cask "font-jetbrains-mono-nerd-font"
 cask "free-ruler"
 cask "gimp"
 cask "imagealpha"
@@ -63,18 +65,19 @@ cask "qlcolorcode"
 cask "qlmarkdown"
 cask "qlstephen"
 cask "quicklook-json"
+cask "send-to-kindle"
 cask "simplenote"
 cask "skitch"
-cask "spectacle"
 cask "spotify"
-cask "sublime-text"
 cask "the-unarchiver"
+cask "visual-studio-code"
 cask "vlc"
 cask "zoom"
+mas "BetterSnapTool", id: 417375580
 mas "Bitwarden", id: 1352778147
 mas "Fantastical", id: 975937182
 mas "Harvest", id: 506189836
-mas "Magnet", id: 441258766
+mas "NexiGo Webcam Settings", id: 1568831522
 mas "Sip", id: 507257563
 mas "Slack", id: 803453959
 mas "Todoist", id: 585829637
