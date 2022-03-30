@@ -6,6 +6,8 @@ alias content="cd ~/Projects/wp-devenv/wp/wp-content/"
 alias dt="cd ~/Desktop"
 alias p="cd ~/Projects"
 alias blog="cd ~/Projects/blog-site/posts/"
+alias rethink="cd ~/Projects/xq-institute/wp-content/themes/xq-rethink-together"
+alias yearbook="cd ~/Projects/xq-institute/wp-content/themes/xq-yearbook"
 
 # Always enable colored `grep` output
 alias grep='grep --color=auto'
