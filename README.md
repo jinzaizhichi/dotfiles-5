@@ -50,7 +50,7 @@ source plugins.sh
 
 ### Install additional services
 
-Unfortunatelly [this](http://www.gingerbeardman.com/services/) services are not installable using `brew` but are very much recommended
+Unfortunately [this](http://www.gingerbeardman.com/services/) services are not installable using `brew` but are very much recommended
 
 ## Terminal setup
 
@@ -84,7 +84,7 @@ If you install additional brew commands, you should update the [Brewfile](Brewfi
 
 ```bash
 cd path/to/dotfiles
-brew bundle dump --force 
+brew bundle dump --force
 ```
 
 The `--force` file updates the file.
