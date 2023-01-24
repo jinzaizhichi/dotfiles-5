@@ -6,19 +6,18 @@ alias content="cd ~/Projects/wp-devenv/wp/wp-content/"
 alias dt="cd ~/Desktop"
 alias p="cd ~/Projects"
 alias blog="cd ~/Projects/blog-site/posts/"
-alias rethink="cd ~/Projects/xq-institute/wp-content/themes/xq-rethink-together"
-alias yearbook="cd ~/Projects/xq-institute/wp-content/themes/xq-yearbook"
 
 # Always enable colored `grep` output
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
+alias ls="lsd"
 
 # Enable aliases to be sudo’ed
 alias sudo='sudo '
 
 # update nvim packages
-alias nvim_update="echo 'Updating nvim packages' && nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'"
+alias nvim_update="nvim -c 'autocmd User PackerComplete quitall' -c 'PackerSync'"
 
 # Get macOS Software Updates, and update installed Ruby gems, Homebrew, npm, and their installed packages
 alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; mas upgrade; npm install npm -g; npm update -g; nvim_update'
@@ -35,3 +34,6 @@ alias mergepdf='/System/Library/Automator/Combine\ PDF\ Pages.action/Contents/Re
 
 # Don't know, but tmux is hard to type for me
 alias tm="tmux attach || tmux new"
+
+# If you are using Kitty.app then you can preview images on the terminal:
+alias icat="kitty +kitten icat"
