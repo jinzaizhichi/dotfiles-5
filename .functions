@@ -24,22 +24,18 @@ function update_pip() {
     pip3 list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip3 install -U
 }
 
-# Executes todoist-cli against the inbox "project"
-# `t l` or `t list` List tasks in #Inbox
-function t() {
-    ALL=""
-    for param in $@; do
-        case $param in 
-            list | l) ALL="list --filter '#Inbox'";;
-            *) ALL="${ALL} $param";; 
-        esac
-    done
-
-    if [ "${ALL}" = "" ]; then 
-        todoist list --filter '#Inbox'
-    else 
-        bash -c "todoist ${ALL}"
+# Diff the contents of 2 zip files
+function diff-zip {
+    if [ ! -f "$1" -o ! -f "$2" ]; then
+        echo "Diff the contents of 2 zip files. Usage:"
+        echo "  $0 <file1.zip> <file2.zip>"
+        return
     fi
+    file1=$1
+    file2=$2
+    diff \
+      <(unzip -vqq $file1 | awk '{$2=""; $3=""; $4=""; $5=""; $6=""; print}' | sort -k3) \
+      <(unzip -vqq $file2 | awk '{$2=""; $3=""; $4=""; $5=""; $6=""; print}' | sort -k3)
 }
 
 # vim: syntax=sh ts=4 sw=4 et
