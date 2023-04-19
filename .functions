@@ -11,7 +11,7 @@ function terminal-colors-list() {
 function backup-security() {
     DEST=backup-secret-dotfiles.zip
     cd ${HOME}
-    zip /tmp/${DEST} .rclone.conf # This is a trick so the `zip -u` to work
+    zip /tmp/${DEST} .rclone.conf # This is a trick so the `zip -u` (update zipfile) works
     for i in .aws .netrc .ssh .gnupg .ultrahook .extra .rclone.conf .todoist.config.json .intelephense; do
         zip -r -u /tmp/${DEST} ${i}
     done
@@ -20,7 +20,7 @@ function backup-security() {
 }
 
 # Updates Python packages
-function update_pip() {
+function update-pip() {
     pip3 list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip3 install -U
 }
 
