@@ -38,4 +38,13 @@ function diff-zip {
       <(unzip -vqq $file2 | awk '{$2=""; $3=""; $4=""; $5=""; $6=""; print}' | sort -k3)
 }
 
+# SSH to a WPEngine environment using their ssh gateway
+function ssh-wpengine {
+    if [ -z $1 ]; then
+        echo 'ssh-wpengine <environment>'
+        return
+    fi
+    ssh -i ~/.ssh/wpengine_ed25519 -o IdentitiesOnly=yes $1@$1.ssh.wpengine.net
+}
+
 # vim: syntax=sh ts=4 sw=4 et

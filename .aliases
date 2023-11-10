@@ -15,11 +15,8 @@ alias egrep='egrep --color=auto'
 # Enable aliases to be sudo’ed
 alias sudo='sudo '
 
-# update nvim packages
-alias nvim_update="nvim -c 'autocmd User PackerComplete quitall' -c 'PackerSync'"
-
 # Get macOS Software Updates, and update installed Ruby gems, Homebrew, npm, and their installed packages
-alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; mas upgrade; npm install npm -g; npm update -g; nvim_update'
+alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; mas upgrade; npm install npm -g; npm update -g'
 
 # URL-encode strings
 alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
@@ -39,3 +36,9 @@ alias icat="kitty +kitten icat"
 
 # The lsd command is "almost" a drop-in replacement of `ls` but with icon's
 alias ls="lsd"
+
+# Laravel Sail alias
+alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'
+
+# Search and edit a file in nvim
+alias v="fd --type f --hidden --exclude .git | fzf-tmux -p --reverse | xargs nvim"
