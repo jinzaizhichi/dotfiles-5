@@ -3,8 +3,7 @@
 # link this file on $HOME. Instead it has to be copied
 
 # Source MY configuration files
-for file in ~/.{exports,aliases,functions,extra}; do
+for file in ~/.{exports,aliases,functions,extra,fzf.bash}; do
 	[ -r "$file" ] && [ -f "$file" ] && source "$file";
 done;
 unset file;
-

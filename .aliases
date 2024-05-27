@@ -17,6 +17,7 @@ alias sudo='sudo '
 
 # Get macOS Software Updates, and update installed Ruby gems, Homebrew, npm, and their installed packages
 alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; mas upgrade; npm install npm -g; npm update -g'
+# alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; mas upgrade'
 
 # URL-encode strings
 alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
