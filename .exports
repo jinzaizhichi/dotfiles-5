@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
-# Make vim the default editor.
+# Make Vim the default editor.
 export EDITOR='vim';
-
 
 # Increase Bash history size. Allow 32³ entries; the default is 500.
 export HISTSIZE='32768';
 export HISTFILESIZE="${HISTSIZE}";
+
 # Omit duplicates and commands that begin with a space from history.
 export HISTCONTROL='ignoreboth';
 
@@ -19,15 +19,21 @@ export _system_type="Darwin"
 # Grubvox requires this
 export TERM=xterm-256color
 
+# A must for PHP development
 export PATH=$PATH:~/.composer/vendor/bin
-export PATH=$PATH:~/Projects/flutter/bin
+
+# Add sbin to the start of the path
 export PATH="/usr/local/sbin:$PATH"
+
+# Add mysql-client to the path
+export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
 
 # OH-MY-ZSH variables
 export ZSH_THEME_CLOUD_PREFIX="👽"
 export ZSH_THEME="cloud"
+
 #export LANG=es_ES.UTF-8
-#export LC_ALL=es_ES.UTF-8
+export LC_ALL=en_US.UTF-8
 
 # lf icon support
 export LF_ICONS="\
@@ -193,8 +199,8 @@ ex=:\
 *.nix=:\
 "
 
+# If you install node trough nvm then you have to execute this
 export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
 [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
-export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
