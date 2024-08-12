@@ -29,7 +29,8 @@ alias tm="tmux attach || tmux new"
 alias icat="kitty +kitten icat"
 
 # The lsd command is "almost" a drop-in replacement of `ls` but with icon's
-alias ls="lsd"
+# alias ls="lsd"
+alias ls="eza --icons"
 
 # Laravel Sail alias
 alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'
