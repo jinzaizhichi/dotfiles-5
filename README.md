@@ -20,7 +20,7 @@ If you are using a mac you would need some xcode comands
 xcode-select --install
 ```
 
-In linux, you probably will get `git` right out of the box
+In Linux, you probably will get `git` right out of the box
 
 ### Login to the App Store
 

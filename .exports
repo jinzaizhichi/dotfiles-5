@@ -32,7 +32,8 @@ export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
 export ZSH_THEME_CLOUD_PREFIX="👽"
 export ZSH_THEME="cloud"
 
-#export LANG=es_ES.UTF-8
+# export LANG=es_ES.UTF-8
+export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
 # lf icon support

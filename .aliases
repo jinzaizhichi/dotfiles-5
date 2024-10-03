@@ -13,7 +13,7 @@ alias egrep='egrep --color=auto'
 alias sudo='sudo '
 
 # Get macOS Software Updates, and update installed Ruby gems, Homebrew, npm, and their installed packages
-alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; mas upgrade; npm install npm -g; npm update -g; nvim --headless "+Lazy! sync" +qa'
+alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; mas upgrade; npm install npm -g; npm update -g'
 
 # URL-encode strings
 alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
@@ -29,11 +29,13 @@ alias tm="tmux attach || tmux new"
 alias icat="kitty +kitten icat"
 
 # The lsd command is "almost" a drop-in replacement of `ls` but with icon's
-# alias ls="lsd"
-alias ls="eza --icons"
+alias ls="lsd"
 
 # Laravel Sail alias
 alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'
 
 # Search and edit a file in nvim
 alias v="fd --type f --hidden --exclude .git | fzf-tmux -p --reverse | xargs nvim"
+
+# Show Todoist tasks in #Inbox
+alias td-inbox="todoist --color l --filter '(#Inbox)'"
