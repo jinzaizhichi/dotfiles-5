@@ -39,3 +39,6 @@ alias v="fd --type f --hidden --exclude .git | fzf-tmux -p --reverse | xargs nvi
 
 # Show Todoist tasks in #Inbox
 alias td-inbox="todoist --color l --filter '(#Inbox)'"
+
+# Use `bat` with a theme
+alias bat="bat --theme=gruvbox-dark"
