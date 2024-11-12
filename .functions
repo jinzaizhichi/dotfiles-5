@@ -38,8 +38,18 @@ function diff-zip {
         <(unzip -vqq $file2 | awk '{$2=""; $3=""; $4=""; $5=""; $6=""; print}' | sort -k3)
 }
 
+# Change working directory with Yazi: https://yazi-rs.github.io/docs/quick-start#shell-wrapper
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
+
 # SSH to a WPEngine environment using their ssh gateway
-function ssh-wpengine {
+function wpengine-ssh {
     if [ -z $1 ]; then
         echo 'ssh-wpengine <environment>'
         return
@@ -47,5 +57,20 @@ function ssh-wpengine {
     ssh -i ~/.ssh/wpengine_ed25519 -o IdentitiesOnly=yes $1@$1.ssh.wpengine.net
 }
 
+# Execute Elementor's, and Elementor PRO, db upgrade on a list of WPEngine installs
+function wpengine-elementor-update {
+  if [ "" == "$1" ]; then
+    echo "Usage: $0 <install-id-1> [install-id-2] [install-id-3] ..."
+    exit;
+  fi
+
+  for install in "$@"; do
+    echo "Executing Upgrade Elementor tasks in ${install} (upgrade db, upgrade pro db, flush css)"
+    wp --ssh="${install}@${install}.ssh.wpengine.net" elementor update db
+    wp --ssh="${install}@${install}.ssh.wpengine.net" elementor-pro update db
+    wp --ssh="${install}@${install}.ssh.wpengine.net" elementor flush_css --regenerate
+    ssh "${install}@${install}.ssh.wpengine.net" "wp package install wp-media/wp-rocket-cli:trunk && wp rocket preload"
+  done
+}
 
 # vim: syntax=sh ts=4 sw=4 et
