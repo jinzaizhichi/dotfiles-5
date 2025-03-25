@@ -40,7 +40,7 @@
             "source": "cli"
           },
           "style": "plain",
-          "template": "<#999999>{{ .UpstreamIcon }}{{ .HEAD }}</>{{ if .BranchStatus }} {{ .BranchStatus }}{{ end }}<#E06C85>{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}</>{{ if and (.Working.Changed) (.Staging.Changed) }}{{ end }}<#CAE693>{{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }}</><#ECB264>{{ if gt .StashCount 0 }} \uf0c7 {{ .StashCount }}{{ end }}</> ",
+          "template": "<#999999>{{ .UpstreamIcon }}{{ .HEAD }}</>{{ if .BranchStatus }} {{ .BranchStatus }} {{ end }}<#E06C85>{{ if .Working.Changed }} \uf044 {{ .Working.String }} {{ end }}</>{{ if and (.Working.Changed) (.Staging.Changed) }} {{ end }}<#CAE693>{{ if .Staging.Changed }} \uf046 {{ .Staging.String }} {{ end }}</><#ECB264>{{ if gt .StashCount 0 }} \uf0c7 {{ .StashCount }} {{ end }}</> ",
           "foreground": "#eeeeee",
           "type": "git"
         },
