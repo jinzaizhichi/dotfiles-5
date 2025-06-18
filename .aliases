@@ -42,3 +42,6 @@ alias td-inbox="todoist --color l --filter '(#Inbox)'"
 
 # Use `bat` with a theme
 alias bat="bat --theme=gruvbox-dark"
+
+# Use btop instead of top or htop
+alias htop="btop"

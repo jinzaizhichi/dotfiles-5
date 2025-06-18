@@ -59,11 +59,6 @@ function wpengine-ssh {
 
 # Execute Elementor's, and Elementor PRO, db upgrade on a list of WPEngine installs
 function wpengine-elementor-update {
-  if [ "" == "$1" ]; then
-    echo "Usage: $0 <install-id-1> [install-id-2] [install-id-3] ..."
-    exit;
-  fi
-
   for install in "$@"; do
     echo "Executing Upgrade Elementor tasks in ${install} (upgrade db, upgrade pro db, flush css)"
     wp --ssh="${install}@${install}.ssh.wpengine.net" elementor update db
@@ -71,6 +66,16 @@ function wpengine-elementor-update {
     wp --ssh="${install}@${install}.ssh.wpengine.net" elementor flush_css --regenerate
     ssh "${install}@${install}.ssh.wpengine.net" "wp package install wp-media/wp-rocket-cli:trunk && wp rocket preload"
   done
+}
+
+function wpengine-update-plugins {
+    for install in "$@"; do
+        echo "Updating all plugins from ${install}"
+        wp --ssh="${install}@${install}.ssh.wpengine.net" plugin update --all
+        wp --ssh="${install}@${install}.ssh.wpengine.net" elementor update db
+        wp --ssh="${install}@${install}.ssh.wpengine.net" elementor-pro update db
+        wp --ssh="${install}@${install}.ssh.wpengine.net" elementor flush_css --regenerate
+    done
 }
 
 # vim: syntax=sh ts=4 sw=4 et
