@@ -1,0 +1,12 @@
+.git
+.gitignore
+.ssh
+bootstrap.sh
+Brewfile
+Brewfile.lock.json
+init
+plugins.sh
+README.md
+space-mario.omp.json
+winget.ps1
+.DS_Store

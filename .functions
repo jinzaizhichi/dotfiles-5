@@ -60,11 +60,14 @@ function wpengine-ssh {
 # Execute Elementor's, and Elementor PRO, db upgrade on a list of WPEngine installs
 function wpengine-elementor-update {
   for install in "$@"; do
-    echo "Executing Upgrade Elementor tasks in ${install} (upgrade db, upgrade pro db, flush css)"
+    echo
+    echo "#### Executing Upgrade Elementor tasks in ${install} (upgrade db, upgrade pro db, flush css) ####"
+    echo
     wp --ssh="${install}@${install}.ssh.wpengine.net" elementor update db
     wp --ssh="${install}@${install}.ssh.wpengine.net" elementor-pro update db
     wp --ssh="${install}@${install}.ssh.wpengine.net" elementor flush_css --regenerate
     ssh "${install}@${install}.ssh.wpengine.net" "wp package install wp-media/wp-rocket-cli:trunk && wp rocket preload"
+    wp --ssh="${install}@${install}.ssh.wpengine.net" cdn-cache flush
   done
 }
 

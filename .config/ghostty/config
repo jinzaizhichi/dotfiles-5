@@ -1,0 +1,26 @@
+# Window Configuration
+theme = "/Applications/Ghostty.app/Contents/Resources/ghostty/themes/tokyonight_moon"
+window-decoration = none
+
+# Jet Brains Mono Font
+adjust-cell-height = 30%
+adjust-cell-width = -10%
+font-family = "JetBrainsMono Nerd Font"
+font-size = 14
+font-thicken = true
+font-thicken-strength = 100
+
+# Iosevka Font
+# adjust-cell-height = 14%
+# font-family = "Iosevka Nerd Font Mono"
+# font-size = 15
+# font-thicken = true
+# font-thicken-strength = 100
+
+# Hasklug font
+# adjust-cell-height = 10%
+# font-family = "Hasklug Nerd Font Mono"
+# adjust-cell-width = -10%
+# font-size = 14
+# font-thicken = true
+# font-thicken-strength = 100
